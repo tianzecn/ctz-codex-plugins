@@ -1,0 +1,42 @@
+{
+  "name": "1688-operations-framework",
+  "version": "0.1.0",
+  "description": "1688运营专家主题插件，提供店铺诊断、商品表达、询盘转化、投放放量、履约服务和规则风控工作流。",
+  "author": {
+    "name": "花叔",
+    "url": "https://x.com/AlchainHust"
+  },
+  "homepage": "https://github.com/alchaincyf/nuwa-skill",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "1688",
+    "alibaba",
+    "operations",
+    "b2b",
+    "p4p",
+    "trustpass",
+    "sourcing",
+    "wholesale"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "1688 Operations Framework",
+    "shortDescription": "1688店铺诊断、商品优化、询盘转化和履约风控工作流",
+    "longDescription": "把1688源头供给增长系统带入 Codex：按供给身份、买家路径、商品事实、交易信任、流量放量、履约规则拆解问题，并输出诊断结论、动作顺序和7天或30天验证指标。适合诚信通店铺、新店起盘、商品标题/主图/详情页、询盘报价、P4P/网销宝、新灯塔、分销代发、跨境供货和代运营尽调。",
+    "developerName": "花叔",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read"
+    ],
+    "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins",
+    "defaultPrompt": [
+      "帮我诊断这个1688店铺为什么没询盘",
+      "帮我优化一个1688商品标题和详情页",
+      "帮我设计1688询盘报价和跟进话术"
+    ],
+    "brandColor": "#FF6A00",
+    "screenshots": []
+  }
+}
