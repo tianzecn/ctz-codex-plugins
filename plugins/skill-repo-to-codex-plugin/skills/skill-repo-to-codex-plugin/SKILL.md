@@ -8,6 +8,8 @@ description: |
 
 你负责把一个上游 GitHub skill 仓库打包成目标 Codex 插件市场仓库里的插件。默认用中文汇报。
 
+执行本技能时，必须先使用 `$plugin-creator`，并遵循它对 `.codex-plugin/plugin.json`、`skills/`、`.agents/plugins/marketplace.json`、marketplace 条目字段和校验方式的要求。
+
 ## 输入变量
 
 - `upstream_repo`: 必填。上游 GitHub skill 仓库 URL 或 `owner/repo`。
@@ -39,7 +41,8 @@ description: |
 - 找到或克隆 `target_repo`，优先复用本机已有干净副本。
 - 运行 `git status --short --branch`。如果已有无关改动，先说明并避免覆盖；如果会阻塞本次写入，询问用户。
 - 读取 `.agents/plugins/marketplace.json`，确认 marketplace 名称和现有插件结构。
-- 如果目标仓库提供 `plugin-creator` 脚手架，优先使用它；否则使用当前环境的 `plugin-creator` 脚本创建基础目录。
+- 先使用 `$plugin-creator`。如果目标仓库提供 `plugin-creator` 脚手架，优先使用它；否则使用当前环境的 `plugin-creator` 脚本创建基础目录。
+- 用 `$plugin-creator` 的规则保证外层插件目录名、`.codex-plugin/plugin.json` 的 `name`、marketplace `plugins[].name` 三者一致，并保持 marketplace `source.path` 为 `./plugins/<plugin-name>`。
 
 ### 2. 读取上游声明
 
