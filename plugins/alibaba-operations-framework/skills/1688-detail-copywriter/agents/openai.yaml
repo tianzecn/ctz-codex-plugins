@@ -1,0 +1,4 @@
+interface:
+  display_name: "1688详情文案专家"
+  short_description: "生成1688详情页采购转化文案和模块结构"
+  default_prompt: "使用 $1688-detail-copywriter 帮我写这个1688商品详情文案。"

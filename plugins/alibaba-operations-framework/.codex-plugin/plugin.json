@@ -1,7 +1,7 @@
 {
   "name": "alibaba-operations-framework",
-  "version": "0.1.1",
-  "description": "1688运营专家主题插件，提供店铺诊断、标题优化、商品表达、询盘转化、投放放量、履约服务和规则风控工作流。",
+  "version": "0.1.2",
+  "description": "1688运营专家主题插件，提供店铺诊断、标题优化、详情文案、商品表达、询盘转化、投放放量、履约服务和规则风控工作流。",
   "author": {
     "name": "花叔",
     "url": "https://x.com/AlchainHust"
@@ -23,7 +23,7 @@
   "interface": {
     "displayName": "Alibaba Operations Framework",
     "shortDescription": "1688店铺诊断、商品优化、询盘转化和履约风控工作流",
-    "longDescription": "把1688源头供给增长系统带入 Codex：按供给身份、买家路径、商品事实、交易信任、流量放量、履约规则拆解问题，并输出诊断结论、动作顺序和7天或30天验证指标。内置 1688 标题优化专家，适合诚信通店铺、新店起盘、商品标题/主图/详情页、询盘报价、P4P/网销宝、新灯塔、分销代发、跨境供货和代运营尽调。",
+    "longDescription": "把1688源头供给增长系统带入 Codex：按供给身份、买家路径、商品事实、交易信任、流量放量、履约规则拆解问题，并输出诊断结论、动作顺序和7天或30天验证指标。内置 1688 标题优化专家和详情文案专家，适合诚信通店铺、新店起盘、商品标题/主图/详情页、询盘报价、P4P/网销宝、新灯塔、分销代发、跨境供货和代运营尽调。",
     "developerName": "花叔",
     "category": "Productivity",
     "capabilities": [
@@ -33,8 +33,8 @@
     "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins",
     "defaultPrompt": [
       "帮我优化这个1688商品标题",
-      "帮我诊断这个1688店铺为什么没询盘",
-      "帮我设计1688询盘报价和跟进话术"
+      "帮我写这个1688商品详情文案",
+      "帮我诊断这个1688店铺为什么没询盘"
     ],
     "brandColor": "#FF6A00",
     "screenshots": []
