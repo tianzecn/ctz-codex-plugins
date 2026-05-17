@@ -1,5 +1,5 @@
 ---
-name: 1688-operations-framework
+name: alibaba-operations-framework
 description: |
   1688运营专家主题Skill。基于49个官方/行业来源、6份分维度调研，提炼6个核心心智模型、
   10条决策启发式和完整的店铺诊断-商品表达-询盘转化-投放放量-履约风控工作流。

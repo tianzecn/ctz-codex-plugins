@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "1688-operations-framework",
+      "name": "alibaba-operations-framework",
       "source": {
         "source": "local",
-        "path": "./plugins/1688-operations-framework"
+        "path": "./plugins/alibaba-operations-framework"
       },
       "policy": {
         "installation": "AVAILABLE",
