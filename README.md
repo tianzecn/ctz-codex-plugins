@@ -7,6 +7,7 @@ This repository contains Codex plugins packaged for installation through the Cod
 - `alibaba-operations-framework`: 1688 operations framework for store diagnosis, product expression, inquiry conversion, paid traffic decisions, fulfillment service, distribution/cross-border supply, and platform risk control.
 - `1688-title-optimizer`: 1688 title optimization expert for keyword structure, title rewriting, fact consistency, and compliance risk checks.
 - `1688-detail-copywriter`: 1688 detail page copywriting expert for B2B purchasing modules, product facts, service promises, and conversion risk checks.
+- `baoyu-skills`: JimLiu/baoyu-skills packaged as a Codex plugin with 20 non-deprecated upstream skills for content generation, image/diagram workflows, markdown/HTML conversion, translation, social publishing, URL extraction, WeChat summaries, and YouTube transcripts.
 
 ## Install
 

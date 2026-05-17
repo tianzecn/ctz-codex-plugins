@@ -1,0 +1,45 @@
+{
+  "name": "baoyu-skills",
+  "version": "1.117.1",
+  "description": "宝玉分享的 AI Agent 日常效率技能合集，覆盖内容生成、图片/图表、社媒发布、翻译、网页与视频内容提取等工作流。",
+  "author": {
+    "name": "Jim Liu (宝玉)",
+    "email": "junminliu@gmail.com",
+    "url": "https://github.com/JimLiu"
+  },
+  "homepage": "https://github.com/JimLiu/baoyu-skills",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "baoyu",
+    "skills",
+    "content",
+    "image-generation",
+    "markdown",
+    "translation",
+    "social-media",
+    "wechat",
+    "youtube"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Baoyu Skills",
+    "shortDescription": "宝玉的内容生成、AI 图像、翻译、社媒发布与网页提取技能合集",
+    "longDescription": "将 JimLiu/baoyu-skills 中上游 marketplace 已声明的 20 个非废弃技能打包为一个 Codex 插件。适合生成图片卡片、封面图、信息图、漫画、SVG 图表、幻灯片图片，处理 Markdown/HTML/翻译，提取网页、YouTube 字幕和 X 内容，并辅助发布到微信公众号、微博和 X。",
+    "developerName": "Jim Liu (宝玉)",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/JimLiu/baoyu-skills",
+    "defaultPrompt": [
+      "帮我生成一组小红书图片卡片",
+      "把这篇文章转成微信公众号 HTML",
+      "下载这个 YouTube 视频字幕并总结"
+    ],
+    "brandColor": "#2563EB",
+    "screenshots": []
+  }
+}
