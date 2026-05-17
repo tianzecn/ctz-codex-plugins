@@ -8,6 +8,7 @@ This repository contains Codex plugins packaged for installation through the Cod
 - `1688-title-optimizer`: 1688 title optimization expert for keyword structure, title rewriting, fact consistency, and compliance risk checks.
 - `1688-detail-copywriter`: 1688 detail page copywriting expert for B2B purchasing modules, product facts, service promises, and conversion risk checks.
 - `baoyu-skills`: JimLiu/baoyu-skills packaged as a Codex plugin with 20 non-deprecated upstream skills for content generation, image/diagram workflows, markdown/HTML conversion, translation, social publishing, URL extraction, WeChat summaries, and YouTube transcripts.
+- `skill-repo-to-codex-plugin`: reusable workflow for packaging an upstream GitHub skill repository into this Codex plugin marketplace.
 
 ## Install
 

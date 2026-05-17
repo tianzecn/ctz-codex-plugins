@@ -1,0 +1,41 @@
+{
+  "name": "skill-repo-to-codex-plugin",
+  "version": "0.1.0",
+  "description": "把上游 GitHub skill 仓库导入为目标 Codex 插件市场仓库中的可发布插件。",
+  "author": {
+    "name": "tianzecn",
+    "url": "https://github.com/tianzecn"
+  },
+  "homepage": "https://github.com/tianzecn/ctz-codex-plugins",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "NOASSERTION",
+  "keywords": [
+    "codex",
+    "plugin",
+    "skills",
+    "github",
+    "marketplace",
+    "publishing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Skill Repo to Codex Plugin",
+    "shortDescription": "把上游 GitHub skill 仓库打包进 Codex 插件市场仓库",
+    "longDescription": "将上游 GitHub skill 仓库作为变量输入，指导 Codex 读取上游 plugin/marketplace/skill 元数据，跳过明确 Deprecated 的技能，在目标插件市场仓库新增 plugins/<plugin-name>/、补齐 .codex-plugin/plugin.json、导入 skills、更新 .agents/plugins/marketplace.json，并完成 JSON、frontmatter、git diff 校验、commit、push 与 marketplace upgrade 验证。",
+    "developerName": "tianzecn",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins",
+    "defaultPrompt": [
+      "把这个 GitHub skill 仓库做成 Codex 插件",
+      "导入这个上游 skill 仓库并发布到 marketplace",
+      "检查这个 skill 仓库能不能做成插件"
+    ],
+    "brandColor": "#7C3AED",
+    "screenshots": []
+  }
+}
