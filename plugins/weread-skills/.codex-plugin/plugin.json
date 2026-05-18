@@ -1,10 +1,10 @@
 {
   "name": "weread-skills",
-  "version": "1.0.5",
-  "description": "微信读书助手：通过官方 Agent API Gateway 查询书架、笔记、书评和统计，并用花叔工作流做进阶推荐、盲区分析与阅读复盘。",
+  "version": "1.0.6",
+  "description": "微信读书助手合集：查询书架、笔记、书评和统计，做进阶推荐、盲区分析、阅读复盘，并生成可视化阅读报告。",
   "author": {
-    "name": "WeRead (微信读书), Huashu (花叔)",
-    "url": "https://github.com/alchaincyf/huashu-weread"
+    "name": "WeRead (微信读书), Huashu (花叔), yaojingang",
+    "url": "https://github.com/tianzecn/ctz-codex-plugins"
   },
   "homepage": "https://cdn.weread.qq.com/skills/weread-skills.zip",
   "repository": "https://github.com/tianzecn/ctz-codex-plugins",
@@ -17,18 +17,23 @@
     "reading-stats",
     "book-reviews",
     "reading-advisor",
-    "knowledge-map"
+    "knowledge-map",
+    "reading-analytics",
+    "visualization",
+    "html-report",
+    "word-cloud"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "WeRead Skills",
-    "shortDescription": "微信读书搜索、书架、笔记、书评和阅读统计助手",
-    "longDescription": "将微信读书官方 weread-skills.zip 与 alchaincyf/huashu-weread 打包为一个 Codex 插件。底层 weread-skills 通过 WEREAD_API_KEY 调用微信读书 Agent API Gateway，可搜索书籍、查看书籍详情和阅读进度、浏览书架、查询笔记划线、查看公开书评和生成阅读统计摘要；huashu-weread-advisor 在其上编排书架 + 笔记交叉分析，提供个性化进阶推荐、阅读视角盲区分析、领域阶梯书单、笔记提炼和季度/年度复盘。",
-    "developerName": "WeRead (微信读书), Huashu (花叔)",
+    "shortDescription": "微信读书查询、顾问工作流和可视化阅读报告合集",
+    "longDescription": "将微信读书官方 weread-skills.zip、alchaincyf/huashu-weread 与 yaojingang/yao-open-skills 的 yao-weread-skill 打包为一个 Codex 插件。底层 weread-skills 通过 WEREAD_API_KEY 调用微信读书 Agent API Gateway，可搜索书籍、查看书籍详情和阅读进度、浏览书架、查询笔记划线、查看公开书评和生成阅读统计摘要；huashu-weread-advisor 在其上编排书架 + 笔记交叉分析，提供个性化进阶推荐、阅读视角盲区分析、领域阶梯书单、笔记提炼和季度/年度复盘；yao-weread-skill 可生成精排中文 HTML 阅读报告，覆盖阅读节律、书架资产、分类偏好、笔记语义、词云和高密度图表。",
+    "developerName": "WeRead (微信读书), Huashu (花叔), yaojingang",
     "category": "Productivity",
     "capabilities": [
       "Interactive",
-      "Read"
+      "Read",
+      "Write"
     ],
     "websiteURL": "https://weread.qq.com",
     "defaultPrompt": [
