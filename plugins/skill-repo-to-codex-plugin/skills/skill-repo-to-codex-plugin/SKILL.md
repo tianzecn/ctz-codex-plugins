@@ -1,7 +1,7 @@
 ---
 name: skill-repo-to-codex-plugin
 description: |
-  当用户想把上游 GitHub skill 仓库做成目标 Codex 插件市场仓库中的插件时使用。把上游仓库 URL 当作必填变量，导入声明的非废弃 skills，创建插件目录、.codex-plugin/plugin.json 和 skills，更新 marketplace，校验后 commit、push，并执行 codex plugin marketplace upgrade。
+  当用户想把上游 GitHub skill 仓库做成目标 Codex 插件市场仓库中的插件时使用。把上游仓库 URL 当作必填变量，导入声明的非废弃 skills，创建插件目录、.codex-plugin/plugin.json、skills 和市场图标，更新 marketplace，校验后 commit、push，并执行 codex plugin marketplace upgrade。
 ---
 
 # Skill Repo to Codex Plugin
@@ -29,10 +29,11 @@ description: |
 4. 优先读取上游已有 `.claude-plugin/marketplace.json`、`.codex-plugin/plugin.json`、`.claude-plugin/plugin.json`、`skills/*/SKILL.md`，按上游声明导入 skills。
 5. 跳过明确标注 Deprecated 的技能，除非用户要求保留。
 6. 插件 manifest 和 marketplace 条目必须是真实信息，不留下占位字段。
-7. 校验 JSON、skill frontmatter、`git diff --check`。
-8. commit 并 push 到目标 GitHub 仓库。
-9. 执行 `codex plugin marketplace upgrade <marketplace_name>`，确认远程缓存能看到新插件。
-10. 最终告诉用户 commit hash、导入了几个 skills、Codex App 里应该选哪个远程 marketplace 入口。
+7. 插件必须有市场图标：`interface.logo` 和 `interface.composerIcon` 都指向存在的相对路径，默认使用 `./assets/icon.svg`。
+8. 校验 JSON、skill frontmatter、图标路径和 `git diff --check`。
+9. commit 并 push 到目标 GitHub 仓库。
+10. 执行 `codex plugin marketplace upgrade <marketplace_name>`，确认远程缓存能看到新插件。
+11. 最终告诉用户 commit hash、导入了几个 skills、Codex App 里应该选哪个远程 marketplace 入口。
 
 ## 工作流
 
@@ -76,6 +77,7 @@ description: |
 ```text
 plugins/<plugin-name>/
   .codex-plugin/plugin.json
+  assets/icon.svg
   skills/<skill-name>/SKILL.md
 ```
 
@@ -87,7 +89,16 @@ plugins/<plugin-name>/
 - `repository` 填目标仓库 URL；`homepage` 或 `websiteURL` 优先填上游仓库 URL。
 - `skills` 固定为 `./skills/`。
 - `interface.defaultPrompt` 最多 3 条，每条不超过 128 字符。
+- `interface.logo` 和 `interface.composerIcon` 都必须存在。默认设为 `./assets/icon.svg`。
 - 不保留占位字段、空描述或明显虚构字段。无法确认的 license 用 `NOASSERTION`，不要伪造。
+- 如果是更新已有插件，且新增 skill、图标或用户可见 metadata 发生变化，应将插件版本号做 patch bump，除非上游 manifest 已提供更高版本。
+
+图标生成要求：
+
+- 如果上游 manifest 已声明 `logo` / `composerIcon` 且对应资产可复制，优先保留上游资产，并保证路径相对插件根目录、以 `./` 开头。
+- 如果上游没有可用图标，创建 `plugins/<plugin-name>/assets/icon.svg`。图标应是轻量 SVG，使用插件 `brandColor` 或从主题推导的单一主色，包含简短字母或抽象符号即可。
+- 不要下载或伪造官方商标。没有明确授权或上游资产时，用抽象图形。
+- `logo` 和 `composerIcon` 可以指向同一个 `./assets/icon.svg`，除非上游提供了不同尺寸资产。
 
 marketplace 条目要求：
 
@@ -117,6 +128,12 @@ python3 -m json.tool .agents/plugins/marketplace.json >/dev/null
 python3 -m json.tool plugins/<plugin-name>/.codex-plugin/plugin.json >/dev/null
 git diff --check
 ```
+
+同时校验图标：
+
+- `interface.logo` 和 `interface.composerIcon` 都存在。
+- 路径以 `./assets/` 开头，且文件真实存在。
+- SVG 图标必须能被 XML parser 解析；PNG/JPG 图标至少确认文件存在且不是 0 字节。
 
 同时校验每个导入 skill 的 frontmatter：
 
@@ -161,5 +178,6 @@ codex plugin marketplace upgrade <marketplace_name>
 - `导入 skills 数量`
 - `跳过 Deprecated 数量`
 - `验证命令和结果`
+- 图标是否已写入 `logo` / `composerIcon`
 - Codex App 里应选择的远程 marketplace 入口：通常是 `tianzecn/ctz-codex-plugins` 或 marketplace 名 `ctz-codex-plugins`
 - 未完成项或残余风险；没有就说明无明显残余风险
