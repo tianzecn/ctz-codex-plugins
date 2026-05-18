@@ -1,0 +1,40 @@
+{
+  "name": "weread-skills",
+  "version": "1.0.3",
+  "description": "微信读书助手：通过 Agent API Gateway 搜索书籍、查看书架、笔记划线、书评、阅读统计与推荐好书。",
+  "author": {
+    "name": "WeRead (微信读书)",
+    "url": "https://weread.qq.com"
+  },
+  "homepage": "https://cdn.weread.qq.com/skills/weread-skills.zip",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "NOASSERTION",
+  "keywords": [
+    "weread",
+    "wechat-reading",
+    "books",
+    "notes",
+    "reading-stats",
+    "book-reviews"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "WeRead Skills",
+    "shortDescription": "微信读书搜索、书架、笔记、书评和阅读统计助手",
+    "longDescription": "将微信读书官方 weread-skills.zip 打包为 Codex 插件。该技能通过 WEREAD_API_KEY 调用微信读书 Agent API Gateway，可搜索书籍、查看书籍详情和阅读进度、浏览书架、查询笔记划线、查看公开书评、生成阅读统计摘要，并按用户意图读取对应能力说明文件。",
+    "developerName": "WeRead (微信读书)",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read"
+    ],
+    "websiteURL": "https://weread.qq.com",
+    "defaultPrompt": [
+      "帮我搜索三体并列出评分最高的结果",
+      "看看我的微信读书书架里有哪些书",
+      "导出我在一本书里的笔记和划线"
+    ],
+    "brandColor": "#16A34A",
+    "screenshots": []
+  }
+}
