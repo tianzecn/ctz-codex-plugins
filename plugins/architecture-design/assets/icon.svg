@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Architecture Design">
+  <rect width="64" height="64" rx="14" fill="#2563EB"/>
+  <path d="M18 45V19h28v26H18Zm5-5h18V24H23v16Z" fill="#FFFFFF"/>
+  <path d="M28 32h8M32 28v8" stroke="#93C5FD" stroke-width="4" stroke-linecap="round"/>
+</svg>
