@@ -1,6 +1,6 @@
 {
   "name": "weread-skills",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "微信读书助手：通过 Agent API Gateway 搜索书籍、查看书架、笔记划线、书评、阅读统计与推荐好书。",
   "author": {
     "name": "WeRead (微信读书)",
@@ -30,9 +30,9 @@
     ],
     "websiteURL": "https://weread.qq.com",
     "defaultPrompt": [
-      "帮我搜索三体并列出评分最高的结果",
-      "看看我的微信读书书架里有哪些书",
-      "导出我在一本书里的笔记和划线"
+      "基于我书架中的书籍，给我推荐十本我会喜欢的书籍",
+      "基于我的阅读历史记录，分析我的视角盲区，推荐十本书帮我补全盲区",
+      "分析我已读完的书籍所用时长，提炼我的思维结构厚重与薄弱之处"
     ],
     "brandColor": "#16A34A",
     "screenshots": []
