@@ -1,6 +1,6 @@
 {
   "name": "xhs-skills",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "支持小红书自动发布、登录检查、内容检索、评论互动和数据抓取的 Codex 技能。",
   "author": {
     "name": "white0dew",
@@ -37,6 +37,8 @@
       "搜索小红书笔记并读取详情"
     ],
     "brandColor": "#FF2442",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
     "screenshots": []
   }
 }

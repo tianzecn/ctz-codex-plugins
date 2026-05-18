@@ -1,6 +1,6 @@
 {
   "name": "huashu",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "花叔 Skill 合集：女娲蒸馏人物思维方式，达尔文优化 Agent Skills，Huashu Design 产出高保真 HTML 设计。",
   "author": {
     "name": "Huashu (花叔)",
@@ -42,6 +42,8 @@
       "做一个高保真 App 原型并给我 3 个设计方向"
     ],
     "brandColor": "#16A34A",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
     "screenshots": []
   }
 }

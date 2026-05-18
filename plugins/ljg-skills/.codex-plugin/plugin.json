@@ -1,6 +1,6 @@
 {
   "name": "ljg-skills",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "李继刚的 Claude Code 自定义技能集，覆盖论文阅读、内容铸卡、概念解剖、写作、投资分析和旅行研究等工作流。",
   "author": {
     "name": "lijigang",
@@ -37,6 +37,8 @@
       "用 ljg-plain 把这段话说人话"
     ],
     "brandColor": "#0F172A",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
     "screenshots": []
   }
 }

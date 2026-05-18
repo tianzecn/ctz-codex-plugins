@@ -1,6 +1,6 @@
 {
   "name": "wechat-article-exporter",
-  "version": "2.3.16",
+  "version": "2.3.17",
   "description": "微信公众号文章批量下载、单篇导出、私有化部署与开放 API 使用辅助。",
   "author": {
     "name": "Jock",
@@ -36,6 +36,8 @@
       "检查这个导出接口怎么调用"
     ],
     "brandColor": "#07C160",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
     "screenshots": []
   }
 }

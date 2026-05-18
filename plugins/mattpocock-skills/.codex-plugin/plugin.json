@@ -1,6 +1,6 @@
 {
   "name": "mattpocock-skills",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Matt Pocock 的工程实践 skills 合集，覆盖诊断、TDD、架构改进、PRD、issue 拆分、triage、原型和高密度沟通。",
   "author": {
     "name": "Matt Pocock",
@@ -39,6 +39,8 @@
       "把当前计划拆成可执行 issues"
     ],
     "brandColor": "#111827",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
     "screenshots": []
   }
 }

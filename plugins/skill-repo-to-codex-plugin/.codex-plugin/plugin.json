@@ -1,6 +1,6 @@
 {
   "name": "skill-repo-to-codex-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "把上游 GitHub skill 仓库导入为目标 Codex 插件市场仓库中的可发布插件。",
   "author": {
     "name": "tianzecn",
@@ -36,6 +36,8 @@
       "检查这个 skill 仓库能不能做成插件"
     ],
     "brandColor": "#7C3AED",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
     "screenshots": []
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "baoyu-skills",
-  "version": "1.117.1",
+  "version": "1.117.2",
   "description": "宝玉分享的 AI Agent 日常效率技能合集，覆盖内容生成、图片/图表、社媒发布、翻译、网页与视频内容提取等工作流。",
   "author": {
     "name": "Jim Liu (宝玉)",
@@ -40,6 +40,8 @@
       "下载这个 YouTube 视频字幕并总结"
     ],
     "brandColor": "#2563EB",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
     "screenshots": []
   }
 }

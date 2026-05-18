@@ -1,6 +1,6 @@
 {
   "name": "khazix-skills",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "数字生命卡兹克开源的 AI Skills 合集，覆盖知识库清理、横纵深度研究、公众号长文写作和 AI HOT 资讯查询。",
   "author": {
     "name": "数字生命卡兹克",
@@ -39,6 +39,8 @@
       "今天 AI 圈有什么新东西"
     ],
     "brandColor": "#10B981",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
     "screenshots": []
   }
 }
