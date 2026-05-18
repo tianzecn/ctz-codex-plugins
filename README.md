@@ -14,6 +14,7 @@ This repository contains Codex plugins packaged for installation through the Cod
 - `skill-repo-to-codex-plugin`: reusable workflow for packaging an upstream GitHub skill repository into this Codex plugin marketplace.
 - `mattpocock-skills`: Matt Pocock's engineering skills packaged as a Codex plugin with 14 non-deprecated upstream skills for diagnosis, TDD, architecture review, PRDs, issue triage, prototypes, handoffs, and concise communication.
 - `video-generation`: NarratorAI-Studio/narrator-ai-cli-skill packaged as a Codex plugin with `narrator-ai-cli` for AI movie and short-drama narration video workflows, including built-in materials, BGM, dubbing voices, templates, script generation, clip data, video composing, and optional visual templates.
+- `task-planning`: OthmanAdi/planning-with-files packaged as a Codex plugin with the canonical `planning-with-files` skill plus Arabic, German, Spanish, Simplified Chinese, and Traditional Chinese variants for persistent markdown task planning, progress tracking, plan checks, and session recovery.
 
 ## Install
 
