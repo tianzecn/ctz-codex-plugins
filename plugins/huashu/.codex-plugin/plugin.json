@@ -1,0 +1,41 @@
+{
+  "name": "huashu",
+  "version": "0.1.0",
+  "description": "花叔女娲 Skill：根据人名、主题或模糊需求，调研并蒸馏可运行的人物思维方式 Skill。",
+  "author": {
+    "name": "Huashu (花叔)",
+    "url": "https://github.com/alchaincyf"
+  },
+  "homepage": "https://github.com/alchaincyf/nuwa-skill",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "huashu",
+    "nuwa",
+    "skills",
+    "perspective",
+    "research",
+    "prompt-engineering"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Huashu",
+    "shortDescription": "女娲造人：调研并蒸馏人物或主题的思维方式 Skill",
+    "longDescription": "将 alchaincyf/nuwa-skill 的根目录 Skill 打包为 Codex 插件。它可以从明确人名、主题或模糊需求出发，组织多源调研、提炼心智模型、决策启发式、表达 DNA 和诚实边界，生成可运行的人物视角 Skill。上游示例和研究模板作为 huashu-nuwa 的资源保留，不作为独立 skill 暴露。",
+    "developerName": "Huashu (花叔)",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/alchaincyf/nuwa-skill",
+    "defaultPrompt": [
+      "蒸馏一个保罗·格雷厄姆的思维方式",
+      "造一个张小龙视角 Skill",
+      "我想提升决策质量，帮我推荐适合的思维顾问"
+    ],
+    "brandColor": "#16A34A",
+    "screenshots": []
+  }
+}
