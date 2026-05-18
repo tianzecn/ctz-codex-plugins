@@ -1,0 +1,45 @@
+{
+  "name": "video-generation",
+  "version": "1.0.5",
+  "description": "Video generation skills for automated AI narration and short-form commentary video production.",
+  "author": {
+    "name": "NarratorAI-Studio",
+    "email": "merlinyang@gridltd.com",
+    "url": "https://github.com/NarratorAI-Studio"
+  },
+  "homepage": "https://github.com/NarratorAI-Studio/narrator-ai-cli-skill",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "video-generation",
+    "video-narration",
+    "film-commentary",
+    "ai-video",
+    "short-drama",
+    "dubbing",
+    "tts"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Video Generation",
+    "shortDescription": "AI narration workflows for movie and short-drama commentary videos.",
+    "longDescription": "Video Generation packages skills for creating AI-assisted video outputs. The initial skill imports NarratorAI-Studio/narrator-ai-cli-skill, which guides agents through built-in movie materials, BGM, dubbing voices, narration templates, script generation, clip data, video composing, and optional visual templates through the narrator-ai-cli command-line tool.",
+    "developerName": "NarratorAI-Studio",
+    "category": "Design & Creative",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/NarratorAI-Studio/narrator-ai-cli-skill",
+    "defaultPrompt": [
+      "Create an AI movie narration video with Narrator AI.",
+      "Show me the built-in movie materials for narration videos.",
+      "Guide me through BGM, dubbing, template, and video composing."
+    ],
+    "brandColor": "#E11D48",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

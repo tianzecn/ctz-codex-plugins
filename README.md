@@ -13,6 +13,7 @@ This repository contains Codex plugins packaged for installation through the Cod
 - `weread-skills`: WeRead official skills zip plus alchaincyf/huashu-weread and yaojingang/yao-open-skills `yao-weread-skill` packaged as one Codex plugin for book search, bookshelf lookup, notes and highlights, book reviews, reading statistics, recommendations, blind-spot analysis, note alchemy, reading reviews, and visual HTML reading reports through `WEREAD_API_KEY`.
 - `skill-repo-to-codex-plugin`: reusable workflow for packaging an upstream GitHub skill repository into this Codex plugin marketplace.
 - `mattpocock-skills`: Matt Pocock's engineering skills packaged as a Codex plugin with 14 non-deprecated upstream skills for diagnosis, TDD, architecture review, PRDs, issue triage, prototypes, handoffs, and concise communication.
+- `video-generation`: NarratorAI-Studio/narrator-ai-cli-skill packaged as a Codex plugin with `narrator-ai-cli` for AI movie and short-drama narration video workflows, including built-in materials, BGM, dubbing voices, templates, script generation, clip data, video composing, and optional visual templates.
 
 ## Install
 
