@@ -18,6 +18,7 @@ This repository contains Codex plugins packaged for installation through the Cod
 - `task-planning`: OthmanAdi/planning-with-files packaged as a Codex plugin with the canonical `planning-with-files` skill plus Arabic, German, Spanish, Simplified Chinese, and Traditional Chinese variants for persistent markdown task planning, progress tracking, plan checks, and session recovery.
 - `knowledge-base-management`: joeseesun/qiaomu-anything-to-notebooklm packaged as a Codex plugin with `qiaomu-anything-to-notebooklm` for sending WeChat articles, web pages, YouTube links, podcasts, PDFs, Office documents, EPUBs, images, audio, and search results to NotebookLM, then generating podcasts, slide decks, mind maps, quizzes, reports, flashcards, and optional Feishu documents.
 - `code-analysis`: GitHub/awesome-copilot `project-workflow-analysis-blueprint-generator` packaged as a Codex plugin for analyzing representative end-to-end application workflows and generating implementation-ready blueprints.
+- `oz-skills`: warpdotdev/oz-skills packaged as a Codex plugin with 15 non-deprecated Agent Skills for docs updates, Terraform style, CI fixes, repository investigation, scheduling, SEO/AEO, accessibility, dbt lookup, PR creation, web app testing, performance audits, analysis artifacts, MCP building, bug triage, and issue dedupe.
 
 ## Install
 
