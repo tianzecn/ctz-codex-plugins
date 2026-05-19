@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Code Analysis</title>
+  <desc id="desc">Abstract code analysis plugin icon</desc>
+  <rect width="128" height="128" rx="24" fill="#0969DA"/>
+  <path d="M38 42 18 64l20 22" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M90 42 110 64 90 86" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M72 28 54 100" fill="none" stroke="#DDF4FF" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="64" cy="64" r="15" fill="#DDF4FF"/>
+</svg>
