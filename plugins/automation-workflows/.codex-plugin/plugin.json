@@ -1,0 +1,45 @@
+{
+  "name": "automation-workflows",
+  "version": "1.8.0",
+  "description": "Automation workflow skills for using OpenCLI to drive browsers, author adapters, and repair broken adapters.",
+  "author": {
+    "name": "jackwener",
+    "email": "",
+    "url": "https://github.com/jackwener"
+  },
+  "homepage": "https://github.com/jackwener/OpenCLI/tree/main/skills",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "Apache-2.0",
+  "keywords": [
+    "opencli",
+    "automation-workflows",
+    "browser-automation",
+    "agent-tools",
+    "cli",
+    "adapters",
+    "tool-calling"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Automation Workflows",
+    "shortDescription": "OpenCLI skills for browser and CLI automation workflows.",
+    "longDescription": "Automation Workflows packages the OpenCLI agent skills for Codex. It helps agents discover OpenCLI commands, drive logged-in Chrome sessions through opencli browser, create reusable site adapters, and repair broken adapters with trace-guided autofix workflows.",
+    "developerName": "jackwener",
+    "category": "AI & Agent",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/jackwener/OpenCLI/tree/main/skills",
+    "defaultPrompt": [
+      "Use opencli-usage to find the right OpenCLI command for this task.",
+      "Use opencli-browser to drive this logged-in browser flow.",
+      "Use opencli-adapter-author to create and verify a new OpenCLI adapter."
+    ],
+    "brandColor": "#0F766E",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}
