@@ -1,12 +1,6 @@
 ---
 name: magicpath
-description: Search, preview, inspect, and install MagicPath UI components with the magicpath-ai CLI. Use when the user mentions MagicPath, wants to browse or search MagicPath components, preview one, or add one to their project. Also use when the user wants to create a new MagicPath project (workspace for designs/components), including projects inside a team. Also use when the user refers to "designs" — in MagicPath, designs are created and stored as components. Also use when the user mentions themes or theming — MagicPath themes (design systems) contain CSS variables, fonts, and styling instructions. Also use when the user asks about MagicPath teams, members, or who worked on something — MagicPath supports teams with shared projects, team members, and attribution tracking. Also use when the user wants to bring an existing codebase or Git repository into MagicPath — for example "render this project in MagicPath", "bring the sidebar of my app into MagicPath", or importing/recreating UI from a local or online (GitHub/GitLab) repository as MagicPath canvas components.
-compatibility: Requires Node.js (for npx), network access to MagicPath, and browser access for login or preview flows.
-metadata:
-  author: MagicPathAI
-  source: https://github.com/MagicPathAI/agent-skills
-allowed-tools: Bash(npx -y magicpath-ai *)
-user-invocable: true
+description: Search, preview, inspect, and install MagicPath UI components with the magicpath-ai CLI. Use when the user mentions MagicPath or wants to add MagicPath components to a project.
 ---
 
 # MagicPath
