@@ -1,0 +1,45 @@
+{
+  "name": "agent-orchestration",
+  "version": "0.1.0",
+  "description": "Agent orchestration skills for supervised multi-agent and dynamic workflow execution in Codex.",
+  "author": {
+    "name": "Danny McAteer",
+    "email": "mcateerd2@gmail.com",
+    "url": "https://github.com/DannyMac180"
+  },
+  "homepage": "https://github.com/DannyMac180/skills",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "agent-orchestration",
+    "dynamic-workflows",
+    "subagents",
+    "workflow",
+    "goal-mode",
+    "verification",
+    "agent-skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Agent Orchestration",
+    "shortDescription": "Skills for supervised agent workflow orchestration.",
+    "longDescription": "Agent Orchestration packages DannyMac180/skills for Codex. It helps agents plan and run supervised dynamic workflows with explicit success criteria, approval gates, subagents or simulated work packets, integration, verification, and reusable workflow artifacts.",
+    "developerName": "Danny McAteer",
+    "category": "AI & Agent",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/DannyMac180/skills",
+    "defaultPrompt": [
+      "Use codex-dynamic-workflows to orchestrate this complex task.",
+      "Plan a supervised multi-agent workflow with approval gates.",
+      "Create workflow packets, integrate results, and verify the outcome."
+    ],
+    "brandColor": "#2563EB",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}
