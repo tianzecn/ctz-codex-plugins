@@ -1,0 +1,46 @@
+{
+  "name": "ui-design",
+  "version": "0.1.0",
+  "description": "UI design skills for premium frontend direction, redesign audits, image-to-code workflows, and brand or interface reference generation.",
+  "author": {
+    "name": "Leonxlnx",
+    "email": "hello@tasteskill.dev",
+    "url": "https://github.com/Leonxlnx"
+  },
+  "homepage": "https://github.com/Leonxlnx/taste-skill",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "ui-design",
+    "frontend-design",
+    "taste-skill",
+    "design-system",
+    "redesign",
+    "image-to-code",
+    "brandkit",
+    "motion"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "UI Design",
+    "shortDescription": "Upgrade frontend visuals with Taste Skill design and reference workflows.",
+    "longDescription": "UI Design packages Leonxlnx/taste-skill as Codex skills for premium frontend direction, redesign audits, image-to-code workflows, visual style variants, output enforcement, Google Stitch design rules, and image-generation prompts for web, mobile, and brand-kit reference boards.",
+    "developerName": "Leonxlnx",
+    "category": "Design & Creative",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/Leonxlnx/taste-skill",
+    "defaultPrompt": [
+      "Use Taste Skill to improve this landing page UI.",
+      "Generate premium web reference images for this product site.",
+      "Audit this existing interface and redesign it with stronger visual taste."
+    ],
+    "brandColor": "#A855F7",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}
