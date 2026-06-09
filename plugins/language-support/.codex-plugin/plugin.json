@@ -1,7 +1,7 @@
 {
   "name": "language-support",
-  "version": "0.1.0",
-  "description": "Language and framework support skills for niche developer tools, web frameworks, SQL databases, code search, CLIs, and algorithm implementation.",
+  "version": "0.1.1",
+  "description": "Language and framework support skills for niche developer tools, web frameworks, SQL databases, Kingdee MSSQL view building, code search, CLIs, and algorithm implementation.",
   "author": {
     "name": "damusix",
     "url": "https://github.com/damusix"
@@ -17,6 +17,8 @@
     "sql",
     "postgresql",
     "mssql",
+    "kingdee",
+    "erp",
     "code-search",
     "cli"
   ],
@@ -24,7 +26,7 @@
   "interface": {
     "displayName": "Language Support",
     "shortDescription": "Niche developer tool, framework, SQL, CLI, and algorithm skills.",
-    "longDescription": "Language Support packages damusix's developer-focused skills for Codex. It covers Hapi, HTMX, Joi, Google zx, TypeScript CLI building, ast-grep structural code search, Ghost themes, IDEF1X modeling, PostgreSQL, SQL Server, SQL performance, SQL reporting, SQL ML feature extraction, and multi-armed bandit implementation guidance.",
+    "longDescription": "Language Support packages developer-focused skills for Codex. It covers Hapi, HTMX, Joi, Google zx, TypeScript CLI building, ast-grep structural code search, Ghost themes, IDEF1X modeling, PostgreSQL, SQL Server, Kingdee MSSQL business view building, SQL performance, SQL reporting, SQL ML feature extraction, and multi-armed bandit implementation guidance.",
     "developerName": "damusix",
     "category": "Software Engineering",
     "capabilities": [
@@ -36,7 +38,7 @@
     "defaultPrompt": [
       "Use Language Support for this framework or database task.",
       "Use ast-grep to plan a structural code search or rewrite.",
-      "Use SQL guidance for this Postgres or SQL Server change."
+      "Use Kingdee View Builder or SQL guidance for this database view task."
     ],
     "brandColor": "#7C3AED",
     "composerIcon": "./assets/icon.svg",
