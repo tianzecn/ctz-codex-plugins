@@ -51,7 +51,7 @@
   <text x="80" y="288" font-family="'Inter', system-ui, sans-serif" font-size="15" font-weight="400" fill="#AAAAAA">像训练模型一样优化你的 Agent Skill</text>
 
   <!-- Data line -->
-  <text x="80" y="322" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="700" fill="#D4532B">8-dim<tspan font-weight="400" fill="#AAAAAA"> evaluation  ·  </tspan><tspan font-weight="700" fill="#D4532B">ratchet mechanism</tspan><tspan font-weight="400" fill="#AAAAAA">  ·  </tspan><tspan font-weight="700" fill="#D4532B">1,430</tspan><tspan font-weight="400" fill="#AAAAAA"> stars  ·  MIT open source</tspan></text>
+  <text x="80" y="322" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="700" fill="#D4532B">9-dim<tspan font-weight="400" fill="#AAAAAA"> evaluation  ·  </tspan><tspan font-weight="700" fill="#D4532B">ratchet mechanism</tspan><tspan font-weight="400" fill="#AAAAAA">  ·  </tspan><tspan font-weight="700" fill="#D4532B">2,864</tspan><tspan font-weight="400" fill="#AAAAAA"> stars  ·  MIT open source</tspan></text>
 
   <!-- Footer -->
   <text x="80" y="370" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="400" fill="#666666" letter-spacing="0.3">Inspired by Karpathy's autoresearch  ·  A ratchet that only turns forward</text>
