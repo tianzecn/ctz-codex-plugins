@@ -303,6 +303,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Productivity"
+    },
+    {
+      "name": "autonomous-execution",
+      "source": {
+        "source": "local",
+        "path": "./plugins/autonomous-execution"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
     }
   ]
 }

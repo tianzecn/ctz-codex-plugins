@@ -1,0 +1,43 @@
+{
+  "name": "autonomous-execution",
+  "version": "0.1.0",
+  "description": "Agent persistence and failure-recovery skills for pushing Codex toward evidence-backed execution loops.",
+  "author": {
+    "name": "tianzecn",
+    "url": "https://github.com/tianzecn"
+  },
+  "homepage": "https://github.com/tianzecn/ctz-codex-plugins",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "agent",
+    "autonomous-execution",
+    "failure-recovery",
+    "debugging",
+    "verification",
+    "codex-skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "自主执行",
+    "shortDescription": "用于失败恢复、主动排查和验证闭环的 Agent 执行技能。",
+    "longDescription": "Autonomous Execution packages skills that keep Codex moving when a task stalls: reading failure signals, switching approaches, checking assumptions, using tools proactively, and verifying the result before handoff.",
+    "developerName": "tianzecn",
+    "category": "AI & Agent",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins",
+    "defaultPrompt": [
+      "Use pua when this task keeps failing and needs a fresh execution loop.",
+      "Apply pua to push through repeated debugging failures with evidence.",
+      "Use pua to avoid giving up before verifying alternative approaches."
+    ],
+    "brandColor": "#DC2626",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

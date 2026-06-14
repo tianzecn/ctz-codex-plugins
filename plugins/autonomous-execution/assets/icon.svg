@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Autonomous Execution</title>
+  <desc id="desc">Abstract execution loop icon</desc>
+  <rect width="64" height="64" rx="14" fill="#DC2626"/>
+  <path d="M18 35c0-8.3 6.7-15 15-15h7.4l-4.2-4.2 3.6-3.6L50.1 22.5 39.8 32.8l-3.6-3.6 4.2-4.2H33c-5.5 0-10 4.5-10 10 0 2 .6 3.9 1.7 5.4l-3.8 3.8A14.8 14.8 0 0 1 18 35Z" fill="#fff"/>
+  <path d="M46 29c0 8.3-6.7 15-15 15h-7.4l4.2 4.2-3.6 3.6L13.9 41.5l10.3-10.3 3.6 3.6-4.2 4.2H31c5.5 0 10-4.5 10-10 0-2-.6-3.9-1.7-5.4l3.8-3.8A14.8 14.8 0 0 1 46 29Z" fill="#FEE2E2"/>
+</svg>
