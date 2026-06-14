@@ -1,0 +1,3 @@
+interface:
+  display_name: Web Access 联网与浏览器自动化
+  short_description: 为搜索、网页抓取、登录态浏览器操作和 CDP 自动化选择合适联网路径。

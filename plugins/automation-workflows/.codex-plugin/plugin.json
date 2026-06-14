@@ -1,19 +1,22 @@
 {
   "name": "automation-workflows",
-  "version": "1.8.0",
-  "description": "Automation workflow skills for using OpenCLI to drive browsers, author adapters, and repair broken adapters.",
+  "version": "1.8.1",
+  "description": "Automation workflow skills for browser operation, web access, OpenCLI command discovery, adapter authoring, and autofix workflows.",
   "author": {
-    "name": "jackwener",
-    "email": "",
-    "url": "https://github.com/jackwener"
+    "name": "jackwener and 一泽 Eze",
+    "url": "https://github.com/tianzecn/ctz-codex-plugins"
   },
-  "homepage": "https://github.com/jackwener/OpenCLI/tree/main/skills",
+  "homepage": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/automation-workflows",
   "repository": "https://github.com/tianzecn/ctz-codex-plugins",
-  "license": "Apache-2.0",
+  "license": "Apache-2.0 AND MIT",
   "keywords": [
     "opencli",
+    "web-access",
     "automation-workflows",
     "browser-automation",
+    "cdp",
+    "web",
+    "search",
     "agent-tools",
     "cli",
     "adapters",
@@ -22,19 +25,19 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "自动化工作流",
-    "shortDescription": "用于浏览器和 CLI 自动化流程的 OpenCLI 技能。",
-    "longDescription": "Automation Workflows packages the OpenCLI agent skills for Codex. It helps agents discover OpenCLI commands, drive logged-in Chrome sessions through opencli browser, create reusable site adapters, and repair broken adapters with trace-guided autofix workflows.",
-    "developerName": "jackwener",
+    "shortDescription": "用于浏览器、联网、CLI 与适配器自动化流程的技能集。",
+    "longDescription": "Automation Workflows packages OpenCLI agent skills and eze-is/web-access for Codex. It helps agents discover OpenCLI commands, drive logged-in browser sessions, choose web access strategies, operate CDP browser tabs, accumulate site experience, create reusable site adapters, and repair broken adapters with trace-guided autofix workflows.",
+    "developerName": "jackwener; 一泽 Eze",
     "category": "AI & Agent",
     "capabilities": [
       "Interactive",
       "Read",
       "Write"
     ],
-    "websiteURL": "https://github.com/jackwener/OpenCLI/tree/main/skills",
+    "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/automation-workflows",
     "defaultPrompt": [
       "Use opencli-usage to find the right OpenCLI command for this task.",
-      "Use opencli-browser to drive this logged-in browser flow.",
+      "Use web-access to handle this web research or browser automation task.",
       "Use opencli-adapter-author to create and verify a new OpenCLI adapter."
     ],
     "brandColor": "#0F766E",
