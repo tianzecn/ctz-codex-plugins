@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Skill Generation</title>
+  <desc id="desc">Abstract chisel and skill card icon</desc>
+  <rect width="64" height="64" rx="14" fill="#9333EA"/>
+  <path d="M18 15h23c3.9 0 7 3.1 7 7v20c0 3.9-3.1 7-7 7H18c-3.9 0-7-3.1-7-7V22c0-3.9 3.1-7 7-7Z" fill="#F3E8FF"/>
+  <path d="M20 25h19v5H20v-5Zm0 10h13v5H20v-5Z" fill="#7E22CE"/>
+  <path d="m44.8 18.7 5.5 5.5-18 18.1-7.2 1.7 1.7-7.2 18-18.1Z" fill="#F59E0B"/>
+  <path d="m41.7 21.8 5.5 5.5" fill="none" stroke="#FEF3C7" stroke-width="3" stroke-linecap="round"/>
+</svg>
