@@ -1,4 +1,4 @@
 interface:
-  display_name: 1688 标题优化专家
-  short_description: 诊断并优化 1688 商品标题关键词结构和合规风险。
-  default_prompt: 使用 $1688-title-optimizer 帮我优化这个1688商品标题。
+  display_name: "1688 标题优化专家"
+  short_description: "诊断并优化 1688 标题词路、事实一致性和违规风险。"
+  default_prompt: "使用 $1688-title-optimizer 帮我诊断并优化这个 1688 商品标题。"
