@@ -1,0 +1,3 @@
+interface:
+  display_name: Skill 仓库转 Codex 插件
+  short_description: 把上游 skill 仓库归类并打包进 Codex 插件市场。

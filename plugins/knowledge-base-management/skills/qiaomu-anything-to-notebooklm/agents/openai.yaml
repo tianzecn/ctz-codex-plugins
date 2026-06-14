@@ -1,0 +1,3 @@
+interface:
+  display_name: 多源内容转 NotebookLM
+  short_description: 把公众号、网页、视频、播客、PDF 和 Markdown 收集到 NotebookLM。

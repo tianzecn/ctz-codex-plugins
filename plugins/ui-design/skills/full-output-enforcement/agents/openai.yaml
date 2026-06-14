@@ -1,0 +1,3 @@
+interface:
+  display_name: 完整输出强制
+  short_description: 要求完整生成代码，避免占位符和截断式输出。

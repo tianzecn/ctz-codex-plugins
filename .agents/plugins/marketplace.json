@@ -1,7 +1,7 @@
 {
   "name": "ctz-codex-plugins",
   "interface": {
-    "displayName": "CTZ Codex Plugins"
+    "displayName": "CTZ Codex 插件集"
   },
   "plugins": [
     {

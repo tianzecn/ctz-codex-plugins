@@ -1,0 +1,3 @@
+interface:
+  display_name: NotebookLM 问答助手
+  short_description: 从已上传的 NotebookLM 笔记本获取带来源依据的回答。

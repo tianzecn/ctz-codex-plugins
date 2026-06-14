@@ -1,0 +1,3 @@
+interface:
+  display_name: CloudBase 鉴权工具
+  short_description: 使用 CloudBase 工具处理登录、身份和权限配置。

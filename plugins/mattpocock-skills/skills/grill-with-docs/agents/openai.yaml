@@ -1,0 +1,3 @@
+interface:
+  display_name: 带文档方案拷问
+  short_description: 结合领域文档挑战计划并同步更新上下文记录。

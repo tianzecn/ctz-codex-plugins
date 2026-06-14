@@ -1,0 +1,3 @@
+interface:
+  display_name: 文档更新
+  short_description: 在代码变化后更新用户可见文档。

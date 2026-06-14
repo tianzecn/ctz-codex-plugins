@@ -1,0 +1,3 @@
+interface:
+  display_name: PostgreSQL 编写规范
+  short_description: 编写和评审 PostgreSQL schema、查询、函数和迁移。

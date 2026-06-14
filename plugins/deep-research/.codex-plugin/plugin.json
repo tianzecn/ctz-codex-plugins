@@ -22,8 +22,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Deep Research",
-    "shortDescription": "Academic research workflows for literature review, writing, review, and experiments.",
+    "displayName": "深度研究",
+    "shortDescription": "用于文献综述、学术写作、评审与实验的研究工作流。",
     "longDescription": "Deep Research packages Imbad0202/academic-research-skills-codex as a single Codex-native academic-research-suite skill. It routes research tasks across deep research, literature review, systematic review, academic paper drafting and revision, manuscript review, end-to-end research-to-paper pipelines, experiment planning, statistical interpretation, and reproducibility checks while preserving the upstream ARS resources.",
     "developerName": "Cheng-I Wu",
     "category": "Education & Research",

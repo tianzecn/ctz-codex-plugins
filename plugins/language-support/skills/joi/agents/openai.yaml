@@ -1,0 +1,3 @@
+interface:
+  display_name: Joi 校验规则
+  short_description: 编写 Joi schema、自定义类型和条件校验规则。

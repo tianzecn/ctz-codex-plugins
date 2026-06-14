@@ -1,0 +1,3 @@
+interface:
+  display_name: Web 可访问性审计
+  short_description: 按 WCAG 检查 Web 应用可访问性问题。

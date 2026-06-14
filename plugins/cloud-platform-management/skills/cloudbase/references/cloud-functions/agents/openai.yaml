@@ -1,0 +1,3 @@
+interface:
+  display_name: CloudBase 云函数
+  short_description: 开发、部署和排查 CloudBase 云函数。

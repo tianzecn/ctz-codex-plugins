@@ -1,0 +1,3 @@
+interface:
+  display_name: 宝玉信息图
+  short_description: 分析内容并生成出版级信息图和视觉总结。

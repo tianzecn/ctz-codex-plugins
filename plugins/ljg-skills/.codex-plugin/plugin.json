@@ -20,8 +20,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "LJG Skills Collection",
-    "shortDescription": "论文阅读、内容铸卡、概念解剖、写作与研究型工作流",
+    "displayName": "李继刚技能集",
+    "shortDescription": "论文阅读、内容铸卡、概念解剖、写作与研究型工作流。",
     "longDescription": "将 lijigang/ljg-skills 的 Markdown 分支中 20 个非废弃技能打包为 Codex 插件。适合读论文、做视觉卡片、提炼问答、白话改写、概念解剖、单词精通、深度写作、投资分析、圆桌讨论、旅行研究和技能地图查看等场景。",
     "developerName": "lijigang",
     "category": "Productivity",

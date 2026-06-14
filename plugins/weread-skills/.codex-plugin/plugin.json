@@ -25,8 +25,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "WeRead Skills",
-    "shortDescription": "微信读书查询、顾问工作流和可视化阅读报告合集",
+    "displayName": "微信读书技能集",
+    "shortDescription": "微信读书查询、顾问工作流和可视化阅读报告合集。",
     "longDescription": "将微信读书官方 weread-skills.zip、alchaincyf/huashu-weread 与 yaojingang/yao-open-skills 的 yao-weread-skill 打包为一个 Codex 插件。底层 weread-skills 通过 WEREAD_API_KEY 调用微信读书 Agent API Gateway，可搜索书籍、查看书籍详情和阅读进度、浏览书架、查询笔记划线、查看公开书评和生成阅读统计摘要；huashu-weread-advisor 在其上编排书架 + 笔记交叉分析，提供个性化进阶推荐、阅读视角盲区分析、领域阶梯书单、笔记提炼和季度/年度复盘；yao-weread-skill 可生成精排中文 HTML 阅读报告，覆盖阅读节律、书架资产、分类偏好、笔记语义、词云和高密度图表。",
     "developerName": "WeRead (微信读书), Huashu (花叔), yaojingang",
     "category": "Productivity",

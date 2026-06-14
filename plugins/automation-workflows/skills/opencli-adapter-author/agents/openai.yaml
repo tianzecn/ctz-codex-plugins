@@ -1,0 +1,3 @@
+interface:
+  display_name: OpenCLI 适配器编写
+  short_description: 为新站点或新命令编写并验证 OpenCLI 适配器。

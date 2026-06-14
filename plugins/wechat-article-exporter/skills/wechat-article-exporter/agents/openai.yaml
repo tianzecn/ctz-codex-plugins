@@ -1,0 +1,3 @@
+interface:
+  display_name: 微信公众号文章导出
+  short_description: 导出微信公众号文章、调用开放 API 或部署本地服务。

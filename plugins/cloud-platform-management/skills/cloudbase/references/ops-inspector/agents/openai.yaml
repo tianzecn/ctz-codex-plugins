@@ -1,0 +1,3 @@
+interface:
+  display_name: 运维检查器
+  short_description: 检查 CloudBase 资源、日志和运行状态。

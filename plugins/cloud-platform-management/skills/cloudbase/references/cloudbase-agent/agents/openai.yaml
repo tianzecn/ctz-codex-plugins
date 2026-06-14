@@ -1,0 +1,3 @@
+interface:
+  display_name: CloudBase Agent 智能体
+  short_description: 使用 CloudBase Agent 构建和连接智能体能力。

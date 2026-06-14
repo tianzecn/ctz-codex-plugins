@@ -1,0 +1,3 @@
+interface:
+  display_name: 图片转代码
+  short_description: 先生成并分析设计图，再尽量还原为网站代码。

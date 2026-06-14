@@ -1,0 +1,3 @@
+interface:
+  display_name: GitHub Issue 去重
+  short_description: 用语义搜索和关键词匹配查找重复 issue。

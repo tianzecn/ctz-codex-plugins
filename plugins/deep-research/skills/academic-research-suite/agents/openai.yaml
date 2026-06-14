@@ -1,8 +1,8 @@
 interface:
-  display_name: "Academic Research Suite"
-  short_description: "ARS workflows plus Claude-style ars-* aliases"
-  brand_color: "#2563EB"
-  default_prompt: "Use $academic-research-suite with ars-plan to map my paper structure and missing evidence."
-
+  display_name: 学术研究套件
+  short_description: 支持文献综述、学术写作、评审和研究实验流程。
+  brand_color: '#2563EB'
+  default_prompt: Use $academic-research-suite with ars-plan to map my paper structure
+    and missing evidence.
 policy:
   allow_implicit_invocation: true

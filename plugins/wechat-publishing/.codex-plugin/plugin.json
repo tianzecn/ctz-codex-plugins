@@ -19,8 +19,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "WeChat Publishing",
-    "shortDescription": "把 Markdown 草稿套成微信公众号排版 HTML",
+    "displayName": "微信公众号排版发布",
+    "shortDescription": "把 Markdown 草稿套成微信公众号排版 HTML。",
     "longDescription": "提供微信公众号内容发布前的排版模板能力。当前导入 limin112/wechat-publish-template，可把 Markdown 文件或文本拆成公众号 block，生成全 inline style、可浏览器打开后复制粘贴到微信公众号编辑器的 HTML，适合个人技术风橙黑赛博朋克样式文章。",
     "developerName": "limin112",
     "category": "Content & Distribution",

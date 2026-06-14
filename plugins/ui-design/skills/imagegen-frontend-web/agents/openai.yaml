@@ -1,0 +1,3 @@
+interface:
+  display_name: Web 界面图生成
+  short_description: 为网站每个区块生成独立横向设计参考图。

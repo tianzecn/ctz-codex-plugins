@@ -1,0 +1,3 @@
+interface:
+  display_name: 宝玉发布到公众号
+  short_description: 通过 API 或 Chrome CDP 发布微信公众号文章或贴图内容。

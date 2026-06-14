@@ -1,0 +1,3 @@
+interface:
+  display_name: 规格化工作流
+  short_description: 按规格流程规划、实现和验证 CloudBase 功能。

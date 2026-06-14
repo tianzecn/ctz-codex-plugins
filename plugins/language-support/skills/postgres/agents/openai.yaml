@@ -1,0 +1,3 @@
+interface:
+  display_name: PostgreSQL 专家
+  short_description: 解答 PostgreSQL 语法、建模、索引、性能和运维问题。

@@ -19,8 +19,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Skill Repo to Codex Plugin",
-    "shortDescription": "自动归类并把 skill 仓库或新 skill 打包进 Codex 插件市场仓库",
+    "displayName": "Skill 仓库转 Codex 插件",
+    "shortDescription": "自动归类并把 skill 仓库或新 skill 打包进 Codex 插件市场仓库。",
     "longDescription": "将上游 GitHub skill 仓库或新 skill 需求作为变量输入，指导 Codex 读取上游 plugin/marketplace/skill 元数据；当用户没有指定目标插件时，先参考 references/plugin-category-table.md 判断所属 Category 与能力型插件，创建或更新对应 plugins/<plugin-name>/，补齐 .codex-plugin/plugin.json、导入 skills、生成 marketplace 图标、更新 .agents/plugins/marketplace.json，并完成 JSON、frontmatter、图标路径、git diff 校验、commit、push 与 marketplace upgrade 验证。",
     "developerName": "tianzecn",
     "category": "Productivity",

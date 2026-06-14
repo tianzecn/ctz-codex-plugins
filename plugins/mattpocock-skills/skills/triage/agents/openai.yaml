@@ -1,0 +1,3 @@
+interface:
+  display_name: Issue 分诊
+  short_description: 按状态机和角色流程创建、分诊或整理 issue。

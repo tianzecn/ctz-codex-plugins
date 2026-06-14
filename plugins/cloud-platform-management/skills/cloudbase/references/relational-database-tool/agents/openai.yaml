@@ -1,0 +1,3 @@
+interface:
+  display_name: CloudBase 关系数据库 MCP
+  short_description: 通过 MCP 工具管理 CloudBase 关系数据库。

@@ -21,8 +21,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Agent Orchestration",
-    "shortDescription": "Skills for supervised agent workflow orchestration.",
+    "displayName": "Agent 编排",
+    "shortDescription": "用于有监督 Agent 工作流编排的技能集。",
     "longDescription": "Agent Orchestration packages DannyMac180/skills for Codex. It helps agents plan and run supervised dynamic workflows with explicit success criteria, approval gates, subagents or simulated work packets, integration, verification, and reusable workflow artifacts.",
     "developerName": "Danny McAteer",
     "category": "AI & Agent",

@@ -22,8 +22,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Oz Skills",
-    "shortDescription": "Warp/Oz reusable agent workflow skills for engineering and analysis tasks.",
+    "displayName": "Oz 技能集",
+    "shortDescription": "用于工程与分析任务的 Warp/Oz 可复用 Agent 工作流。",
     "longDescription": "Oz Skills packages warpdotdev/oz-skills as a Codex plugin. It imports 15 non-deprecated Agent Skills for documentation updates, Terraform style, CI fixes, Slack-style read-only investigation, local scheduling, SEO/AEO audits, accessibility audits, dbt model lookup, pull request creation, local web app testing, web performance audits, BigQuery analysis artifacts, MCP server building, GitHub bug report triage, and GitHub issue deduplication.",
     "developerName": "Warp",
     "category": "AI & Agent",

@@ -20,8 +20,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Code Analysis",
-    "shortDescription": "Analyze codebase workflows and generate implementation blueprints.",
+    "displayName": "代码分析",
+    "shortDescription": "分析代码库工作流并生成实现蓝图。",
     "longDescription": "Code Analysis packages GitHub's awesome-copilot project-workflow-analysis-blueprint-generator skill as a Codex skill. It helps agents inspect a codebase, identify representative end-to-end workflows, and produce implementation-ready blueprints covering entry points, service layers, data mapping, data access, error handling, testing patterns, sequence diagrams, naming conventions, and reusable implementation templates.",
     "developerName": "GitHub",
     "category": "Software Engineering",

@@ -1,0 +1,3 @@
+interface:
+  display_name: 交接文档
+  short_description: 把当前对话压缩为可交给其他 Agent 接手的文档。

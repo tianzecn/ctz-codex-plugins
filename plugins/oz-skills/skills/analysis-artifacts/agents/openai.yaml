@@ -1,0 +1,3 @@
+interface:
+  display_name: 分析产物生成
+  short_description: 在 BigQuery 深度分析中生成可复现查询、可视化和汇总表。

@@ -33,10 +33,11 @@ description: |
 7. 跳过明确标注 Deprecated 的技能，除非用户要求保留。
 8. 插件 manifest 和 marketplace 条目必须是真实信息，不留下占位字段。
 9. 插件必须有市场图标：`interface.logo` 和 `interface.composerIcon` 都指向存在的相对路径，默认使用 `./assets/icon.svg`。
-10. 校验 JSON、skill frontmatter、图标路径和 `git diff --check`。
-11. commit 并 push 到目标 GitHub 仓库。
-12. 执行 `codex plugin marketplace upgrade <marketplace_name>`，确认远程缓存能看到新插件。
-13. 最终告诉用户 commit hash、导入了几个 skills、Codex App 里应该选哪个远程 marketplace 入口。
+10. 导入或创建的 skill 若用户可见技能名/说明是英文或生硬直译，必须补充自然中文展示字段，优先写 `skills/<skill-name>/agents/openai.yaml`，不要为了本地化改 `SKILL.md` frontmatter 的核心触发描述。
+11. 校验 JSON、skill frontmatter、图标路径、中文展示字段和 `git diff --check`。
+12. commit 并 push 到目标 GitHub 仓库。
+13. 执行 `codex plugin marketplace upgrade <marketplace_name>`，确认远程缓存能看到新插件，并核对缓存中的展示字段。
+14. 最终告诉用户 commit hash、导入了几个 skills、Codex App 里应该选哪个远程 marketplace 入口。
 
 ## 工作流
 
@@ -94,6 +95,17 @@ description: |
 - 如果用户明确要求保留 deprecated skill，才导入，并在最终说明中单独列出。
 - 不导入 `.git`、缓存目录、构建产物、大型依赖目录，例如 `node_modules/`、`.venv/`、`dist/`、`build/`、`__pycache__/`。
 - 若同名 skill 已存在于目标插件目录，先比较内容；没有用户确认不要覆盖非本次生成的内容。
+
+### 4.1 补充中文展示字段
+
+对每个导入或创建的 skill，单独处理用户可见展示字段：
+
+- 优先读取并更新 `skills/<skill-name>/agents/openai.yaml` 的 `interface.display_name` 与 `interface.short_description`。如果文件不存在，创建最小文件，只包含这些展示字段。
+- 如果 `display_name` 或 `short_description` 是英文、拼接式机翻或不自然中文，改成自然中文；保留 Figma、CI、BigQuery、SQL、API 等产品名、缩写和专有名词。
+- 示例：`Figma Code Connect` -> `Figma 代码连接`；`CI Debug` -> `CI 调试`；`Branded Presentation` -> `品牌演示文稿`；`Channel Summarization` -> `频道总结`；`BigQuery Data Transfer Service` -> `BigQuery 数据传输服务`。
+- 只为“展示和目录可读性”改 `agents/openai.yaml`；不要仅因为本地化而改 `SKILL.md` frontmatter 的 `name` 或 `description`。只有当核心触发描述事实错误、缺失关键触发词或影响技能调用时，才改 `SKILL.md`，并在最终回复说明原因。
+- 如果上游已有自然中文展示字段，保持原样；如果英文名本身是不可翻译的品牌或命令名，只翻译说明，不硬改品牌名。
+- 若 `codex plugin marketplace upgrade <marketplace_name>` 后本机存在远程目录缓存，继续核对 `~/.codex/plugins/cache/<marketplace_name>/<plugin-name>/<version>/skills/<skill-name>/agents/openai.yaml` 中的同名字段；缓存缺失时，在最终回复列为未验证项，不要声称已生效。
 
 ### 5. 生成或更新目标插件
 
@@ -169,6 +181,13 @@ git diff --check
 - `name` 与 skill 目录名一致，除非上游已有明确命名理由；不一致时在最终说明。
 - 不包含占位字段。
 
+同时校验中文展示字段：
+
+- 每个导入或创建的 skill 都有 `agents/openai.yaml`，或最终说明中明确为什么不需要。
+- `interface.display_name` 和 `interface.short_description` 使用自然中文；允许保留产品名、缩写、命令名和行业固定术语。
+- `SKILL.md` frontmatter 的 `description` 没有被仅因本地化而改写；如确实修改，最终回复必须说明触发原因。
+- 若已执行 marketplace upgrade，抽查远程目录缓存中的同名 `agents/openai.yaml`，确认展示字段与目标仓库一致。
+
 如果本机有可用的 `skill-creator` 或项目专用校验脚本，也运行它，但不要用它替代上述最小校验。
 
 ### 7. 提交和发布
@@ -205,6 +224,7 @@ codex plugin marketplace upgrade <marketplace_name>
 - `导入 skills 数量`
 - `跳过 Deprecated 数量`
 - `验证命令和结果`
+- 中文展示字段是否已写入 `agents/openai.yaml`，以及远程目录缓存是否已核对
 - 图标是否已写入 `logo` / `composerIcon`
 - Codex App 里应选择的远程 marketplace 入口：通常是 `tianzecn/ctz-codex-plugins` 或 marketplace 名 `ctz-codex-plugins`
 - 未完成项或残余风险；没有就说明无明显残余风险

@@ -1,0 +1,3 @@
+interface:
+  display_name: 宝玉网页转 Markdown
+  short_description: 抓取网页并转换为 Markdown，支持站点适配器和登录流程。

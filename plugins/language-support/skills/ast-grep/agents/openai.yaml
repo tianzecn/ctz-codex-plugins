@@ -1,0 +1,3 @@
+interface:
+  display_name: AST 结构化代码搜索
+  short_description: 使用 ast-grep 做结构化搜索、lint 规则和代码迁移。

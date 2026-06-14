@@ -21,8 +21,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Video Generation",
-    "shortDescription": "AI narration workflows for movie and short-drama commentary videos.",
+    "displayName": "视频生成",
+    "shortDescription": "用于影视和短剧解说视频的 AI 旁白工作流。",
     "longDescription": "Video Generation packages skills for creating AI-assisted video outputs. The initial skill imports NarratorAI-Studio/narrator-ai-cli-skill, which guides agents through built-in movie materials, BGM, dubbing voices, narration templates, script generation, clip data, video composing, and optional visual templates through the narrator-ai-cli command-line tool.",
     "developerName": "NarratorAI-Studio",
     "category": "Design & Creative",

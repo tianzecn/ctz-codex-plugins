@@ -1,0 +1,3 @@
+interface:
+  display_name: 宝玉发布到微博
+  short_description: 发布微博正文、图片、视频或头条文章。

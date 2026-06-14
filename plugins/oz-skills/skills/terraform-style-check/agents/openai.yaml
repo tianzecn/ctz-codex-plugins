@@ -1,0 +1,3 @@
+interface:
+  display_name: Terraform 风格检查
+  short_description: 按 HashiCorp 官方风格生成和评审 Terraform HCL。

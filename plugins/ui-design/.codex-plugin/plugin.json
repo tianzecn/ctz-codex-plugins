@@ -27,8 +27,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "UI Design",
-    "shortDescription": "Upgrade frontend visuals and create local HTML design prototypes.",
+    "displayName": "UI 设计",
+    "shortDescription": "升级前端视觉并创建本地 HTML 设计原型。",
     "longDescription": "UI Design packages Leonxlnx/taste-skill and JimLiu/baoyu-design as Codex skills for premium frontend direction, redesign audits, image-to-code workflows, visual style variants, output enforcement, Google Stitch design rules, image-generation prompts, and Claude Design style local HTML mockups, wireframes, interactive prototypes, app screens, landing pages, dashboards, and slide decks.",
     "developerName": "Leonxlnx; Jim Liu (宝玉)",
     "category": "Design & Creative",

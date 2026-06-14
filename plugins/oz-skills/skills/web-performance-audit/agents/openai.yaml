@@ -1,0 +1,3 @@
+interface:
+  display_name: Web 性能审计
+  short_description: 使用 Chrome DevTools 审计页面加载、Lighthouse 和性能问题。

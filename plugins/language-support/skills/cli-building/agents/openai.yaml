@@ -1,0 +1,3 @@
+interface:
+  display_name: TypeScript CLI 构建
+  short_description: 构建 TypeScript CLI、交互提示和补全体验。

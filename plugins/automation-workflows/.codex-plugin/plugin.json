@@ -21,8 +21,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Automation Workflows",
-    "shortDescription": "OpenCLI skills for browser and CLI automation workflows.",
+    "displayName": "自动化工作流",
+    "shortDescription": "用于浏览器和 CLI 自动化流程的 OpenCLI 技能。",
     "longDescription": "Automation Workflows packages the OpenCLI agent skills for Codex. It helps agents discover OpenCLI commands, drive logged-in Chrome sessions through opencli browser, create reusable site adapters, and repair broken adapters with trace-guided autofix workflows.",
     "developerName": "jackwener",
     "category": "AI & Agent",

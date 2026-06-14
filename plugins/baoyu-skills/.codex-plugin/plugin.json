@@ -23,8 +23,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Baoyu Skills",
-    "shortDescription": "宝玉的内容生成、AI 图像、翻译、社媒发布与网页提取技能合集",
+    "displayName": "宝玉技能集",
+    "shortDescription": "宝玉的内容生成、AI 图像、翻译、社媒发布与网页提取技能合集。",
     "longDescription": "将 JimLiu/baoyu-skills 中上游 marketplace 已声明的 20 个非废弃技能打包为一个 Codex 插件。适合生成图片卡片、封面图、信息图、漫画、SVG 图表、幻灯片图片，处理 Markdown/HTML/翻译，提取网页、YouTube 字幕和 X 内容，并辅助发布到微信公众号、微博和 X。",
     "developerName": "Jim Liu (宝玉)",
     "category": "Productivity",

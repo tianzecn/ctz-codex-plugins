@@ -19,8 +19,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Architecture Design",
-    "shortDescription": "Architecture guidance for native-feel cross-platform desktop apps.",
+    "displayName": "架构设计",
+    "shortDescription": "面向原生体验跨平台桌面应用的架构指导。",
     "longDescription": "Architecture Design packages skills for designing polished application architectures. The initial skill focuses on cross-platform desktop apps that must feel native across macOS and Windows, including native shells, system WebViews, typed IPC, memory tradeoffs, and ship-readiness audits.",
     "developerName": "yetone",
     "category": "Software Engineering",

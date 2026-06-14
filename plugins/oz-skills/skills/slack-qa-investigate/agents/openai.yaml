@@ -1,0 +1,3 @@
+interface:
+  display_name: 仓库问答调查
+  short_description: 以只读方式调查代码库并回答仓库相关问题。

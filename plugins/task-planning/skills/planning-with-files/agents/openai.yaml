@@ -1,0 +1,3 @@
+interface:
+  display_name: 文件式任务规划
+  short_description: 用 Markdown 文件组织、拆解并跟踪复杂任务进度。

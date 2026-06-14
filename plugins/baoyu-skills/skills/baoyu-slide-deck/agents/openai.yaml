@@ -1,0 +1,3 @@
+interface:
+  display_name: 宝玉幻灯片生成
+  short_description: 根据内容生成专业幻灯片大纲和逐页图片。

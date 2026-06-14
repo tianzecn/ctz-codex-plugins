@@ -21,8 +21,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Alibaba Operations Framework",
-    "shortDescription": "1688店铺诊断、商品优化、询盘转化和履约风控工作流",
+    "displayName": "1688 运营框架",
+    "shortDescription": "1688 店铺诊断、商品优化、询盘转化和履约风控工作流。",
     "longDescription": "把1688源头供给增长系统带入 Codex：按供给身份、买家路径、商品事实、交易信任、流量放量、履约规则拆解问题，并输出诊断结论、动作顺序和7天或30天验证指标。内置 1688 标题优化专家和详情文案专家，适合诚信通店铺、新店起盘、商品标题/主图/详情页、询盘报价、P4P/网销宝、新灯塔、分销代发、跨境供货和代运营尽调。",
     "developerName": "花叔",
     "category": "Productivity",

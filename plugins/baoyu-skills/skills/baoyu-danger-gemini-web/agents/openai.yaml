@@ -1,0 +1,3 @@
+interface:
+  display_name: 宝玉 Gemini Web 生成
+  short_description: 通过 Gemini Web 逆向接口生成图像、文本和多轮内容。

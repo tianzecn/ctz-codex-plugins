@@ -1,0 +1,3 @@
+interface:
+  display_name: OpenCLI 自动修复
+  short_description: 收集失败轨迹并修复损坏的 OpenCLI 适配器。

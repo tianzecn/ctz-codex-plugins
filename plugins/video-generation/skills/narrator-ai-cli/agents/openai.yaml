@@ -1,0 +1,3 @@
+interface:
+  display_name: AI 旁白视频 CLI
+  short_description: 为电影和短剧解说生成 AI 旁白视频工作流。

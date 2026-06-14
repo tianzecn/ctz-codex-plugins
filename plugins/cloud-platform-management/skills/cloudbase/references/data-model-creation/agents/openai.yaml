@@ -1,0 +1,3 @@
+interface:
+  display_name: 数据模型创建
+  short_description: 创建和维护 CloudBase 数据模型。

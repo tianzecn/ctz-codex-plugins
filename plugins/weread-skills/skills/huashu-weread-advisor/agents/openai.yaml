@@ -1,0 +1,3 @@
+interface:
+  display_name: 微信读书高阶顾问
+  short_description: 基于书架和笔记生成进阶推荐、书单、笔记总结和阅读复盘。

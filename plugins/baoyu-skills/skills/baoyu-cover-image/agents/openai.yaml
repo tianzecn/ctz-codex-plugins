@@ -1,0 +1,3 @@
+interface:
+  display_name: 宝玉封面图生成
+  short_description: 生成文章封面图并控制类型、配色、渲染、文字和氛围。

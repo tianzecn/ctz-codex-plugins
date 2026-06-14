@@ -1,0 +1,3 @@
+interface:
+  display_name: 微信小程序 AI 模型接入
+  short_description: 在微信小程序中接入 CloudBase AI 模型能力。

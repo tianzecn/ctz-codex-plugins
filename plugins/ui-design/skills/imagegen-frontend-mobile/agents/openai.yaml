@@ -1,0 +1,3 @@
+interface:
+  display_name: 移动端界面图生成
+  short_description: 生成高级移动 App 屏幕概念图和多屏流程。

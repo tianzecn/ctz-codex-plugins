@@ -1,0 +1,3 @@
+interface:
+  display_name: OpenCLI 浏览器控制
+  short_description: 通过 OpenCLI 驱动真实 Chrome 页面并提取数据。

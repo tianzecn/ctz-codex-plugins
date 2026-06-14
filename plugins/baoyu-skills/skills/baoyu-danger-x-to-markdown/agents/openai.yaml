@@ -1,0 +1,3 @@
+interface:
+  display_name: 宝玉 X 转 Markdown
+  short_description: 把 X/Twitter 推文或文章转换为带 frontmatter 的 Markdown。

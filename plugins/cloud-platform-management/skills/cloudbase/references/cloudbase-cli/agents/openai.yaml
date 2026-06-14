@@ -1,0 +1,3 @@
+interface:
+  display_name: CloudBase CLI 命令行
+  short_description: 使用 CloudBase CLI 管理环境、部署和调试项目。

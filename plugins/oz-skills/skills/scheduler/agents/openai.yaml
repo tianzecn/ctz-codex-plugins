@@ -1,0 +1,3 @@
+interface:
+  display_name: 本地提醒调度
+  short_description: 在本机安排提醒或轻量本地任务。

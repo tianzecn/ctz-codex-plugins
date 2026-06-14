@@ -22,8 +22,8 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Matt Pocock Skills",
-    "shortDescription": "面向真实工程工作的诊断、TDD、架构、PRD 和 issue 工作流",
+    "displayName": "Matt Pocock 工程技能",
+    "shortDescription": "面向真实工程工作的诊断、TDD、架构、PRD 和 issue 工作流。",
     "longDescription": "将 mattpocock/skills 中 .claude-plugin/plugin.json 声明的 14 个非废弃 skills 打包为 Codex 插件。适合在真实代码库中做 bug 诊断、测试驱动开发、架构改进、计划拷问、PRD 生成、issue 拆分、issue triage、原型探索、会话交接和高密度沟通。",
     "developerName": "Matt Pocock",
     "category": "Productivity",
