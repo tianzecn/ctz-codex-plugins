@@ -1,0 +1,46 @@
+{
+  "name": "khazix-skills",
+  "version": "1.0.1",
+  "description": "数字生命卡兹克开源的 AI Skills 合集，覆盖知识库清理、横纵深度研究、公众号长文写作和 AI HOT 资讯查询。",
+  "author": {
+    "name": "数字生命卡兹克",
+    "url": "https://github.com/KKKKhazix"
+  },
+  "homepage": "https://github.com/KKKKhazix/khazix-skills",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "khazix",
+    "skills",
+    "writing",
+    "research",
+    "ai-news",
+    "knowledge-cleanup",
+    "markdown",
+    "pdf"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Khazix Skills",
+    "shortDescription": "卡兹克的知识清理、深度研究、长文写作与 AI 资讯查询技能合集",
+    "longDescription": "将 KKKKhazix/khazix-skills 中 4 个非废弃技能打包为一个 Codex 插件：neat-freak 用于会话结束后的文档和记忆同步，hv-analysis 用横纵分析法产出深度研究报告，khazix-writer 按数字生命卡兹克的公众号长文风格写作，aihot 可查询 aihot.virxact.com 的中文 AI HOT 日报与资讯。",
+    "developerName": "数字生命卡兹克",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/KKKKhazix/khazix-skills",
+    "defaultPrompt": [
+      "整理一下本次会话涉及的项目文档和记忆",
+      "用横纵分析法研究这个产品",
+      "按数字生命卡兹克的风格帮我写一篇公众号长文",
+      "今天 AI 圈有什么新东西"
+    ],
+    "brandColor": "#10B981",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Automation Workflows">
+  <rect width="128" height="128" rx="24" fill="#0F766E"/>
+  <path d="M31 42h66v16H31zM31 70h44v16H31z" fill="#ECFDF5"/>
+  <path d="M87 68l18 10-18 10V68z" fill="#A7F3D0"/>
+  <circle cx="38" cy="50" r="4" fill="#0F766E"/>
+  <circle cx="38" cy="78" r="4" fill="#0F766E"/>
+</svg>

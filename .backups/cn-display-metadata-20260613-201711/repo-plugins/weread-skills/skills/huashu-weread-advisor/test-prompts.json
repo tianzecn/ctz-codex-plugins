@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "prompt": "我读了挺多 AI 产品设计相关的书了，下一本你推荐我读啥？",
+    "expected": "走 advisor workflow。应先调 /shelf/sync + /user/notebooks 交叉分析用户在 AI 产品设计方向的已读，识别拼图缺口，验证候选书是否上架，分梯队推荐 3-5 本，每本附 weread:// 链接，给出『如果只读一本』和『如果想真上台阶』两个建议。",
+    "workflow": "advisor"
+  },
+  {
+    "id": 2,
+    "prompt": "我想系统搞懂行为经济学，给我规划一个阅读路线",
+    "expected": "走 path workflow。先判断用户在该主题的基础（笔记数判断段位），规划入门→进阶→前沿三阶梯（每阶 2-3 本），每阶后附费曼式自检问题，给出『最小版本』退出点，每本附 weread:// 链接和总投入时长估算。",
+    "workflow": "path"
+  },
+  {
+    "id": 3,
+    "prompt": "我现在在读哪本书？",
+    "expected": "走 SKILL.md 顶层的轻量直答（不进 workflow）。调 /shelf/sync 按 readUpdateTime 倒序，对最新的一本调 /book/getprogress 拿章节/进度/累计时长，一句话回复 + weread:// 链接 + 顺带说最近一周的阅读主题倾向。",
+    "workflow": "lightweight"
+  }
+]

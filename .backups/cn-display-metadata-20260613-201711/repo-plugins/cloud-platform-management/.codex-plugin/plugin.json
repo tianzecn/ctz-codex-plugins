@@ -1,0 +1,43 @@
+{
+  "name": "cloud-platform-management",
+  "version": "2.20.2",
+  "description": "Cloud platform management skills for Tencent CloudBase full-stack development, deployment, and troubleshooting.",
+  "author": {
+    "name": "TencentCloudBase",
+    "url": "https://github.com/TencentCloudBase"
+  },
+  "homepage": "https://github.com/TencentCloudBase/cloudbase-skills",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "cloudbase",
+    "tencent-cloud",
+    "serverless",
+    "cloud-functions",
+    "cloudrun",
+    "wechat-miniprogram",
+    "deployment"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Cloud Platform Management",
+    "shortDescription": "Tencent CloudBase development, deployment, and operations guidance.",
+    "longDescription": "Cloud Platform Management packages the Tencent CloudBase skill for Codex. It helps agents build Web, WeChat Mini Program, and native-app backends on CloudBase, select SDK and auth paths, deploy cloud functions or CloudRun services, manage storage and databases, integrate AI models, and troubleshoot resources with MCP-first workflows.",
+    "developerName": "TencentCloudBase",
+    "category": "DevOps & Security",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Execute"
+    ],
+    "websiteURL": "https://github.com/TencentCloudBase/cloudbase-skills",
+    "defaultPrompt": [
+      "Use cloudbase to plan this Tencent CloudBase app.",
+      "Use cloudbase to deploy and troubleshoot my CloudBase project.",
+      "Use cloudbase to choose the right auth, database, and hosting path."
+    ],
+    "brandColor": "#1E88E5",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg"
+  }
+}

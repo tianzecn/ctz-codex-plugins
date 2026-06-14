@@ -1,0 +1,49 @@
+{
+  "name": "huashu",
+  "version": "0.3.2",
+  "description": "花叔 Skill 合集：女娲蒸馏人物思维方式，达尔文优化 Agent Skills，Huashu Design 产出高保真 HTML 设计。",
+  "author": {
+    "name": "Huashu (花叔)",
+    "url": "https://github.com/alchaincyf"
+  },
+  "homepage": "https://github.com/alchaincyf",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "huashu",
+    "nuwa",
+    "darwin",
+    "design",
+    "prototype",
+    "html",
+    "animation",
+    "skill-optimization",
+    "skills",
+    "perspective",
+    "research",
+    "prompt-engineering"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Huashu",
+    "shortDescription": "花叔的女娲、达尔文与 Design：蒸馏、优化并设计可视化产出",
+    "longDescription": "将 alchaincyf/nuwa-skill、alchaincyf/darwin-skill 与 alchaincyf/huashu-design 打包为一个 Codex 插件。女娲从人名、主题或模糊需求出发，调研并生成可运行的人物视角 Skill。达尔文借鉴 Karpathy autoresearch，用结构评分、测试 prompt、git 棘轮机制和人类确认来评估并优化 Agent Skills。Huashu Design 用 HTML 产出高保真原型、交互 Demo、幻灯片、动画、设计变体、专家评审和带解说的视频式视觉作品。",
+    "developerName": "Huashu (花叔)",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/alchaincyf",
+    "defaultPrompt": [
+      "蒸馏一个保罗·格雷厄姆的思维方式",
+      "帮我优化这个 Skill 并给出评分",
+      "做一个高保真 App 原型并给我 3 个设计方向"
+    ],
+    "brandColor": "#16A34A",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

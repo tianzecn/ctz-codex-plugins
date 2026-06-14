@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="WeRead Skills">
+  <defs>
+    <linearGradient id="g" x1="32" y1="24" x2="224" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4ADE80"/>
+      <stop offset="1" stop-color="#15803D"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#g)"/>
+  <path d="M74 70h54c20 0 36 16 36 36v80H92a18 18 0 01-18-18z" fill="#fff" opacity=".96"/>
+  <path d="M128 70h54v98a18 18 0 01-18 18h-36z" fill="#DCFCE7"/>
+  <path d="M96 108h42M96 136h42" stroke="#15803D" stroke-width="12" stroke-linecap="round"/>
+</svg>

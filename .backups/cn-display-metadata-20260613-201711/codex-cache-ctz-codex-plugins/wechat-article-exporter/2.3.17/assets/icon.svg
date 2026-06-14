@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="WeChat Article Exporter">
+  <defs>
+    <linearGradient id="g" x1="32" y1="24" x2="224" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34D399"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#g)"/>
+  <path d="M64 70h128v116H64z" fill="#fff" rx="12"/>
+  <path d="M88 104h80M88 132h80M88 160h52" stroke="#059669" stroke-width="14" stroke-linecap="round"/>
+</svg>

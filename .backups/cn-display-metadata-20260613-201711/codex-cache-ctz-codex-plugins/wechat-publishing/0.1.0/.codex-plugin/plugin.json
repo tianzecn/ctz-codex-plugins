@@ -1,0 +1,43 @@
+{
+  "name": "wechat-publishing",
+  "version": "0.1.0",
+  "description": "微信公众号排版发布模板，帮助把 Markdown 草稿转换为可粘贴进公众号编辑器的 inline HTML。",
+  "author": {
+    "name": "limin112",
+    "url": "https://github.com/limin112"
+  },
+  "homepage": "https://github.com/limin112/wechat-publish-template",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "wechat",
+    "weixin",
+    "markdown",
+    "html",
+    "publishing",
+    "template"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "WeChat Publishing",
+    "shortDescription": "把 Markdown 草稿套成微信公众号排版 HTML",
+    "longDescription": "提供微信公众号内容发布前的排版模板能力。当前导入 limin112/wechat-publish-template，可把 Markdown 文件或文本拆成公众号 block，生成全 inline style、可浏览器打开后复制粘贴到微信公众号编辑器的 HTML，适合个人技术风橙黑赛博朋克样式文章。",
+    "developerName": "limin112",
+    "category": "Content & Distribution",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/limin112/wechat-publish-template",
+    "defaultPrompt": [
+      "把 /path/to/draft.md 套成公众号排版",
+      "把这段 Markdown 做成公众号文章 HTML",
+      "用橙黑赛博朋克公众号模板排版这篇文章"
+    ],
+    "brandColor": "#FF5722",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

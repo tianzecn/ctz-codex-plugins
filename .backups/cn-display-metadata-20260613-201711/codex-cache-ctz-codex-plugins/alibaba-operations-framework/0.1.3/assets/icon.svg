@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Alibaba Operations Framework">
+  <defs>
+    <linearGradient id="g" x1="32" y1="24" x2="224" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF8A1F"/>
+      <stop offset="1" stop-color="#E84A0A"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#g)"/>
+  <path d="M62 168h132v20H62zM76 128h104v20H76zM92 88h72v20H92z" fill="#fff" opacity=".94"/>
+  <path d="M128 48l82 42v24l-82-42-82 42V90z" fill="#fff" opacity=".94"/>
+</svg>

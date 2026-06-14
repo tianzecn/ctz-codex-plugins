@@ -1,0 +1,44 @@
+{
+  "name": "xhs-skills",
+  "version": "0.1.1",
+  "description": "支持小红书自动发布、登录检查、内容检索、评论互动和数据抓取的 Codex 技能。",
+  "author": {
+    "name": "white0dew",
+    "url": "https://github.com/white0dew"
+  },
+  "homepage": "https://github.com/white0dew/XiaohongshuSkills",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "xiaohongshu",
+    "xhs",
+    "redbook",
+    "social-media",
+    "publishing",
+    "chrome-cdp",
+    "automation"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Xhs-skills",
+    "shortDescription": "小红书发布、检索、评论互动和数据抓取技能",
+    "longDescription": "将 white0dew/XiaohongshuSkills 打包为 Codex 插件，提供 RedBookSkills：通过 Chrome DevTools Protocol 辅助小红书图文/视频发布、登录检查、二维码登录、首页推荐流抓取、笔记搜索与详情读取、评论回复、点赞收藏、用户页抓取和内容数据看板导出。",
+    "developerName": "white0dew",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/white0dew/XiaohongshuSkills",
+    "defaultPrompt": [
+      "帮我检查小红书登录状态",
+      "帮我把这组图文发布到小红书",
+      "搜索小红书笔记并读取详情"
+    ],
+    "brandColor": "#FF2442",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

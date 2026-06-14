@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Skill Repo to Codex Plugin">
+  <defs>
+    <linearGradient id="g" x1="32" y1="24" x2="224" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#6D28D9"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#g)"/>
+  <path d="M70 82h60a34 34 0 010 68H98v42H70zm28 26v16h32a8 8 0 000-16z" fill="#fff"/>
+  <path d="M154 154l40-40m0 0h-34m34 0v34" fill="none" stroke="#EDE9FE" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

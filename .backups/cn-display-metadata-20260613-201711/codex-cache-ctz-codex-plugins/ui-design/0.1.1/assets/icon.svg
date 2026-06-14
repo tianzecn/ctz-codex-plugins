@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">UI Design</title>
+  <desc id="desc">Abstract layered interface mark for UI design skills.</desc>
+  <rect width="128" height="128" rx="28" fill="#12091F"/>
+  <path d="M26 36h76v14H26z" fill="#F8FAFC"/>
+  <path d="M26 58h34v34H26z" fill="#A855F7"/>
+  <path d="M68 58h34v14H68z" fill="#FBBF24"/>
+  <path d="M68 80h34v12H68z" fill="#34D399"/>
+  <path d="M36 46 64 24l28 22" fill="none" stroke="#A855F7" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

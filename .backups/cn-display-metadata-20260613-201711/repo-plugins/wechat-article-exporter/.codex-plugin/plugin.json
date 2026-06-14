@@ -1,0 +1,43 @@
+{
+  "name": "wechat-article-exporter",
+  "version": "2.3.17",
+  "description": "微信公众号文章批量下载、单篇导出、私有化部署与开放 API 使用辅助。",
+  "author": {
+    "name": "Jock",
+    "url": "https://github.com/wechat-article/wechat-article-exporter"
+  },
+  "homepage": "https://github.com/wechat-article/wechat-article-exporter",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "wechat",
+    "article",
+    "export",
+    "markdown",
+    "html",
+    "docker"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "WeChat Article Exporter",
+    "shortDescription": "辅助导出微信公众号文章并使用 wechat-article-exporter",
+    "longDescription": "封装 wechat-article/wechat-article-exporter 的使用流程，帮助 Codex 通过在线站点、开放 API、Docker 或本地源码运行来导出微信公众号文章。适合单篇文章转 Markdown/HTML/Text/JSON，批量下载公众号文章，以及需要私有化部署时快速确认命令、认证要求和输出格式。",
+    "developerName": "Jock",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/wechat-article/wechat-article-exporter",
+    "defaultPrompt": [
+      "把这个微信公众号文章导出成 Markdown",
+      "帮我启动 wechat-article-exporter",
+      "检查这个导出接口怎么调用"
+    ],
+    "brandColor": "#07C160",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

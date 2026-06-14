@@ -1,0 +1,44 @@
+{
+  "name": "ljg-skills",
+  "version": "1.0.15",
+  "description": "李继刚的 Claude Code 自定义技能集，覆盖论文阅读、内容铸卡、概念解剖、写作、投资分析和旅行研究等工作流。",
+  "author": {
+    "name": "lijigang",
+    "url": "https://github.com/lijigang"
+  },
+  "homepage": "https://github.com/lijigang/ljg-skills",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "ljg",
+    "skills",
+    "paper-reading",
+    "content-casting",
+    "writing",
+    "research",
+    "productivity"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "LJG Skills Collection",
+    "shortDescription": "论文阅读、内容铸卡、概念解剖、写作与研究型工作流",
+    "longDescription": "将 lijigang/ljg-skills 的 Markdown 分支中 20 个非废弃技能打包为 Codex 插件。适合读论文、做视觉卡片、提炼问答、白话改写、概念解剖、单词精通、深度写作、投资分析、圆桌讨论、旅行研究和技能地图查看等场景。",
+    "developerName": "lijigang",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/lijigang/ljg-skills",
+    "defaultPrompt": [
+      "用 ljg-paper 帮我读这篇论文",
+      "把这段内容用 ljg-card 铸成卡片",
+      "用 ljg-plain 把这段话说人话"
+    ],
+    "brandColor": "#0F172A",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "deep-research",
+  "version": "0.1.8",
+  "description": "Education and research skills for deep research, literature review, academic writing, peer review, and research pipelines.",
+  "author": {
+    "name": "Cheng-I Wu",
+    "email": "",
+    "url": "https://github.com/Imbad0202"
+  },
+  "homepage": "https://github.com/Imbad0202/academic-research-skills-codex",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "CC-BY-NC-4.0",
+  "keywords": [
+    "academic-research",
+    "deep-research",
+    "literature-review",
+    "systematic-review",
+    "academic-writing",
+    "peer-review",
+    "research-pipeline",
+    "experiment-planning"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Deep Research",
+    "shortDescription": "Academic research workflows for literature review, writing, review, and experiments.",
+    "longDescription": "Deep Research packages Imbad0202/academic-research-skills-codex as a single Codex-native academic-research-suite skill. It routes research tasks across deep research, literature review, systematic review, academic paper drafting and revision, manuscript review, end-to-end research-to-paper pipelines, experiment planning, statistical interpretation, and reproducibility checks while preserving the upstream ARS resources.",
+    "developerName": "Cheng-I Wu",
+    "category": "Education & Research",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Analyze",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/Imbad0202/academic-research-skills-codex",
+    "defaultPrompt": [
+      "Use academic-research-suite to scope a research question and build a literature review.",
+      "Use academic-research-suite to review this manuscript and draft a decision letter.",
+      "Use academic-research-suite to plan an end-to-end research-to-paper pipeline."
+    ],
+    "brandColor": "#2454A6",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

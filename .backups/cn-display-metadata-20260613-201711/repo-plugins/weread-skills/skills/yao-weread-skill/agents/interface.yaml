@@ -1,0 +1,22 @@
+interface:
+  display_name: "Yao WeRead Skill"
+  short_description: "从微信读书阅读统计、书架、笔记和划线生成精排 HTML 阅读报告"
+  default_prompt: "使用 $yao-weread-skill 生成我最近 2 年的微信读书个人阅读可视化报告，包含词云、热力图、雷达图和 20 个以上图表模块。"
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "openai"
+    - "generic"
+  activation:
+    mode: "manual"
+    paths: []
+  execution:
+    context: "local"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    openai: "metadata-adapter"
+    generic: "neutral-source"

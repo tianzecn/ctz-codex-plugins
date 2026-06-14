@@ -1,0 +1,48 @@
+{
+  "name": "knowledge-base-management",
+  "version": "0.1.0",
+  "description": "Knowledge base management skills for collecting multi-source content into NotebookLM and generating study artifacts.",
+  "author": {
+    "name": "joeseesun",
+    "email": "",
+    "url": "https://github.com/joeseesun"
+  },
+  "homepage": "https://github.com/joeseesun/qiaomu-anything-to-notebooklm",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "notebooklm",
+    "knowledge-base",
+    "content-ingestion",
+    "wechat",
+    "web",
+    "podcast",
+    "pdf",
+    "office",
+    "mind-map",
+    "ppt"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Knowledge Base Management",
+    "shortDescription": "Collect multi-source content into NotebookLM and generate learning outputs.",
+    "longDescription": "Knowledge Base Management packages joeseesun/qiaomu-anything-to-notebooklm as a Codex skill. The imported skill helps agents collect WeChat articles, web pages, YouTube links, podcasts, local documents, Office files, PDFs, EPUBs, images, audio, and search results, then send them to NotebookLM for outputs such as podcasts, slide decks, mind maps, quizzes, reports, flashcards, and optional deep analysis with Feishu document creation.",
+    "developerName": "joeseesun",
+    "category": "Knowledge Base & Files",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/joeseesun/qiaomu-anything-to-notebooklm",
+    "defaultPrompt": [
+      "Use qiaomu-anything-to-notebooklm to send this content to NotebookLM.",
+      "Turn this article into a NotebookLM podcast or slide deck.",
+      "Deep analyze this file with NotebookLM and create a report."
+    ],
+    "brandColor": "#2563EB",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

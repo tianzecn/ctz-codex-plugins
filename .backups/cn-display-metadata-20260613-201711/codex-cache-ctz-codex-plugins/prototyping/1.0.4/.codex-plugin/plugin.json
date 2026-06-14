@@ -1,0 +1,46 @@
+{
+  "name": "prototyping",
+  "version": "1.0.4",
+  "description": "Prototyping skills for UI canvas workflows, component exploration, and design-to-code handoff.",
+  "author": {
+    "name": "MagicPath",
+    "email": "support@magicpath.ai",
+    "url": "https://www.magicpath.ai"
+  },
+  "homepage": "https://www.magicpath.ai",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "prototyping",
+    "magicpath",
+    "design",
+    "ui-components",
+    "design-system",
+    "design-to-code"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Prototyping",
+    "shortDescription": "Create, inspect, and ship UI prototypes with MagicPath.",
+    "longDescription": "Prototyping packages MagicPath's agent skill for multiplayer UI canvas workflows. It lets Codex search and preview MagicPath components, inspect and install UI source, create canvas components from code, apply design-system themes, and bring existing repository UI into MagicPath projects.",
+    "developerName": "MagicPath",
+    "category": "Design & Creative",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://www.magicpath.ai",
+    "privacyPolicyURL": "https://www.magicpath.ai/privacy",
+    "termsOfServiceURL": "https://www.magicpath.ai/tos",
+    "defaultPrompt": [
+      "Build an interactive dashboard in MagicPath.",
+      "Bring the sidebar from my repo into MagicPath.",
+      "Create a component library in MagicPath."
+    ],
+    "brandColor": "#305D3A",
+    "composerIcon": "./assets/magicpath.png",
+    "logo": "./assets/magicpath.png",
+    "screenshots": []
+  }
+}
