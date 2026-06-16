@@ -1,0 +1,4 @@
+interface:
+  display_name: "项目 Skill 审计"
+  short_description: "分析项目历史会话、记忆和现有技能，推荐最值得新增或更新的 skill。"
+  default_prompt: "Use $project-skill-audit to analyze this project and recommend new skills or updates to existing ones."

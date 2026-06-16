@@ -1,0 +1,4 @@
+interface:
+  display_name: "React 组件性能"
+  short_description: "诊断 React 组件重渲染、昂贵计算、列表卡顿和不稳定 props。"
+  default_prompt: "Use $react-component-performance to analyze and improve this React component's rendering performance."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SwiftUI 性能审计"
+  short_description: "审查 SwiftUI 运行时性能，定位失效风暴、身份抖动、布局抖动和重渲染问题。"
+  default_prompt: "Use $swiftui-performance-audit to review this SwiftUI code for performance issues and suggest concrete fixes."

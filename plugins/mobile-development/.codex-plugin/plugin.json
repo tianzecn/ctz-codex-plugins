@@ -1,0 +1,48 @@
+{
+  "name": "mobile-development",
+  "version": "0.1.0",
+  "description": "Mobile and Apple platform development skills for iOS, macOS, SwiftUI, Swift concurrency, App Store release notes, debugging, refactoring, review, GitHub workflows, and React performance work.",
+  "author": {
+    "name": "Thomas Ricouard",
+    "email": "ricouard77@gmail.com",
+    "url": "https://github.com/Dimillian"
+  },
+  "homepage": "https://github.com/Dimillian/Skills",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "mobile-development",
+    "apple-platforms",
+    "ios",
+    "macos",
+    "swiftui",
+    "swift-concurrency",
+    "github",
+    "code-review",
+    "refactoring",
+    "react-performance"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "移动开发",
+    "shortDescription": "用于 iOS、macOS、SwiftUI、调试、发布、评审、重构和性能优化的工程技能集。",
+    "longDescription": "Mobile Development packages Dimillian/Skills as Codex skills for Apple platform and recurring engineering workflows. It includes iOS simulator debugging, macOS SwiftPM packaging, Tuist menubar app work, SwiftUI patterns and performance, Swift concurrency review, App Store changelogs, GitHub workflows, multi-agent bug hunts and reviews, batch refactors, project skill audits, and React component performance analysis.",
+    "developerName": "Thomas Ricouard",
+    "category": "Software Engineering",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/Dimillian/Skills",
+    "defaultPrompt": [
+      "用 iOS debugger agent 启动并检查这个 iOS app。",
+      "审查这段 SwiftUI 代码的性能和架构问题。",
+      "对当前 diff 跑一次 review swarm 并给出优先修复项。"
+    ],
+    "brandColor": "#0EA5E9",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "macOS 菜单栏 Tuist App"
+  short_description: "构建、重构或评审基于 Tuist 与 SwiftUI 的 macOS 菜单栏应用。"
+  default_prompt: "Use $macos-menubar-tuist-app to scaffold or refactor a menubar-only macOS app with Tuist, layered state architecture, and script-based run validation."

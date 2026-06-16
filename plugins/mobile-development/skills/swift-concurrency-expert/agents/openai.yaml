@@ -1,0 +1,4 @@
+interface:
+  display_name: "Swift 并发专家"
+  short_description: "审查并修复 Swift 6.2+ actor isolation、Sendable 和数据竞争问题。"
+  default_prompt: "Use $swift-concurrency-expert to review this Swift code for concurrency issues and fix the relevant diagnostics."

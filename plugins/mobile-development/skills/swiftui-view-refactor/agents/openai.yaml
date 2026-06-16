@@ -1,0 +1,4 @@
+interface:
+  display_name: "SwiftUI View 重构"
+  short_description: "把大型 SwiftUI view 拆成稳定小视图，改善数据流、依赖注入和 Observation 用法。"
+  default_prompt: "Use $swiftui-view-refactor to clean up and split this SwiftUI view without changing its behavior."

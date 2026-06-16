@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review 集群"
+  short_description: "用多代理并行评审当前 diff，优先找行为回归、安全、性能和测试缺口。"
+  default_prompt: "Use $review-swarm to review the current diff with four focused read-only reviewers and summarize the highest-signal issues."

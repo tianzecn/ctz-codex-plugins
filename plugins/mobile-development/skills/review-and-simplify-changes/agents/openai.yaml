@@ -1,0 +1,3 @@
+interface:
+  display_name: "变更评审与简化"
+  short_description: "评审当前 diff 或指定文件，并在安全范围内简化实现、提升清晰度和复用性。"

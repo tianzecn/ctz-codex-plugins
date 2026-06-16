@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub 工作流"
+  short_description: "使用 gh CLI 检查 issue、PR、CI、运行日志和 GitHub API 数据。"
+  default_prompt: "Use $github to inspect this repository's pull requests, issues, runs, or API data."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bug 排查集群"
+  short_description: "用多代理并行追踪 bug、回归、崩溃或不稳定行为的根因。"
+  default_prompt: "Use $bug-hunt-swarm to investigate this bug with four read-only lanes and return the most likely root cause plus the fastest proof path."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "批量重构编排"
+  short_description: "为大型重构或重写拆分依赖、生成工作包并安全并行推进。"
+  default_prompt: "Use $orchestrate-batch-refactor to analyze target scope, plan parallel workstreams, and execute multi-agent refactors safely."

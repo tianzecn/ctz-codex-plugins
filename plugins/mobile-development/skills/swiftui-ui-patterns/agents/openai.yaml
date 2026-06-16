@@ -1,0 +1,4 @@
+interface:
+  display_name: "SwiftUI UI 模式"
+  short_description: "提供 SwiftUI 导航、表单、列表、sheet、状态和组件模式的实践指南。"
+  default_prompt: "Use $swiftui-ui-patterns to design or refactor this SwiftUI UI with strong default patterns."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "iOS 调试代理"
+  short_description: "使用 XcodeBuildMCP 在模拟器上构建、启动、检查和调试 iOS app。"
+  default_prompt: "Use $ios-debugger-agent to build, launch, and inspect the current iOS app on the booted simulator."
