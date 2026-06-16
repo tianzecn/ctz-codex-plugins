@@ -1,0 +1,3 @@
+interface:
+  display_name: "GTM 动作选择"
+  short_description: "比较 inbound、outbound、paid、community 等 GTM motion。"

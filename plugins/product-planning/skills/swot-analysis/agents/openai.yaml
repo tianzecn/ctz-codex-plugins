@@ -1,0 +1,3 @@
+interface:
+  display_name: "SWOT 分析"
+  short_description: "分析优势、劣势、机会和威胁，并给出行动建议。"

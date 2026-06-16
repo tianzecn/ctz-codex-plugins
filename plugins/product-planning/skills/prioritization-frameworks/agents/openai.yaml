@@ -1,0 +1,3 @@
+interface:
+  display_name: "优先级框架"
+  short_description: "提供 RICE、ICE、Kano 等优先级框架的公式与使用建议。"

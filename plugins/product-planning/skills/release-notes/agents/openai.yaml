@@ -1,0 +1,3 @@
+interface:
+  display_name: "发布说明"
+  short_description: "从 ticket、PRD 或 changelog 生成清晰的用户发布说明。"

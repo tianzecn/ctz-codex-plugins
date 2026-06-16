@@ -1,0 +1,3 @@
+interface:
+  display_name: "会议纪要总结"
+  short_description: "把会议转写整理成决策、行动项、风险和后续跟进。"

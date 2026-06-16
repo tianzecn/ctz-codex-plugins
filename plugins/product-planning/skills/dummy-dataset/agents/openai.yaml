@@ -1,0 +1,3 @@
+interface:
+  display_name: "测试数据集生成"
+  short_description: "生成贴近真实业务的测试数据、字段约束和输出格式。"

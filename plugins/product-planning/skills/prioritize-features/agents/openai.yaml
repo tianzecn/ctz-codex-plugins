@@ -1,0 +1,3 @@
+interface:
+  display_name: "功能优先级排序"
+  short_description: "按影响、努力、风险和战略契合度排列功能优先级。"

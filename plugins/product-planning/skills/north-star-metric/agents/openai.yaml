@@ -1,0 +1,3 @@
+interface:
+  display_name: "北极星指标"
+  short_description: "定义 North Star Metric 与输入指标，形成指标星座。"

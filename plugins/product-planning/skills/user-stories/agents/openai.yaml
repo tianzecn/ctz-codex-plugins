@@ -1,0 +1,3 @@
+interface:
+  display_name: "用户故事编写"
+  short_description: "按 3C 与 INVEST 原则生成用户故事和验收标准。"

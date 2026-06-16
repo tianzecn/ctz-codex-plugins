@@ -1,0 +1,3 @@
+interface:
+  display_name: "用户访谈脚本"
+  short_description: "生成包含 JTBD 追问、热身和探索问题的访谈脚本。"

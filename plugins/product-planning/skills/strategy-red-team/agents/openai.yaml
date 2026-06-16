@@ -1,0 +1,3 @@
+interface:
+  display_name: "策略红队审查"
+  short_description: "攻击 PRD、路线图或战略中的关键假设，提前暴露弱点。"

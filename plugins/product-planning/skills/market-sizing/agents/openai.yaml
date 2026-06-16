@@ -1,0 +1,3 @@
+interface:
+  display_name: "市场规模测算"
+  short_description: "用 TAM、SAM、SOM 和自上而下/自下而上方法测算市场。"

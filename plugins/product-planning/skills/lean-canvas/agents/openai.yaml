@@ -1,0 +1,3 @@
+interface:
+  display_name: "精益画布"
+  short_description: "生成包含问题、解决方案、指标、渠道和成本收益的 Lean Canvas。"

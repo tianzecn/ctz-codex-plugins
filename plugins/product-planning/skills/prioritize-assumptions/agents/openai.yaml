@@ -1,0 +1,3 @@
+interface:
+  display_name: "假设优先级排序"
+  short_description: "用 Impact × Risk 矩阵排序假设并建议验证实验。"

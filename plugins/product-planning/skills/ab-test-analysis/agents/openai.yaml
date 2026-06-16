@@ -1,0 +1,3 @@
+interface:
+  display_name: "A/B 测试分析"
+  short_description: "分析实验结果、显著性、置信区间、样本量和业务影响。"

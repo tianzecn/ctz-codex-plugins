@@ -22,6 +22,7 @@ This repository contains Codex plugins packaged for installation through the Cod
 - `code-analysis`: GitHub/awesome-copilot `project-workflow-analysis-blueprint-generator` packaged as a Codex plugin for analyzing representative end-to-end application workflows and generating implementation-ready blueprints.
 - `deep-research`: Imbad0202/academic-research-skills-codex packaged as a Codex plugin with the single `academic-research-suite` skill for deep research, literature reviews, systematic reviews, academic paper drafting and revision, peer review simulation, research-to-paper pipelines, experiment planning, and reproducibility checks.
 - `oz-skills`: warpdotdev/oz-skills packaged as a Codex plugin with 15 non-deprecated Agent Skills for docs updates, Terraform style, CI fixes, repository investigation, scheduling, SEO/AEO, accessibility, dbt lookup, PR creation, web app testing, performance audits, analysis artifacts, MCP building, bug triage, and issue dedupe.
+- `product-planning`: phuryn/pm-skills packaged as a Codex plugin with 68 PM skills for product discovery, strategy, execution, market research, analytics, GTM, growth, PM utility work, and AI-built software shipping checks.
 
 ## Install
 

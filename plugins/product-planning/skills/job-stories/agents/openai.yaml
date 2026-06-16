@@ -1,0 +1,3 @@
+interface:
+  display_name: "Job Stories 编写"
+  short_description: "用 When/I want/so I can 格式生成以任务为中心的需求故事。"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Sprint 回顾"
+  short_description: "主持结构化 sprint 回顾，沉淀问题、亮点和行动项。"

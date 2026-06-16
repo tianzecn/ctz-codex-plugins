@@ -1,0 +1,47 @@
+{
+  "name": "product-planning",
+  "version": "2.0.0",
+  "description": "Product planning and product management skills for discovery, strategy, execution, research, analytics, GTM, growth, and AI shipping workflows.",
+  "author": {
+    "name": "Paweł Huryn",
+    "email": "pawel@productcompass.pm",
+    "url": "https://www.productcompass.pm"
+  },
+  "homepage": "https://github.com/phuryn/pm-skills",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "product-management",
+    "product-planning",
+    "product-discovery",
+    "product-strategy",
+    "prd",
+    "roadmap",
+    "gtm",
+    "growth",
+    "pm-skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "产品规划",
+    "shortDescription": "用于产品发现、战略、PRD、路线图、GTM、增长和 PM 分析的技能集。",
+    "longDescription": "Product Planning packages phuryn/pm-skills as Codex skills for product managers and founders. It includes PM workflows for discovery, strategy, execution, market research, data analytics, go-to-market, marketing growth, PM utility work, and AI-built software shipping checks.",
+    "developerName": "Paweł Huryn",
+    "category": "Product & Management",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/phuryn/pm-skills",
+    "defaultPrompt": [
+      "帮我为这个产品想法做一次产品发现和假设梳理。",
+      "把这些需求整理成 PRD、用户故事和 sprint 计划。",
+      "为这个新产品制定 GTM、增长指标和定价策略。"
+    ],
+    "brandColor": "#2563EB",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

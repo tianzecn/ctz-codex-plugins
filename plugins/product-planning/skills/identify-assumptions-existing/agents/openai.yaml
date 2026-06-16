@@ -1,0 +1,3 @@
+interface:
+  display_name: "现有产品假设识别"
+  short_description: "识别现有产品想法中的价值、可用性、可行性和商业假设。"

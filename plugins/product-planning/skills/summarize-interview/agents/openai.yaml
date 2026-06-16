@@ -1,0 +1,3 @@
+interface:
+  display_name: "访谈总结"
+  short_description: "把客户访谈整理成 JTBD、满意度信号、洞察和行动项。"

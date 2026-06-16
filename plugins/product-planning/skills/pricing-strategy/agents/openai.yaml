@@ -1,0 +1,3 @@
+interface:
+  display_name: "定价策略"
+  short_description: "分析定价模型、竞品价格、支付意愿和价格弹性。"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Cohort 留存分析"
+  short_description: "按用户 cohort 分析留存、采用率、参与度和分群变化。"

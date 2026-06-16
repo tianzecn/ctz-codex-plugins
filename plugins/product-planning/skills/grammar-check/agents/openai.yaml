@@ -1,0 +1,3 @@
+interface:
+  display_name: "语法与逻辑检查"
+  short_description: "识别文本中的语法、逻辑和表达流问题并给出定点修改。"

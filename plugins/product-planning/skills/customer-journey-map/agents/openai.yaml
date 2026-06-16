@@ -1,0 +1,3 @@
+interface:
+  display_name: "客户旅程地图"
+  short_description: "绘制阶段、触点、情绪、痛点和机会的端到端旅程。"

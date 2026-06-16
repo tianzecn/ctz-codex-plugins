@@ -1,0 +1,3 @@
+interface:
+  display_name: "预演复盘"
+  short_description: "在发布或 PRD 前识别风险、脆弱假设和缓解动作。"

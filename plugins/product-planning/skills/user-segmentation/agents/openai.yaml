@@ -1,0 +1,3 @@
+interface:
+  display_name: "用户分群"
+  short_description: "按行为、需求和 JTBD 对用户反馈或客户数据做分群。"

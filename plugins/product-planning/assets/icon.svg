@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Product Planning">
+  <rect width="64" height="64" rx="14" fill="#2563EB"/>
+  <path d="M18 20h28v6H18zM18 30h18v6H18zM18 40h28v6H18z" fill="#EFF6FF"/>
+  <circle cx="47" cy="33" r="8" fill="#93C5FD"/>
+  <path d="M47 28v5l4 3" fill="none" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
