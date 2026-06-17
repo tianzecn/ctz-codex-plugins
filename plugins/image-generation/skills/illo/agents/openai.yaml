@@ -1,0 +1,4 @@
+interface:
+  display_name: "Illo 编辑插画"
+  short_description: "在明确请求 illo 时，生成角色化原创编辑插画、视觉隐喻、mini-comic 和手绘解释图。"
+  default_prompt: "Use $illo to create one editorial illustration for this article or idea."
