@@ -1,0 +1,8 @@
+interface:
+  display_name: "归藏社交卡片"
+  short_description: "生成小红书图文组图、Rednote 社交卡片和公众号 21:9 + 1:1 封面对。"
+  brand_color: "#002FA7"
+  default_prompt: "Use $guizang-social-card-skill to turn this article into a 3:4 social card image set and a paired WeChat 21:9 + 1:1 cover."
+
+policy:
+  allow_implicit_invocation: true

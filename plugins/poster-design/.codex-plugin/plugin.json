@@ -1,0 +1,46 @@
+{
+  "name": "poster-design",
+  "version": "0.1.0",
+  "description": "Poster and social card design skills for Xiaohongshu, Rednote, WeChat cover pairs, carousel image sets, article covers, and platform thumbnails.",
+  "author": {
+    "name": "郭浩",
+    "url": "https://github.com/op7418"
+  },
+  "homepage": "https://github.com/op7418/guizang-social-card-skill",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "AGPL-3.0-only",
+  "keywords": [
+    "poster-design",
+    "social-cards",
+    "xiaohongshu",
+    "rednote",
+    "wechat-cover",
+    "carousel-images",
+    "editorial-design",
+    "swiss-design",
+    "guizang"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "海报设计",
+    "shortDescription": "生成小红书图文、Rednote 卡片、公众号封面对和社交平台封面。",
+    "longDescription": "Poster Design packages op7418/guizang-social-card-skill as a Codex skill for polished social card image sets, Xiaohongshu and Rednote carousel posts, WeChat Official Account 21:9 plus 1:1 cover pairs, article covers, tutorial cards, product explainers, screenshot-heavy posts, and editorial or Swiss-style social images.",
+    "developerName": "郭浩",
+    "category": "Design & Creative",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/op7418/guizang-social-card-skill",
+    "defaultPrompt": [
+      "把这篇文章做成一套小红书 3:4 图文卡片。",
+      "生成公众号封面对：21:9 头图加 1:1 分享卡。",
+      "用瑞士风把这份产品测评做成社交卡片组。"
+    ],
+    "brandColor": "#002FA7",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

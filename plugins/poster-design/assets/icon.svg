@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Poster Design">
+  <rect width="64" height="64" rx="14" fill="#002FA7"/>
+  <rect x="15" y="10" width="34" height="44" rx="4" fill="#F8FAFC"/>
+  <path d="M21 18h22M21 24h14M21 43h22" stroke="#002FA7" stroke-width="3" stroke-linecap="round"/>
+  <rect x="21" y="29" width="22" height="9" rx="2" fill="#FF6B35"/>
+  <circle cx="43" cy="16" r="5" fill="#FFD500"/>
+</svg>
