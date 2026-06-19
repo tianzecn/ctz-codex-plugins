@@ -1,12 +1,12 @@
 {
   "name": "skill-generation",
-  "version": "2.1.0",
-  "description": "Skill creation, polishing, productization, validation, and publishing workflows for Agent Skills.",
+  "version": "2.1.1",
+  "description": "Skill creation, polishing, evaluation, packaging, governance, and publishing workflows for Agent Skills.",
   "author": {
-    "name": "LearnPrompt",
-    "url": "https://github.com/LearnPrompt"
+    "name": "LearnPrompt and Yao Team",
+    "url": "https://github.com/tianzecn/ctz-codex-plugins"
   },
-  "homepage": "https://github.com/LearnPrompt/luban-skill",
+  "homepage": "https://github.com/tianzecn/ctz-codex-plugins",
   "repository": "https://github.com/tianzecn/ctz-codex-plugins",
   "license": "MIT",
   "keywords": [
@@ -14,27 +14,31 @@
     "agent-skills",
     "skill-polishing",
     "skill-publishing",
+    "skill-evaluation",
+    "skill-governance",
     "validation",
     "learnprompt",
-    "luban"
+    "luban",
+    "yao-meta-skill",
+    "skill-os"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Skill 生成与打磨",
     "shortDescription": "用于创建、打磨、验证和发布 Agent Skills 的方法论技能集。",
-    "longDescription": "Skill Generation packages LearnPrompt/luban-skill for Codex. It helps agents audit, benchmark, polish, validate, showcase, and publish Agent Skills as reusable public assets, with structured reports, comparison evidence, validation gates, README/showcase guidance, and post-release iteration discipline.",
-    "developerName": "LearnPrompt",
+    "longDescription": "Skill Generation packages LearnPrompt/luban-skill and yaojingang/yao-meta-skill for Codex. It helps agents audit, benchmark, create, refactor, evaluate, govern, validate, showcase, package, and publish Agent Skills as reusable assets, with structured reports, trigger boundaries, comparison evidence, validation gates, release discipline, and post-release iteration guidance.",
+    "developerName": "LearnPrompt, Yao Team",
     "category": "AI & Agent",
     "capabilities": [
       "Interactive",
       "Read",
       "Write"
     ],
-    "websiteURL": "https://github.com/LearnPrompt/luban-skill",
+    "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins",
     "defaultPrompt": [
       "让鲁班看看这个 skill，并给出打磨报告。",
-      "用鲁班对标同类 skill，判断怎么产品化发布。",
-      "让鲁班审计这个 SKILL.md，并给出可验证的改进方向。"
+      "用 Yao Meta Skill 把这套重复流程做成可复用 skill 包。",
+      "为这个 skill 生成触发边界、评估证据和发布门禁。"
     ],
     "brandColor": "#9333EA",
     "logo": "./assets/icon.svg",

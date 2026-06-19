@@ -1,0 +1,4 @@
+interface:
+  display_name: "Yao Meta Skill"
+  short_description: "把重复工作流、提示词、笔记或运行手册沉淀成可评估、可治理、可发布的 Agent Skill。"
+  default_prompt: "Use $yao-meta-skill to turn this workflow or note set into a reusable Agent Skill package."
