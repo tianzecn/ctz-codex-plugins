@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
-  <title id="title">WeChat Publishing</title>
-  <desc id="desc">Abstract orange and black publishing icon</desc>
-  <rect width="64" height="64" rx="14" fill="#0A0A0A"/>
-  <path d="M15 17h34v5H15zM15 29h25v5H15zM15 41h34v5H15z" fill="#FF5722"/>
-  <path d="M45 27l7 5-7 5v-3h-9v-4h9z" fill="#F5F5F5"/>
-</svg>

@@ -1,7 +1,0 @@
-interface:
-  display_name: "Kingdee View Builder"
-  short_description: "Build validated Kingdee MSSQL A_ views"
-  brand_color: "#0E7490"
-  default_prompt: "Use $kingdee-view-builder to create a Kingdee MSSQL A_ report view from my business requirements."
-policy:
-  allow_implicit_invocation: true

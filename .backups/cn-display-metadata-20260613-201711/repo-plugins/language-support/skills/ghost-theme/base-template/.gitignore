@@ -1,6 +1,0 @@
-node_modules/
-assets/built/
-tmp/
-dist.zip
-bun.lock
-*.log

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
-  <title id="title">Task Planning</title>
-  <desc id="desc">A checklist document icon for file-based task planning.</desc>
-  <rect width="128" height="128" rx="24" fill="#0F766E"/>
-  <path d="M38 24h40l14 14v66H38z" fill="#ECFDF5"/>
-  <path d="M78 24v18h18z" fill="#99F6E4"/>
-  <path d="M51 55l6 6 13-15" fill="none" stroke="#0F766E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M79 56h20M51 79h48M51 95h36" fill="none" stroke="#0F766E" stroke-width="7" stroke-linecap="round"/>
-</svg>

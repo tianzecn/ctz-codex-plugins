@@ -1,0 +1,4 @@
+interface:
+  display_name: "1688 商品标题优化流程"
+  short_description: "基于类目、核心词、竞品标题和禁用词生成 3 个 1688 标题方案、关键词覆盖和风险提醒。"
+  default_prompt: "使用 $1688-title-optimizer，根据商品类目、核心关键词、竞品标题和禁用词生成 3 个 1688 标题方案，并说明关键词覆盖和风险词。"

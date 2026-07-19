@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Video Generation">
-  <rect width="64" height="64" rx="14" fill="#E11D48"/>
-  <path d="M18 18h22a6 6 0 0 1 6 6v3l8-5v20l-8-5v3a6 6 0 0 1-6 6H18a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6Z" fill="#FFF7ED"/>
-  <path d="M28 25v14l11-7-11-7Z" fill="#E11D48"/>
-</svg>

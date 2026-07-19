@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
-  <title id="title">Knowledge Base Management</title>
-  <desc id="desc">Layered documents flowing into a notebook.</desc>
-  <rect width="128" height="128" rx="24" fill="#2563EB"/>
-  <path d="M36 26h42l14 14v62H36z" fill="#EFF6FF"/>
-  <path d="M78 26v18h18z" fill="#BFDBFE"/>
-  <path d="M48 58h32M48 72h32M48 86h22" fill="none" stroke="#2563EB" stroke-width="7" stroke-linecap="round"/>
-  <path d="M28 43h12v52h52v12H28z" fill="#93C5FD"/>
-</svg>
