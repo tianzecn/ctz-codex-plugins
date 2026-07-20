@@ -1,3 +1,3 @@
 interface:
-  display_name: 知识库清理专家
-  short_description: 整理、清洗和重构杂乱知识库内容。
+  display_name: 洁癖知识收尾
+  short_description: 核对代码、运行态、文档、规则、记忆与工作区的一致性。

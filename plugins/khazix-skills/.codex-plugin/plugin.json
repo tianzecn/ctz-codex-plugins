@@ -1,6 +1,6 @@
 {
   "name": "khazix-skills",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "数字生命卡兹克开源的 AI Skills 合集，覆盖知识库清理、横纵深度研究、公众号长文写作和 AI HOT 资讯查询。",
   "author": {
     "name": "数字生命卡兹克",
@@ -23,7 +23,7 @@
   "interface": {
     "displayName": "卡兹克技能集",
     "shortDescription": "卡兹克的知识清理、深度研究、长文写作与 AI 资讯查询技能合集。",
-    "longDescription": "将 KKKKhazix/khazix-skills 中 4 个非废弃技能打包为一个 Codex 插件：neat-freak 用于会话结束后的文档和记忆同步，hv-analysis 用横纵分析法产出深度研究报告，khazix-writer 按数字生命卡兹克的公众号长文风格写作，aihot 可查询 aihot.virxact.com 的中文 AI HOT 日报与资讯。",
+    "longDescription": "将 KKKKhazix/khazix-skills 中 4 个非废弃技能打包为一个 Codex 插件：neat-freak 用于核对代码、运行态、文档、规则、记忆与工作区的一致性，hv-analysis 用横纵分析法产出深度研究报告，khazix-writer 按数字生命卡兹克的公众号长文风格写作，aihot 可查询 aihot.virxact.com 的中文 AI HOT 日报与资讯。",
     "developerName": "数字生命卡兹克",
     "category": "Productivity",
     "capabilities": [
