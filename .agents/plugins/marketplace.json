@@ -375,6 +375,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Productivity"
+    },
+    {
+      "name": "multi-model-collaboration",
+      "source": {
+        "source": "local",
+        "path": "./plugins/multi-model-collaboration"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
     }
   ]
 }

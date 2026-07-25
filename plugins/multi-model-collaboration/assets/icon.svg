@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Multi Model Collaboration">
+  <rect width="128" height="128" rx="24" fill="#0F766E"/>
+  <circle cx="38" cy="42" r="17" fill="#CCFBF1"/>
+  <circle cx="90" cy="42" r="17" fill="#99F6E4"/>
+  <circle cx="64" cy="88" r="18" fill="#F0FDFA"/>
+  <path d="M54 42h20M46 56l10 18M82 56L72 74" stroke="#F0FDFA" stroke-width="7" stroke-linecap="round"/>
+  <path d="M58 88h12" stroke="#0F766E" stroke-width="6" stroke-linecap="round"/>
+</svg>

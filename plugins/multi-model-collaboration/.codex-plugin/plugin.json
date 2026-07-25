@@ -1,0 +1,45 @@
+{
+  "name": "multi-model-collaboration",
+  "version": "1.0.0",
+  "description": "用于在 Codex 中调用并核验外部模型第二意见的多模型协作技能。",
+  "author": {
+    "name": "zjp1997720",
+    "url": "https://github.com/zjp1997720"
+  },
+  "homepage": "https://github.com/zjp1997720/zhijian-skills/tree/main/skills/gpt56-sol-pro-consult",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "multi-model",
+    "second-opinion",
+    "chatgpt-pro",
+    "gpt-5.6-sol",
+    "chrome",
+    "risk-review",
+    "agent-skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "多模型协作",
+    "shortDescription": "借助经过核验的外部模型，为复杂问题提供有证据的第二意见。",
+    "longDescription": "多模型协作插件用于把本地判断、真实文件和约束安全地交给外部模型复核，再由 Codex 核验并决定采纳、拒绝或修改。当前包含 gpt56-sol-pro-consult，通过 Codex Chrome 调用并确认 GPT 5.6 Sol Pro，支持附件、凭据扫描、单次发送恢复和完整结果提取。",
+    "developerName": "智见 Skills",
+    "category": "AI & Agent",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write",
+      "Network"
+    ],
+    "websiteURL": "https://github.com/zjp1997720/zhijian-skills/tree/main/skills/gpt56-sol-pro-consult",
+    "defaultPrompt": [
+      "让 GPT 5.6 Sol Pro 挑战这个复杂方案，并带回可采纳的第二意见。",
+      "把这些真实文件交给 GPT 5.6 Sol Pro 做一次有证据的风险评审。",
+      "先形成你的判断，再请 GPT 5.6 Sol Pro 找出其中最大的漏洞。"
+    ],
+    "brandColor": "#0F766E",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}
