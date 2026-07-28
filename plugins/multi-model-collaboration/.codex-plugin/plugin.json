@@ -1,12 +1,12 @@
 {
   "name": "multi-model-collaboration",
-  "version": "1.0.0",
-  "description": "用于在 Codex 中调用并核验外部模型第二意见的多模型协作技能。",
+  "version": "1.1.0",
+  "description": "用于安全接入、核验和协作使用多种本地或外部模型的 Codex 技能。",
   "author": {
     "name": "zjp1997720",
     "url": "https://github.com/zjp1997720"
   },
-  "homepage": "https://github.com/zjp1997720/zhijian-skills/tree/main/skills/gpt56-sol-pro-consult",
+  "homepage": "https://github.com/zjp1997720/zhijian-skills",
   "repository": "https://github.com/tianzecn/ctz-codex-plugins",
   "license": "MIT",
   "keywords": [
@@ -14,6 +14,10 @@
     "second-opinion",
     "chatgpt-pro",
     "gpt-5.6-sol",
+    "workbuddy",
+    "cliproxyapi",
+    "cli-models",
+    "model-integration",
     "chrome",
     "risk-review",
     "agent-skills"
@@ -21,8 +25,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "多模型协作",
-    "shortDescription": "借助经过核验的外部模型，为复杂问题提供有证据的第二意见。",
-    "longDescription": "多模型协作插件用于把本地判断、真实文件和约束安全地交给外部模型复核，再由 Codex 核验并决定采纳、拒绝或修改。当前包含 gpt56-sol-pro-consult，通过 Codex Chrome 调用并确认 GPT 5.6 Sol Pro，支持附件、凭据扫描、单次发送恢复和完整结果提取。",
+    "shortDescription": "安全接入本地 CLI 模型，并用外部模型复核复杂问题。",
+    "longDescription": "多模型协作插件包含 gpt56-sol-pro-consult 与 workbuddy-cli-model-bridge。前者通过 Codex Chrome 调用并确认 GPT 5.6 Sol Pro，为真实文件和复杂方案提供可核验的第二意见；后者审计本地 CLI Agent，按需安装或修复仅回环监听的 CLIProxyAPI，实测文本、流式输出、工具、图片、推理和 Fast 路由后，将通过验证的 Codex、Grok、Antigravity/Gemini 模型安全写入 WorkBuddy。",
     "developerName": "智见 Skills",
     "category": "AI & Agent",
     "capabilities": [
@@ -31,11 +35,11 @@
       "Write",
       "Network"
     ],
-    "websiteURL": "https://github.com/zjp1997720/zhijian-skills/tree/main/skills/gpt56-sol-pro-consult",
+    "websiteURL": "https://github.com/zjp1997720/zhijian-skills",
     "defaultPrompt": [
+      "把本地已登录的 CLI 模型安全接入 WorkBuddy，并只注册实测通过的能力。",
       "让 GPT 5.6 Sol Pro 挑战这个复杂方案，并带回可采纳的第二意见。",
-      "把这些真实文件交给 GPT 5.6 Sol Pro 做一次有证据的风险评审。",
-      "先形成你的判断，再请 GPT 5.6 Sol Pro 找出其中最大的漏洞。"
+      "诊断 WorkBuddy 中失效的 CLI 模型，修复代理、认证和配置链路。"
     ],
     "brandColor": "#0F766E",
     "composerIcon": "./assets/icon.svg",

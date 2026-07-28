@@ -1,0 +1,4 @@
+interface:
+  display_name: "WorkBuddy CLI 模型桥接"
+  short_description: "检测、修复并验证接入 WorkBuddy 的本地 CLI 模型"
+  default_prompt: "使用 $workbuddy-cli-model-bridge 审计本地 CLI Agent，按需安装或修复仅回环监听的 CLIProxyAPI，只授权请求的 Provider，并把能力实测通过的模型注册到 WorkBuddy。"
