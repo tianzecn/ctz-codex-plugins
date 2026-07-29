@@ -1,0 +1,7 @@
+interface:
+  display_name: "点子王：第一性原理审查"
+  short_description: "用第一性原理和对抗式审查挑战方案、架构与任务分工"
+  default_prompt: "使用 $idea-king 从第一性原理拆解这个方案，并用对抗式审查找出最可能导致失败的前提。"
+
+policy:
+  allow_implicit_invocation: true

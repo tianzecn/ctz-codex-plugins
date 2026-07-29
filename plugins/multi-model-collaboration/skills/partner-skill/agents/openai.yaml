@@ -1,0 +1,7 @@
+interface:
+  display_name: "搭子：Claude Code 与 Codex 协作"
+  short_description: "双向编排 Claude Code 与 Codex，复用会话并留下可核验的协作小票"
+  default_prompt: "使用 $partner-skill 在 Claude Code 与 Codex 之间规划、实现、复核并生成可验证的 Partner Session Receipt。"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,12 +1,12 @@
 {
   "name": "multi-model-collaboration",
-  "version": "1.1.0",
-  "description": "用于安全接入、核验和协作使用多种本地或外部模型的 Codex 技能。",
+  "version": "1.1.1",
+  "description": "用于安全接入、核验和编排本地 CLI 模型、Claude Code 与 Codex 的协作技能。",
   "author": {
-    "name": "zjp1997720",
-    "url": "https://github.com/zjp1997720"
+    "name": "Multiple upstream authors",
+    "url": "https://github.com/tianzecn/ctz-codex-plugins"
   },
-  "homepage": "https://github.com/zjp1997720/zhijian-skills",
+  "homepage": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/multi-model-collaboration",
   "repository": "https://github.com/tianzecn/ctz-codex-plugins",
   "license": "MIT",
   "keywords": [
@@ -18,6 +18,11 @@
     "cliproxyapi",
     "cli-models",
     "model-integration",
+    "partner",
+    "claude-code",
+    "codex-orchestration",
+    "idea-king",
+    "adversarial-review",
     "chrome",
     "risk-review",
     "agent-skills"
@@ -25,9 +30,9 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "多模型协作",
-    "shortDescription": "安全接入本地 CLI 模型，并用外部模型复核复杂问题。",
-    "longDescription": "多模型协作插件包含 gpt56-sol-pro-consult 与 workbuddy-cli-model-bridge。前者通过 Codex Chrome 调用并确认 GPT 5.6 Sol Pro，为真实文件和复杂方案提供可核验的第二意见；后者审计本地 CLI Agent，按需安装或修复仅回环监听的 CLIProxyAPI，实测文本、流式输出、工具、图片、推理和 Fast 路由后，将通过验证的 Codex、Grok、Antigravity/Gemini 模型安全写入 WorkBuddy。",
-    "developerName": "智见 Skills",
+    "shortDescription": "安全编排本地 CLI 模型、Claude Code 与 Codex 的协作。",
+    "longDescription": "多模型协作插件包含 gpt56-sol-pro-consult、workbuddy-cli-model-bridge、partner-skill 与 idea-king。它既能通过经过核验的外部模型复核复杂问题，也能安全接入本地 CLI 模型；Partner 负责在 Claude Code 与 Codex 之间双向分工、复用会话并生成协作小票，Idea King 则用第一性原理和对抗式审查挑战方案与任务拆分。",
+    "developerName": "多模型协作技能作者",
     "category": "AI & Agent",
     "capabilities": [
       "Interactive",
@@ -35,11 +40,12 @@
       "Write",
       "Network"
     ],
-    "websiteURL": "https://github.com/zjp1997720/zhijian-skills",
+    "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/multi-model-collaboration",
     "defaultPrompt": [
+      "用搭子在 Claude Code 与 Codex 之间规划、实现和复核这个任务，并生成协作小票。",
+      "让点子王用第一性原理和对抗式审查挑战这个方案。",
       "把本地已登录的 CLI 模型安全接入 WorkBuddy，并只注册实测通过的能力。",
-      "让 GPT 5.6 Sol Pro 挑战这个复杂方案，并带回可采纳的第二意见。",
-      "诊断 WorkBuddy 中失效的 CLI 模型，修复代理、认证和配置链路。"
+      "让 GPT 5.6 Sol Pro 挑战这个复杂方案，并带回可采纳的第二意见。"
     ],
     "brandColor": "#0F766E",
     "composerIcon": "./assets/icon.svg",
