@@ -1,0 +1,3 @@
+interface:
+  display_name: "桌面厚客户端安全"
+  short_description: "评估本地存储、IPC、更新通道和客户端信任边界。"

@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF Windows 身份链"
+  short_description: "追踪票据、令牌、邮箱规则与 Windows 横向路径。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-identity-windows to trace tickets, tokens, Windows host evidence, mailbox rules, or lateral movement in this challenge."
+
+policy:
+  allow_implicit_invocation: false

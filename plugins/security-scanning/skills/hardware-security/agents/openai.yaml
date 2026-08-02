@@ -1,0 +1,3 @@
+interface:
+  display_name: "硬件接口安全"
+  short_description: "在授权设备上识别 UART、JTAG、SWD 与安全启动边界。"

@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF PCAP 协议分析"
+  short_description: "重建会话、解码协议并把数据包关联到运行行为。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-pcap-protocol to reconstruct sessions from this PCAP, decode the application protocol, and tie packet evidence to the challenge behavior."
+
+policy:
+  allow_implicit_invocation: false

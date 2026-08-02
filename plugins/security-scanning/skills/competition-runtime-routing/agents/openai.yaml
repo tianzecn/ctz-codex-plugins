@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 运行时路由"
+  short_description: "追踪代理规则、Host Header 与服务解析关系。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-runtime-routing to map how this hostname, proxy rule, or path prefix resolves to the live sandbox service."
+
+policy:
+  allow_implicit_invocation: false

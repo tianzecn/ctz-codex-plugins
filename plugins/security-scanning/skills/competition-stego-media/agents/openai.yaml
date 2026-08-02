@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 媒体隐写"
+  short_description: "检查媒体元数据、隐藏通道、尾部和嵌入载荷。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-stego-media to inspect this media file for metadata tricks, hidden channels, trailers, or recoverable embedded payloads."
+
+policy:
+  allow_implicit_invocation: false

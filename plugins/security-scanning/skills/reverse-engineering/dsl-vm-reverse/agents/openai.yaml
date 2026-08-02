@@ -1,0 +1,3 @@
+interface:
+  display_name: "DSL 与虚拟机逆向"
+  short_description: "恢复自定义指令集、Opcode、调度器与数据流。"

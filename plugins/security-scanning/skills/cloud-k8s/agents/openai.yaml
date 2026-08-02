@@ -1,0 +1,3 @@
+interface:
+  display_name: "云与 Kubernetes 安全"
+  short_description: "评估云身份、容器边界、Kubernetes RBAC 与工作负载风险。"

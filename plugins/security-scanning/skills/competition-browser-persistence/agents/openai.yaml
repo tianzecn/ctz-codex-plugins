@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 浏览器持久化"
+  short_description: "检查 Cookie、存储、Service Worker 与缓存状态。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-browser-persistence to inspect browser cookies, storage, service workers, caches, and replay the smallest stateful path in this challenge."
+
+policy:
+  allow_implicit_invocation: false

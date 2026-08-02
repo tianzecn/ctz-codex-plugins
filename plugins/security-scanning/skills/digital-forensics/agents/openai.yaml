@@ -1,0 +1,3 @@
+interface:
+  display_name: "数字取证"
+  short_description: "保全并分析磁盘、内存、日志、邮件和网络证据。"

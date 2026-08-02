@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF Android 动态 Hook"
+  short_description: "Hook APK 签名、JNI、证书固定检查与请求链路。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-android-hooking to hook this APK, trace signer logic, inspect JNI or Java boundaries, and replay the accepted request path."
+
+policy:
+  allow_implicit_invocation: false

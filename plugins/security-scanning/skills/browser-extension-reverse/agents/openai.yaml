@@ -1,0 +1,3 @@
+interface:
+  display_name: "浏览器扩展逆向"
+  short_description: "分析 Chrome 与 Firefox 扩展的权限、脚本和运行时通信。"

@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 沙盒编排"
+  short_description: "作为 CTF 与高阶竞赛任务的主路由入口。"
+  default_prompt: "Use $ctf-sandbox-orchestrator as the default entrypoint, enforce sandbox assumptions, and self-route to the right specialist path for this challenge."
+
+policy:
+  allow_implicit_invocation: true

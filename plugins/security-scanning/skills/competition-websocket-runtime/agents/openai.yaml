@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF WebSocket 运行时"
+  short_description: "追踪握手、订阅、帧流与最终运行状态。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-websocket-runtime to trace this WebSocket or SSE handshake, subscription flow, frame stream, and resulting runtime state."
+
+policy:
+  allow_implicit_invocation: false

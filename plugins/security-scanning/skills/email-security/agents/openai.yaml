@@ -1,0 +1,3 @@
+interface:
+  display_name: "邮件安全分析"
+  short_description: "分析钓鱼、SPF、DKIM、DMARC、BEC 与邮件头证据。"

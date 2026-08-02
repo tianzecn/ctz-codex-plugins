@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 自定义协议重放"
+  short_description: "恢复帧格式、消息顺序并复现协议接受状态。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-custom-protocol-replay to recover this custom protocol framing, replay message order, and reproduce the accepted protocol state."
+
+policy:
+  allow_implicit_invocation: false

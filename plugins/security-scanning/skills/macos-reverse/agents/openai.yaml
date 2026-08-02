@@ -1,0 +1,3 @@
+interface:
+  display_name: "macOS 逆向分析"
+  short_description: "分析 Mach-O、签名、Objective-C、Swift 与 macOS 样本。"

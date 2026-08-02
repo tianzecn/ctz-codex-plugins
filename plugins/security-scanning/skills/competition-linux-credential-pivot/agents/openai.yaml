@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF Linux 凭据横向"
+  short_description: "追踪 Linux 凭据、令牌、套接字与主机间路径。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-linux-credential-pivot to trace Linux credential artifacts, accepted replay points, and pivot chains."
+
+policy:
+  allow_implicit_invocation: false

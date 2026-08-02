@@ -1,0 +1,3 @@
+interface:
+  display_name: "Wi-Fi 与无线安全"
+  short_description: "在明确授权范围内采集和分析 Wi-Fi 安全证据。"

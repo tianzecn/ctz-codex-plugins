@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 强制认证与中继"
+  short_description: "追踪强制认证、中继目标与被接受的身份边。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-relay-coercion-chain to trace the coercion step, relay target, and accepted authentication edge in this challenge."
+
+policy:
+  allow_implicit_invocation: false

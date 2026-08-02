@@ -1,0 +1,3 @@
+interface:
+  display_name: "Ghidra 逆向分析"
+  short_description: "使用 Ghidra GUI 或 Headless 完成开源逆向分析。"

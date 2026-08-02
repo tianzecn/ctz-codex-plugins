@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF DPAPI 凭据链"
+  short_description: "追踪 DPAPI 主密钥、受保护数据与可重放凭据。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-dpapi-credential-chain to trace DPAPI masterkeys, protected blobs, browser stores, and the replayable secret edge in this challenge."
+
+policy:
+  allow_implicit_invocation: false

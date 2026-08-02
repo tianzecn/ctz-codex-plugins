@@ -1,0 +1,3 @@
+interface:
+  display_name: "IDA Pro 逆向分析"
+  short_description: "使用 IDA Pro 反编译并追踪二进制关键逻辑。"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "浏览器与桌面自动化"
+  short_description: "通过浏览器或桌面自动化观察并复现应用行为。"

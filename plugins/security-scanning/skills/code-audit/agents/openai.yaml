@@ -1,0 +1,3 @@
+interface:
+  display_name: "代码安全审计"
+  short_description: "使用白盒审查、Semgrep 和 CodeQL 定位可验证的安全缺陷。"

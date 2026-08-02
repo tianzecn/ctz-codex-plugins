@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF Bundle 源码恢复"
+  short_description: "恢复 Source Map、分块加载器与隐藏运行时结构。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-bundle-sourcemap-recovery to reconstruct served bundles, source maps, chunk loading, and the hidden runtime structure behind this challenge."
+
+policy:
+  allow_implicit_invocation: false

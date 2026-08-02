@@ -1,0 +1,3 @@
+interface:
+  display_name: "Windows 与 AD 安全"
+  short_description: "评估 Kerberos、AD CS、BloodHound 路径与域身份风险。"

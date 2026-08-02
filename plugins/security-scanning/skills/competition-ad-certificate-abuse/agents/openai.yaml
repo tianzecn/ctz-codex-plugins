@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF AD 证书链分析"
+  short_description: "追踪证书模板、EKU、注册权限与证书提权路径。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-ad-certificate-abuse to trace certificate templates, enrollment rights, EKUs, and cert-based privilege in this AD challenge."
+
+policy:
+  allow_implicit_invocation: false

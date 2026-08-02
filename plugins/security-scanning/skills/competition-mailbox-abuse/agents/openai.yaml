@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 邮箱滥用链"
+  short_description: "追踪邮箱规则、OAuth 同意与邮件流异常路径。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-mailbox-abuse to trace how mailbox rules, OAuth consent, forwarding, or transport actions create the decisive mail-flow effect."
+
+policy:
+  allow_implicit_invocation: false

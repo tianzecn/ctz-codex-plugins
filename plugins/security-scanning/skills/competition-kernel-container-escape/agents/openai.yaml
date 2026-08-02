@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 内核与容器逃逸"
+  short_description: "映射内核和容器边界并验证关键逃逸原语。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-kernel-container-escape to map kernel and container boundaries and prove the decisive escape primitive."
+
+policy:
+  allow_implicit_invocation: false

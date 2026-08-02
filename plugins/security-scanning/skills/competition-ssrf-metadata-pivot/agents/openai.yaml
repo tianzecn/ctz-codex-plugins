@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF SSRF 元数据横向"
+  short_description: "追踪 SSRF 可达性、云元数据与凭据接受路径。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-ssrf-metadata-pivot to trace SSRF reachability, metadata pivots, and the accepted credential edge."
+
+policy:
+  allow_implicit_invocation: false

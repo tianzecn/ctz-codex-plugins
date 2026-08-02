@@ -1,0 +1,3 @@
+interface:
+  display_name: "radare2 逆向分析"
+  short_description: "使用 r2、rabin2、rasm2 与 radiff2 分析二进制。"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "联邦身份安全"
+  short_description: "评估 SAML、OIDC、OAuth 与 SSO 流程中的身份错配。"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "威胁狩猎"
+  short_description: "设计假说、SIEM 查询、Sigma/YARA 规则并验证检测效果。"

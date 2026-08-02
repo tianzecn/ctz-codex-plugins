@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF JWT 声明混淆"
+  short_description: "追踪 JWT 头、声明、密钥选择和接受逻辑。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-jwt-claim-confusion to trace JWT headers, claims, key lookup, validation decisions, and the point where a token becomes accepted identity."
+
+policy:
+  allow_implicit_invocation: false

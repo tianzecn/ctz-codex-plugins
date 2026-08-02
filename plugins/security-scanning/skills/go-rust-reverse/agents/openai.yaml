@@ -1,0 +1,3 @@
+interface:
+  display_name: "Go 与 Rust 逆向"
+  short_description: "恢复剥离符号的 Go、Rust 二进制结构和业务逻辑。"

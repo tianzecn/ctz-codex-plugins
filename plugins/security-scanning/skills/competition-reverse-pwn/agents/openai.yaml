@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 逆向与 Pwn"
+  short_description: "逆向二进制、分析崩溃并验证利用或解码路径。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-reverse-pwn to reverse this binary, inspect crash or dump evidence, and prove the exploit or decoded behavior."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF Kerberos 委派"
+  short_description: "追踪 S4U、RBCD、委派关系与票据接受路径。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-kerberos-delegation to trace delegation edges, minted tickets, and the service that accepts them."
+
+policy:
+  allow_implicit_invocation: false

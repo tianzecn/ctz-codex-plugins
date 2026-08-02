@@ -1,0 +1,3 @@
+interface:
+  display_name: "通用逆向工程"
+  short_description: "分析编译、混淆、加壳或虚拟化目标的真实行为。"

@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF iOS 运行时"
+  short_description: "分析 IPA 签名、Keychain、证书固定与请求路径。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-ios-runtime to inspect this IPA, trace iOS signer or keychain logic, bypass trust checks, and replay the accepted request path."
+
+policy:
+  allow_implicit_invocation: false

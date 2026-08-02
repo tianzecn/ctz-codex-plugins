@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF Agent 与云链路"
+  short_description: "追踪提示到工具、部署漂移、挂载密钥与制品来源。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-agent-cloud to trace prompt-to-tool flow, deployment drift, mounted secrets, or artifact provenance in this challenge."
+
+policy:
+  allow_implicit_invocation: false

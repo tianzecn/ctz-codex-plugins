@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 文件解析链"
+  short_description: "追踪上传、解压、转换、反序列化与后端影响。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-file-parser-chain to trace this upload or import through parsing, extraction, conversion, deserialization, and the decisive backend effect."
+
+policy:
+  allow_implicit_invocation: false

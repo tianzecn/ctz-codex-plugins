@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 密码与移动端"
+  short_description: "解码数据、检查隐写并 Hook 移动端签名链。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-crypto-mobile to decode this blob, recover the transform chain, inspect stego payloads, or hook the mobile signing path."
+
+policy:
+  allow_implicit_invocation: false

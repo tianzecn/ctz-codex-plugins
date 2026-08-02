@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF LSASS 票据材料"
+  short_description: "追踪 LSASS 中的秘密、票据、缓存与可重放材料。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-lsass-ticket-material to trace LSASS-resident secrets, ticket material, cache artifacts, and the replayable credential edge in this challenge."
+
+policy:
+  allow_implicit_invocation: false

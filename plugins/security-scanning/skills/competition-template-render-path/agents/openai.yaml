@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 模板渲染链"
+  short_description: "追踪服务端渲染、模板上下文、Hydration 与信任边界。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-template-render-path to trace route loaders, template context, hydration payloads, and the render boundary that creates the decisive behavior."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 云元数据路径"
+  short_description: "追踪元数据服务、实例凭据与后续信任边。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-cloud-metadata-path to trace metadata-service access, instance credentials, and the trust path they unlock in this challenge."
+
+policy:
+  allow_implicit_invocation: false

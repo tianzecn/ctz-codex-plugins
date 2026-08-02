@@ -1,0 +1,3 @@
+interface:
+  display_name: "前端 JavaScript 逆向"
+  short_description: "定位签名链、采样运行时并复现前端加密参数。"

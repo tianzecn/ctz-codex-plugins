@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF 竞态与状态漂移"
+  short_description: "复现竞争窗口、执行顺序错误与并发状态偏移。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-race-condition-state-drift to reproduce race windows, ordering bugs, and decisive state drift."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,3 @@
+interface:
+  display_name: "攻击链编排"
+  short_description: "在明确授权范围内规划和验证多阶段安全测试路径。"

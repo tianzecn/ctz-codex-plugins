@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF Web 运行时"
+  short_description: "检查实时请求、路由、认证、上传与 Worker 流程。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-web-runtime to inspect live browser requests, routing, auth state, uploads, and worker flow in this challenge."
+
+policy:
+  allow_implicit_invocation: false

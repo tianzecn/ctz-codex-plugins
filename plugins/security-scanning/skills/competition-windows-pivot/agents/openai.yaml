@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF Windows 横向"
+  short_description: "追踪 Kerberos 重放、主机横向与票据接受服务。"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-windows-pivot to trace the Kerberos or Windows host pivot chain and prove which service accepted the credential or ticket."
+
+policy:
+  allow_implicit_invocation: false

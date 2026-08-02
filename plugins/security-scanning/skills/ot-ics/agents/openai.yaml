@@ -1,0 +1,3 @@
+interface:
+  display_name: "OT 与 ICS 安全"
+  short_description: "以被动优先方式评估工控分区、PLC、SCADA 与工业协议。"

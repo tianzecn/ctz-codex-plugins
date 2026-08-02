@@ -1,0 +1,3 @@
+interface:
+  display_name: "数据库安全评估"
+  short_description: "评估数据库暴露、认证、权限、配置与数据访问边界。"

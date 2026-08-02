@@ -1,0 +1,3 @@
+interface:
+  display_name: "协议逆向"
+  short_description: "从 PCAP 和运行行为恢复自定义协议、Protobuf 与 gRPC。"

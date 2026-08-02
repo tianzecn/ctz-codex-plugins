@@ -28,6 +28,7 @@ This repository contains Codex plugins packaged for installation through the Cod
 - `oz-skills`: warpdotdev/oz-skills packaged as a Codex plugin with 15 non-deprecated Agent Skills for docs updates, Terraform style, CI fixes, repository investigation, scheduling, SEO/AEO, accessibility, dbt lookup, PR creation, web app testing, performance audits, analysis artifacts, MCP building, bug triage, and issue dedupe.
 - `product-planning`: phuryn/pm-skills packaged as a Codex plugin with 68 PM skills for product discovery, strategy, execution, market research, analytics, GTM, growth, PM utility work, and AI-built software shipping checks.
 - `multi-model-collaboration`: a capability plugin combining `gpt56-sol-pro-consult`, `workbuddy-cli-model-bridge`, LearnPrompt/partner-skill, and its standalone `idea-king` companion for verified second-opinion reviews, safe WorkBuddy CLI model registration, bidirectional Claude Code/Codex orchestration, and first-principles adversarial plan review.
+- `security-scanning`: zhaoxuya520/reverse-skill packaged as a Codex plugin with 83 routing and specialist entries for reverse engineering, explicitly authorized security testing, malware analysis, forensics, mobile and firmware research, cloud and identity security, threat hunting, and CTF sandboxes, with a Codex-compatible authorization gate.
 
 ## Install
 

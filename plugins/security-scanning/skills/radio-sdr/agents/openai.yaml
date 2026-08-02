@@ -1,0 +1,3 @@
+interface:
+  display_name: "射频与 SDR 安全"
+  short_description: "在授权频段或屏蔽环境中分析无线信号和协议。"

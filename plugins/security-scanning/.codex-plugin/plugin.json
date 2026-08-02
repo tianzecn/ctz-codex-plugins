@@ -1,0 +1,42 @@
+{
+  "name": "security-scanning",
+  "version": "0.1.0",
+  "description": "Security scanning, reverse engineering, authorized penetration testing, digital forensics, and CTF routing skills packaged from zhaoxuya520/reverse-skill.",
+  "author": {
+    "name": "zhaoxuya520",
+    "url": "https://github.com/zhaoxuya520"
+  },
+  "homepage": "https://github.com/zhaoxuya520/reverse-skill",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT AND GPL-3.0-only",
+  "keywords": [
+    "security-scanning",
+    "reverse-engineering",
+    "authorized-pentest",
+    "digital-forensics",
+    "malware-analysis",
+    "ctf"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "安全扫描与逆向",
+    "shortDescription": "安全扫描、逆向分析、授权渗透、取证与 CTF 任务路由。",
+    "longDescription": "Security Scanning packages the reverse-skill routing system for Codex. It selects focused workflows for reverse engineering, authorized security assessment, malware analysis, digital forensics, mobile and firmware analysis, cloud and identity security, threat hunting, and competition sandboxes while preserving explicit scope and evidence gates.",
+    "developerName": "zhaoxuya520",
+    "category": "DevOps & Security",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Execute"
+    ],
+    "websiteURL": "https://github.com/zhaoxuya520/reverse-skill",
+    "defaultPrompt": [
+      "为这个已授权的安全任务选择正确的分析技能并建立范围。",
+      "分析这个本地二进制或移动应用，并保留可复现证据。",
+      "为这个明确标注为 CTF 的挑战选择最小可行解题路径。"
+    ],
+    "brandColor": "#0F766E",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg"
+  }
+}

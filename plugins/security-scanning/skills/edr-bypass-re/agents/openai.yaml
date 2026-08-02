@@ -1,0 +1,3 @@
+interface:
+  display_name: "EDR 机制逆向"
+  short_description: "在授权实验环境中分析 EDR Hook、遥测与检测机制。"

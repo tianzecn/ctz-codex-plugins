@@ -1,0 +1,3 @@
+interface:
+  display_name: "Pwn 利用链"
+  short_description: "在 CTF 或授权实验环境中把漏洞转化为可复现利用链。"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "API 安全评估"
+  short_description: "评估 REST、GraphQL 与 WebSocket 的认证、授权和输入风险。"

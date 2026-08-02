@@ -1,0 +1,3 @@
+interface:
+  display_name: "逆向与安全技能路由"
+  short_description: "为逆向、安全评估、取证和 CTF 任务选择最合适的技能。"
