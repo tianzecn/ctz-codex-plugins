@@ -1,0 +1,3 @@
+interface:
+  display_name: "对标视频内容拆解"
+  short_description: "逐句拆解口播稿并给出可模仿结构和优化建议"

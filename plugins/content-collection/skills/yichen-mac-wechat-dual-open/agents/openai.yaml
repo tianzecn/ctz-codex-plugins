@@ -1,0 +1,3 @@
+interface:
+  display_name: "Mac 微信双开"
+  short_description: "创建、修复和启动独立签名的第二个微信应用"

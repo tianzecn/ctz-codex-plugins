@@ -1,0 +1,3 @@
+interface:
+  display_name: "对话精华总结"
+  short_description: "将当前对话提炼为结构化 Obsidian 笔记"

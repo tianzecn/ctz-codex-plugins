@@ -29,6 +29,7 @@ This repository contains Codex plugins packaged for installation through the Cod
 - `product-planning`: phuryn/pm-skills packaged as a Codex plugin with 68 PM skills for product discovery, strategy, execution, market research, analytics, GTM, growth, PM utility work, and AI-built software shipping checks.
 - `multi-model-collaboration`: a capability plugin combining `gpt56-sol-pro-consult`, `workbuddy-cli-model-bridge`, LearnPrompt/partner-skill, and its standalone `idea-king` companion for verified second-opinion reviews, safe WorkBuddy CLI model registration, bidirectional Claude Code/Codex orchestration, and first-principles adversarial plan review.
 - `security-scanning`: zhaoxuya520/reverse-skill packaged as a Codex plugin with 83 routing and specialist entries for reverse engineering, explicitly authorized security testing, malware analysis, forensics, mobile and firmware research, cloud and identity security, threat hunting, and CTF sandboxes, with a Codex-compatible authorization gate.
+- `content-collection`: mcncarl/yichen-skills packaged as a Codex plugin with 19 skills for public-web research, known-link archiving, social bookmark export, audio/video transcription and rough cuts, X Articles drafts, WeChat and WeCom data workflows, Agent memory, and Grok consultation; redistribution is based on the written permission confirmed in `plugins/content-collection/UPSTREAM.md`.
 
 ## Install
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent 记忆库"
+  short_description: "安装和维护共享的 Markdown-first Agent 记忆系统"
+  default_prompt: "Use $yichen-agent-memory to install, inspect, or maintain a local Agent Memory Vault system."
