@@ -1,0 +1,5 @@
+interface:
+  display_name: "Matt 技能导航"
+  short_description: "为当前工程任务选择合适的技能或工作流"
+policy:
+  allow_implicit_invocation: false

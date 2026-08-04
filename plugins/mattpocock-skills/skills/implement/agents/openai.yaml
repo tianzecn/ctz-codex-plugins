@@ -1,0 +1,5 @@
+interface:
+  display_name: "按规格实施"
+  short_description: "根据规格或工单实施并完成评审闭环"
+policy:
+  allow_implicit_invocation: false

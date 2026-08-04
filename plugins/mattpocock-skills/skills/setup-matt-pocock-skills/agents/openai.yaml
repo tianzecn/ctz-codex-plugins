@@ -1,3 +1,5 @@
 interface:
-  display_name: Matt Pocock 技能初始化
-  short_description: 为工程技能配置 AGENTS.md、问题跟踪和领域文档上下文。
+  display_name: "Matt Pocock 技能初始化"
+  short_description: "为代码库配置 Issue、标签与领域文档"
+policy:
+  allow_implicit_invocation: false

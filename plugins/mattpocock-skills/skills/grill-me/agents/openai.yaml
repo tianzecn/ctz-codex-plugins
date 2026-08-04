@@ -1,3 +1,5 @@
 interface:
-  display_name: 方案拷问
-  short_description: 持续追问计划或设计，直到形成清晰共识。
+  display_name: "计划深度拷问"
+  short_description: "通过逐问访谈澄清并强化计划"
+policy:
+  allow_implicit_invocation: false

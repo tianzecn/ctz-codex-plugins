@@ -1,0 +1,3 @@
+interface:
+  display_name: "合并冲突解决"
+  short_description: "按双方意图逐块解决合并与变基冲突"

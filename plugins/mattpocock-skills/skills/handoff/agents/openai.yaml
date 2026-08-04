@@ -1,3 +1,5 @@
 interface:
-  display_name: 交接文档
-  short_description: 把当前对话压缩为可交给其他 Agent 接手的文档。
+  display_name: "会话交接"
+  short_description: "将当前对话压缩为可继续执行的交接文档"
+policy:
+  allow_implicit_invocation: false

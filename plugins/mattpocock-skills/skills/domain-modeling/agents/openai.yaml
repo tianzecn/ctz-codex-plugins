@@ -1,0 +1,3 @@
+interface:
+  display_name: "领域建模"
+  short_description: "构建、检验并持续完善领域模型"

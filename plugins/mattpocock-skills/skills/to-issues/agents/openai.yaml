@@ -1,3 +1,0 @@
-interface:
-  display_name: 计划转 Issue
-  short_description: 把计划、规格或 PRD 拆成可独立处理的 issue。

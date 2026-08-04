@@ -1,0 +1,5 @@
+interface:
+  display_name: "引导式教学"
+  short_description: "在可持续工作区中分阶段学习概念"
+policy:
+  allow_implicit_invocation: false

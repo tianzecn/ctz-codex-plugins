@@ -1,0 +1,5 @@
+interface:
+  display_name: "对话转规格"
+  short_description: "把当前对话整理为可发布的实现规格"
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,3 @@
+interface:
+  display_name: "代码审查"
+  short_description: "从工程规范与实现规格两条轴审查差异"
