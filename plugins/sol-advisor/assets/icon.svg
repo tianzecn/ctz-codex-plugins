@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Sol Advisor</title>
+  <desc id="desc">A connected sun and review orbit symbol</desc>
+  <rect width="512" height="512" rx="112" fill="#2563EB"/>
+  <circle cx="256" cy="218" r="76" fill="none" stroke="#FFFFFF" stroke-width="28"/>
+  <path d="M256 92v42M256 302v42M130 218h42M340 218h42M167 129l30 30M315 277l30 30M345 129l-30 30M197 277l-30 30" fill="none" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round"/>
+  <path d="M164 392c38-34 74-50 108-48 31 2 57 17 76 44" fill="none" stroke="#BFDBFE" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="164" cy="392" r="18" fill="#FFFFFF"/>
+  <circle cx="348" cy="388" r="18" fill="#FFFFFF"/>
+</svg>

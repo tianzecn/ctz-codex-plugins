@@ -31,6 +31,7 @@ This repository contains Codex plugins packaged for installation through the Cod
 - `security-scanning`: zhaoxuya520/reverse-skill packaged as a Codex plugin with 83 routing and specialist entries for reverse engineering, explicitly authorized security testing, malware analysis, forensics, mobile and firmware research, cloud and identity security, threat hunting, and CTF sandboxes, with a Codex-compatible authorization gate.
 - `content-collection`: mcncarl/yichen-skills packaged as a Codex plugin with 19 skills for public-web research, known-link archiving, social bookmark export, audio/video transcription and rough cuts, X Articles drafts, WeChat and WeCom data workflows, Agent memory, and Grok consultation; redistribution is based on the written permission confirmed in `plugins/content-collection/UPSTREAM.md`.
 - `content-writing`: KKKKhazix/human-writing packaged as a Codex plugin with the `human-writing` skill for Chinese long-form writing, factual and fictional material checks, prose revision, natural rhythm, and local detection of formulaic AI phrasing.
+- `sol-advisor`: DannyMac180/sol-advisor packaged as a Codex-native architecture and delivery orchestrator with a default Terra / High implementation lane, fresh Sol review, and an explicitly authorized Luna / Max app-task lane.
 
 ## Install
 
