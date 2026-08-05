@@ -1,7 +1,7 @@
 {
   "name": "mattpocock-skills",
-  "version": "1.2.0",
-  "description": "Matt Pocock 的真实工程 skills 合集，覆盖需求拷问、规格与工单、诊断、TDD、代码审查、领域建模和架构改进。",
+  "version": "1.2.1",
+  "description": "Matt Pocock 的真实工程 skills 合集，覆盖需求拷问、规格与工单、诊断、TDD、代码审查、领域建模、配置向导和智能体写作。",
   "author": {
     "name": "Matt Pocock",
     "url": "https://github.com/mattpocock"
@@ -19,13 +19,15 @@
     "triage",
     "code-review",
     "domain-modeling",
-    "grilling"
+    "grilling",
+    "wizard",
+    "writing-for-agents"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Matt Pocock 工程技能",
-    "shortDescription": "面向真实工程工作的规格、工单、诊断、TDD、审查和建模工作流。",
-    "longDescription": "将 mattpocock/skills 中 .claude-plugin/plugin.json 声明的 22 个 skills 打包为 Codex 插件。适合在真实代码库中做需求拷问、规格生成、工单拆分、实施、Bug 诊断、测试驱动开发、代码审查、领域建模、架构改进、Issue 分诊、原型探索、研究和会话交接。",
+    "shortDescription": "面向真实工程工作的规格、工单、诊断、TDD、审查、向导和写作工作流。",
+    "longDescription": "将 mattpocock/skills 中 .claude-plugin/plugin.json 声明的 25 个 skills 打包为 Codex 插件。适合在真实代码库中做需求拷问、规格生成、工单拆分、实施、Bug 诊断、测试驱动开发、代码审查、领域建模、架构改进、Issue 分诊、原型探索、研究、配置向导、异步问卷、解释重述、智能体文档和会话交接。",
     "developerName": "Matt Pocock",
     "category": "Productivity",
     "capabilities": [

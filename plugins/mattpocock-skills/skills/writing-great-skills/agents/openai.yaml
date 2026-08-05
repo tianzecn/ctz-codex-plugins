@@ -1,5 +1,0 @@
-interface:
-  display_name: "高质量技能编写"
-  short_description: "用可预测性原则设计和改进 Agent 技能"
-policy:
-  allow_implicit_invocation: false

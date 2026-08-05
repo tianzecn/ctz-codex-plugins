@@ -1,0 +1,5 @@
+interface:
+  display_name: "面向智能体写作"
+  short_description: "编写清晰、可预测的智能体说明文档"
+policy:
+  allow_implicit_invocation: false

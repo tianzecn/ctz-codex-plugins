@@ -1,0 +1,5 @@
+interface:
+  display_name: "换个说法"
+  short_description: "补足缺失上下文，用更简单的话重新解释"
+policy:
+  allow_implicit_invocation: false

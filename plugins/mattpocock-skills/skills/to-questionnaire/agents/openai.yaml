@@ -1,0 +1,5 @@
+interface:
+  display_name: "生成问卷"
+  short_description: "把关键问题整理成供他人填写的文档"
+policy:
+  allow_implicit_invocation: false
