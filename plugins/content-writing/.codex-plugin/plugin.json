@@ -1,0 +1,43 @@
+{
+  "name": "content-writing",
+  "version": "1.1.0",
+  "description": "用于中文现实文章、故事、口播等创作与改稿的活人感写作插件。",
+  "author": {
+    "name": "KKKKhazix",
+    "url": "https://github.com/KKKKhazix"
+  },
+  "homepage": "https://github.com/KKKKhazix/human-writing",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "chinese-writing",
+    "content-writing",
+    "rewriting",
+    "human-style",
+    "prose",
+    "fiction"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "内容写作",
+    "shortDescription": "创作和改写有材料、有判断、有中文韵律的作品。",
+    "longDescription": "内容写作插件包含 human-writing，面向知乎回答、公众号文章、博客、评论、人物故事、科普、教程、评测、小说、口播和演讲稿。它先检查现实材料与事实边界，再完成创作和逐段改稿，并可用本地检查脚本发现翻案腔、模型路标、商业黑话和节奏问题。",
+    "developerName": "KKKKhazix",
+    "category": "Content & Distribution",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/KKKKhazix/human-writing",
+    "defaultPrompt": [
+      "把这些材料写成一篇有活人感和中文韵律的文章。",
+      "重写这篇中文稿，删掉重复解释、报告腔和模型腔。",
+      "检查这篇稿子的事实边界、推进节奏和自然中文表达。"
+    ],
+    "brandColor": "#C4473A",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}
