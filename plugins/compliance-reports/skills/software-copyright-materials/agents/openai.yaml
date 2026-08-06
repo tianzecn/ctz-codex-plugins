@@ -1,0 +1,4 @@
+interface:
+  display_name: "软著申请资料生成"
+  short_description: "从真实项目生成可核对的软件著作权 Word 和 TXT 材料"
+  default_prompt: "使用 $software-copyright-materials 读取当前项目，先生成软著申请资料草稿，逐阶段确认后再输出 Word 和 TXT。"

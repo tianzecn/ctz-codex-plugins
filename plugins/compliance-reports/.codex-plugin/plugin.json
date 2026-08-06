@@ -1,0 +1,42 @@
+{
+  "name": "compliance-reports",
+  "version": "1.0.0",
+  "description": "用于生成、核对和交付合规申报材料的 Codex 插件。",
+  "author": {
+    "name": "Fokkyp",
+    "url": "https://github.com/Fokkyp"
+  },
+  "homepage": "https://github.com/Fokkyp/SoftwareCopyright-Skill",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "compliance-reports",
+    "software-copyright",
+    "legal-documents",
+    "docx",
+    "软著"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "合规报告",
+    "shortDescription": "从真实项目生成可核对的合规申报材料。",
+    "longDescription": "合规报告插件包含软件著作权申请资料生成技能，可分析真实项目、整理申请表字段、抽取真实源代码、编写操作手册，并在人工确认门禁后生成 Word 和 TXT 材料。",
+    "developerName": "Fokkyp",
+    "category": "Legal & Compliance",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/Fokkyp/SoftwareCopyright-Skill",
+    "defaultPrompt": [
+      "读取当前项目，生成软件著作权申请资料草稿。",
+      "从真实源码整理软著代码材料，并让我确认抽取范围。",
+      "核对软著申请表、操作手册和代码材料是否一致。"
+    ],
+    "brandColor": "#315B78",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

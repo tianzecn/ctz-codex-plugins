@@ -32,6 +32,7 @@ This repository contains Codex plugins packaged for installation through the Cod
 - `content-collection`: mcncarl/yichen-skills packaged as a Codex plugin with 19 skills for public-web research, known-link archiving, social bookmark export, audio/video transcription and rough cuts, X Articles drafts, WeChat and WeCom data workflows, Agent memory, and Grok consultation; redistribution is based on the written permission confirmed in `plugins/content-collection/UPSTREAM.md`.
 - `content-writing`: KKKKhazix/human-writing packaged as a Codex plugin with the `human-writing` skill for Chinese long-form writing, factual and fictional material checks, prose revision, natural rhythm, and local detection of formulaic AI phrasing.
 - `sol-advisor`: DannyMac180/sol-advisor packaged as a Codex-native architecture and delivery orchestrator with a default Terra / High implementation lane, fresh Sol review, and an explicitly authorized Luna / Max app-task lane.
+- `compliance-reports`: Fokkyp/SoftwareCopyright-Skill packaged as a Codex plugin with `software-copyright-materials` for analyzing real projects, preparing software copyright registration fields, extracting traceable source-code materials, drafting user manuals, and generating confirmed Word/TXT application documents.
 
 ## Install
 
