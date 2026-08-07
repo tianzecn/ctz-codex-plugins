@@ -1,0 +1,46 @@
+{
+  "name": "website-replication",
+  "version": "1.0.0",
+  "description": "Evidence-backed website and web-app behavior audits that produce implementation-ready parity plans and PRDs.",
+  "author": {
+    "name": "Fred",
+    "url": "https://github.com/leosssvip-dot"
+  },
+  "homepage": "https://github.com/leosssvip-dot/website-replication-skill",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "website-analysis",
+    "product-teardown",
+    "competitor-analysis",
+    "interaction-audit",
+    "feature-parity",
+    "prd",
+    "requirements"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "网站功能拆解",
+    "shortDescription": "拆解网站与 Web App 的功能、流程、状态和依赖，并生成可开发 PRD。",
+    "longDescription": "Website Replication 基于真实页面、交互、响应式状态和脱敏网络证据，输出页面区域关系、控件意图、状态机、API/数据依赖、功能缺口、验收条件与实现就绪 PRD。它参考产品行为而不复制品牌、文案、受保护资产或独特视觉表达。",
+    "developerName": "Fred",
+    "category": "Product & Management",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Analyze",
+      "Write",
+      "Network"
+    ],
+    "websiteURL": "https://github.com/leosssvip-dot/website-replication-skill",
+    "defaultPrompt": [
+      "分析这个竞品网站的功能、交互、状态和后端依赖，并生成可开发的 PRD。",
+      "对这个 Web App 做单工作流快速审计，给出功能清单、证据、缺口和验收条件。",
+      "拆解这个参考产品的桌面端和移动端流程，只借鉴行为，不复制品牌和视觉表达。"
+    ],
+    "brandColor": "#0F766E",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

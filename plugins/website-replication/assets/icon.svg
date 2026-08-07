@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Website Replication</title>
+  <desc id="desc">Browser window with an inspection lens and checklist</desc>
+  <rect width="128" height="128" rx="24" fill="#0F766E"/>
+  <rect x="18" y="24" width="92" height="76" rx="8" fill="#F0FDFA"/>
+  <path d="M18 42h92" stroke="#115E59" stroke-width="6"/>
+  <circle cx="30" cy="33" r="3" fill="#14B8A6"/>
+  <circle cx="41" cy="33" r="3" fill="#14B8A6"/>
+  <path d="M32 58h28M32 72h22M32 86h18" stroke="#0F766E" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="78" cy="75" r="18" fill="none" stroke="#134E4A" stroke-width="7"/>
+  <path d="m91 88 17 17" stroke="#134E4A" stroke-width="9" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Website Replication"
+  short_description: "Audit behavior, state, safety, and parity PRDs"
+  default_prompt: "Use $website-replication-skill to audit a reference website or web app and produce an evidence-backed, differentiated parity plan."
+policy:
+  allow_implicit_invocation: true
