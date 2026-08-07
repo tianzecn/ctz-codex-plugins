@@ -1,0 +1,3 @@
+interface:
+  display_name: 视频观看
+  short_description: 粘贴视频链接或本地路径，下载视频、抽取画面帧并转写，回答关于视频内容的问题。

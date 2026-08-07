@@ -33,6 +33,7 @@ This repository contains Codex plugins packaged for installation through the Cod
 - `content-writing`: KKKKhazix/human-writing packaged as a Codex plugin with the `human-writing` skill for Chinese long-form writing, factual and fictional material checks, prose revision, natural rhythm, and local detection of formulaic AI phrasing.
 - `sol-advisor`: DannyMac180/sol-advisor packaged as a Codex-native architecture and delivery orchestrator with a default Terra / High implementation lane, fresh Sol review, and an explicitly authorized Luna / Max app-task lane.
 - `compliance-reports`: Fokkyp/SoftwareCopyright-Skill packaged as a Codex plugin with `software-copyright-materials` for analyzing real projects, preparing software copyright registration fields, extracting traceable source-code materials, drafting user manuals, and generating confirmed Word/TXT application documents.
+- `media-processing`: bradautomates/claude-video packaged as a Codex plugin with the `watch` skill for letting an agent watch a video — yt-dlp download, ffmpeg frame extraction, caption or Whisper transcription, and video-grounded Q&A.
 
 ## Install
 

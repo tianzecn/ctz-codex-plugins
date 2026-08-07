@@ -1,0 +1,45 @@
+{
+  "name": "media-processing",
+  "version": "0.2.0",
+  "description": "Media processing skills that let the agent watch a video: downloads with yt-dlp, extracts auto-scaled frames with ffmpeg, pulls captions or falls back to Whisper, and hands frames + transcript to the model so it can answer questions about the video.",
+  "author": {
+    "name": "Bradley Bonanno"
+  },
+  "homepage": "https://github.com/bradautomates/claude-video",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "watch",
+    "youtube",
+    "vimeo",
+    "tiktok",
+    "transcription",
+    "whisper",
+    "yt-dlp",
+    "ffmpeg",
+    "multimodal",
+    "frames"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "媒体处理",
+    "shortDescription": "粘贴视频链接或本地路径，让智能体观看视频并回答内容问题。",
+    "longDescription": "media-processing 提供 watch 技能，让智能体观看任意视频：用 yt-dlp 下载、ffmpeg 抽取自适应画面帧、优先取平台字幕（缺失时回退 Whisper API 转写），再把画面帧与时间戳转写稿交给模型，回答基于视频画面和音频内容的问题。",
+    "developerName": "Bradley Bonanno",
+    "category": "Content & Distribution",
+    "capabilities": [
+      "Interactive",
+      "Read"
+    ],
+    "websiteURL": "https://github.com/bradautomates/claude-video",
+    "defaultPrompt": [
+      "/watch https://youtu.be/dQw4w9WgXcQ what happens at the 30 second mark?",
+      "/watch ~/Movies/screen-recording.mp4 when does the UI break?",
+      "/watch https://youtu.be/<long-talk> summarize this"
+    ],
+    "brandColor": "#E11D48",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg"
+  }
+}
