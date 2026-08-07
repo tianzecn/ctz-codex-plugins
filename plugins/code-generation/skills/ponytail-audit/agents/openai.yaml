@@ -1,0 +1,3 @@
+interface:
+  display_name: "全仓库精简审计"
+  short_description: "扫描整个代码库并按收益列出可删除或简化的内容"

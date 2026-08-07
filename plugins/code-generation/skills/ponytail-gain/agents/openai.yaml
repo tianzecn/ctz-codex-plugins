@@ -1,0 +1,3 @@
+interface:
+  display_name: "Ponytail 效益看板"
+  short_description: "展示 Ponytail 上游基准测试中的代码量、成本与速度指标"

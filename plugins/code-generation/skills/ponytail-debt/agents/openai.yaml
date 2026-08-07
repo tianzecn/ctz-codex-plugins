@@ -1,0 +1,3 @@
+interface:
+  display_name: "Ponytail 技术债台账"
+  short_description: "汇总代码中的 ponytail 标记并形成可追踪的技术债清单"

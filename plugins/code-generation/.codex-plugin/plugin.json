@@ -1,0 +1,42 @@
+{
+  "name": "code-generation",
+  "version": "4.8.4",
+  "description": "Minimal code generation and over-engineering review skills imported from DietrichGebert/ponytail.",
+  "author": {
+    "name": "Dietrich Gebert",
+    "url": "https://github.com/DietrichGebert"
+  },
+  "homepage": "https://github.com/DietrichGebert/ponytail",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "code-generation",
+    "yagni",
+    "minimalism",
+    "code-review",
+    "over-engineering",
+    "ponytail"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "代码生成",
+    "shortDescription": "用最小正确实现完成开发，并审查过度设计与冗余。",
+    "longDescription": "代码生成插件收录 Ponytail 的六个正式技能，用 YAGNI、标准库优先、原生能力优先和最小正确实现指导编码、修复、重构与设计，并提供差异审查、全仓库精简审计、技术债台账、基准看板和使用帮助。",
+    "developerName": "Dietrich Gebert",
+    "category": "Software Engineering",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/DietrichGebert/ponytail",
+    "defaultPrompt": [
+      "用最小正确实现完成当前编码任务。",
+      "审查这个差异里可以删除的过度设计。",
+      "扫描代码库并列出最值得精简的部分。"
+    ],
+    "brandColor": "#111111",
+    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo.png"
+  }
+}
