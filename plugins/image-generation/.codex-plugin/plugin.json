@@ -1,15 +1,14 @@
 {
   "name": "image-generation",
-  "version": "0.23.2",
-  "description": "Image generation skills for original editorial illustrations, mascot-led visual metaphors, article art, diagrams, mini-comics, and print-style visual systems.",
+  "version": "0.23.3",
+  "description": "Image generation skills for original editorial illustrations, photo-derived abstractions, visual metaphors, article art, diagrams, mini-comics, and print-style visual systems.",
   "author": {
-    "name": "Trevin Chow",
-    "email": "trevin@trevinchow.com",
-    "url": "https://github.com/tmchow"
+    "name": "Trevin Chow and ZzzLc0405",
+    "url": "https://github.com/tianzecn/ctz-codex-plugins"
   },
-  "homepage": "https://illo-skill.com",
+  "homepage": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/image-generation",
   "repository": "https://github.com/tianzecn/ctz-codex-plugins",
-  "license": "MIT",
+  "license": "MIT AND NOASSERTION",
   "keywords": [
     "image-generation",
     "illustration",
@@ -17,25 +16,27 @@
     "mascot",
     "riso",
     "visual-metaphor",
+    "photo-abstraction",
+    "memory-panel",
     "illo"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "图像生成",
-    "shortDescription": "生成原创编辑插画、角色化视觉隐喻、文章配图和手绘解释图。",
-    "longDescription": "Image Generation packages tmchow/illo-skill as a Codex skill for original editorial illustrations where a recurring mascot performs the idea. It supports article art, single-concept visuals, mini-comics, hand-built explainer diagrams, custom characters, ten bundled print looks, palette derivation, Codex CLI image generation, and OpenRouter fallback.",
-    "developerName": "Trevin Chow",
+    "shortDescription": "生成原创编辑插画、照片衍生抽象构成、视觉隐喻和手绘解释图。",
+    "longDescription": "Image Generation packages tmchow/illo-skill and ZzzLc0405/photo-abstract-editorial as Codex skills. It supports mascot-led editorial illustrations, article art, mini-comics, hand-built explainer diagrams, custom print looks, and faithful photo-plus-abstraction compositions derived from an uploaded photograph's observed spatial and color relationships.",
+    "developerName": "Trevin Chow; ZzzLc0405",
     "category": "Design & Creative",
     "capabilities": [
       "Interactive",
       "Read",
       "Write"
     ],
-    "websiteURL": "https://github.com/tmchow/illo-skill",
+    "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/image-generation",
     "defaultPrompt": [
       "Use illo to illustrate this article with one editorial image.",
       "Use illo to create a mascot-led visual metaphor for this idea.",
-      "Use illo to make a mini-comic explaining this before-and-after."
+      "用 photo-abstract-editorial 把这张照片制作成摄影与抽象面板组合的编辑作品。"
     ],
     "brandColor": "#F05A8A",
     "composerIcon": "./assets/icon.svg",

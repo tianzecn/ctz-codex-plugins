@@ -1,0 +1,4 @@
+interface:
+  display_name: "照片抽象编辑作品"
+  short_description: "从原照片提炼空间与色彩关系，生成摄影与抽象面板组合作品。"
+  default_prompt: "用 photo-abstract-editorial 把这张照片制作成摄影与抽象面板组合的编辑作品。"
