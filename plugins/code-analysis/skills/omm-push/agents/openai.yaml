@@ -1,0 +1,3 @@
+interface:
+  display_name: Oh-my-mermaid 云端发布
+  short_description: 将已授权的 .omm 架构文档发布到 Oh-my-mermaid 云端。

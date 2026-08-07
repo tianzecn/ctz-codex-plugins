@@ -1,0 +1,3 @@
+interface:
+  display_name: Oh-my-mermaid 架构扫描
+  short_description: 递归扫描代码库并生成可浏览的 .omm Mermaid 架构文档。
