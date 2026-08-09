@@ -1,13 +1,12 @@
 {
   "name": "agent-orchestration",
-  "version": "0.1.0",
-  "description": "Agent orchestration skills for supervised multi-agent and dynamic workflow execution in Codex.",
+  "version": "0.1.1",
+  "description": "Agent orchestration skills for supervised dynamic workflows and LoopX-managed long-running goals in Codex.",
   "author": {
-    "name": "Danny McAteer",
-    "email": "mcateerd2@gmail.com",
-    "url": "https://github.com/DannyMac180"
+    "name": "Multiple upstream authors",
+    "url": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/agent-orchestration"
   },
-  "homepage": "https://github.com/DannyMac180/skills",
+  "homepage": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/agent-orchestration",
   "repository": "https://github.com/tianzecn/ctz-codex-plugins",
   "license": "MIT",
   "keywords": [
@@ -16,26 +15,31 @@
     "subagents",
     "workflow",
     "goal-mode",
+    "loopx",
+    "control-plane",
+    "long-running-agents",
     "verification",
     "agent-skills"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Agent 编排",
-    "shortDescription": "用于有监督 Agent 工作流编排的技能集。",
-    "longDescription": "Agent Orchestration packages DannyMac180/skills for Codex. It helps agents plan and run supervised dynamic workflows with explicit success criteria, approval gates, subagents or simulated work packets, integration, verification, and reusable workflow artifacts.",
-    "developerName": "Danny McAteer",
+    "shortDescription": "编排有监督工作流，并治理 LoopX 长程 Agent 目标。",
+    "longDescription": "Agent 编排插件整合有监督动态工作流与 LoopX 长程 Agent 控制面技能，覆盖任务拆分、授权闸门、子 Agent 协作、项目连接、长期资料登记、PR 计划与评审、变更质量、素材生命周期和控制面自修复。LoopX 技能需要独立安装 loopx CLI。",
+    "developerName": "多位上游作者",
     "category": "AI & Agent",
     "capabilities": [
       "Interactive",
       "Read",
-      "Write"
+      "Analyze",
+      "Write",
+      "Network"
     ],
-    "websiteURL": "https://github.com/DannyMac180/skills",
+    "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/agent-orchestration",
     "defaultPrompt": [
       "Use codex-dynamic-workflows to orchestrate this complex task.",
-      "Plan a supervised multi-agent workflow with approval gates.",
-      "Create workflow packets, integrate results, and verify the outcome."
+      "用 LoopX 连接当前项目，检查 gate 和下一条 todo。",
+      "用 LoopX 维护这组 PR 的长期交付计划并给出证据化评审。"
     ],
     "brandColor": "#2563EB",
     "composerIcon": "./assets/icon.svg",

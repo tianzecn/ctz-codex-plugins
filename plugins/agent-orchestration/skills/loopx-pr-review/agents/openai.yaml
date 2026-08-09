@@ -1,0 +1,4 @@
+interface:
+  display_name: "LoopX PR 评审"
+  short_description: "基于完整证据深入评审 LoopX PR"
+  default_prompt: "Use $loopx-pr-review to interpret the entire PR: read every changed file, explain key symbols and control/data flow, walk positive and negative paths, cover all surfaces in the Chinese five-block review, and append one concise English verdict."

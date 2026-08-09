@@ -1,0 +1,4 @@
+interface:
+  display_name: "LoopX 文档登记"
+  short_description: "把长期项目资料登记到 LoopX 权威状态"
+  default_prompt: "Use the LoopX doc registry workflow to register or retrieve durable project materials from the authoritative project state."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "LoopX 自修复"
+  short_description: "诊断并修复 LoopX 控制面漂移"
+  default_prompt: "Use the LoopX self-repair workflow to diagnose the current stuck or surprising project state, identify the likely control-plane gap, and propose or implement the smallest durable repair."

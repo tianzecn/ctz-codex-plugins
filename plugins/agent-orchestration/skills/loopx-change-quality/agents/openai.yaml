@@ -1,0 +1,4 @@
+interface:
+  display_name: "LoopX 变更质量"
+  short_description: "依据精确范围审查最终差异与质量回执"
+  default_prompt: "Use the goal policy and LoopX exact-scope packet to review the final diff, apply at most one allowed safe fix, record the receipt, and enforce it at premerge."

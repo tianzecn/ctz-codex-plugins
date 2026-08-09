@@ -1,0 +1,4 @@
+interface:
+  display_name: "LoopX PR 计划"
+  short_description: "跟踪跨仓库 PR 计划及关键变更"
+  default_prompt: "Use $loopx-pr-program to reconcile a provider-neutral PR/MR snapshot, preserve requirement and dependency priorities, and write back only material changes."

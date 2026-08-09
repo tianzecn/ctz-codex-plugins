@@ -1,0 +1,4 @@
+interface:
+  display_name: "LoopX 素材生命周期"
+  short_description: "管理按需启用的无损素材生命周期"
+  default_prompt: "Use the official LoopX Material workflow for inventory, exact-read evidence, lossless rebuild, bounded rerank, owner-gated apply, and rollback."
