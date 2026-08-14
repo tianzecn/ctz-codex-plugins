@@ -1,13 +1,12 @@
 {
   "name": "task-planning",
-  "version": "2.38.1",
-  "description": "Task planning skills for Manus-style persistent markdown planning, progress tracking, and session recovery.",
+  "version": "2.38.2",
+  "description": "Task planning and session re-orientation skills for persistent plans, evidence-based status recovery, concise recaps, and concrete next-step decisions.",
   "author": {
-    "name": "OthmanAdi",
-    "email": "",
-    "url": "https://github.com/OthmanAdi"
+    "name": "Multiple upstream authors",
+    "url": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/task-planning"
   },
-  "homepage": "https://github.com/OthmanAdi/planning-with-files",
+  "homepage": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/task-planning",
   "repository": "https://github.com/tianzecn/ctz-codex-plugins",
   "license": "MIT",
   "keywords": [
@@ -19,25 +18,29 @@
     "context-engineering",
     "progress-tracking",
     "session-recovery",
+    "session-reorientation",
+    "context-rebuild",
+    "worktree",
+    "next-step",
     "agent-skills"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "任务规划",
-    "shortDescription": "用于复杂 Agent 工作流的持久化 Markdown 规划技能。",
-    "longDescription": "Task Planning packages OthmanAdi/planning-with-files as Codex skills for Manus-style file-based planning. It imports the canonical planning-with-files skill plus Arabic, German, Spanish, Simplified Chinese, and Traditional Chinese variants, with their templates and helper scripts for task_plan.md, findings.md, progress.md, plan attestation, progress checks, and session recovery.",
-    "developerName": "OthmanAdi",
+    "shortDescription": "持久化规划、会话复盘与下一步决策技能。",
+    "longDescription": "任务规划插件整合文件式持久化规划与会话恢复技能：既能用 task_plan.md、findings.md 和 progress.md 管理复杂任务，也能从会话或 Git 证据快速重建上下文、判断任务能否收尾，并给出可直接执行的下一步选项。",
+    "developerName": "多位上游作者",
     "category": "AI & Agent",
     "capabilities": [
       "Interactive",
       "Read",
       "Write"
     ],
-    "websiteURL": "https://github.com/OthmanAdi/planning-with-files",
+    "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/task-planning",
     "defaultPrompt": [
       "Use planning-with-files to plan this multi-step task.",
-      "Create task_plan.md, findings.md, and progress.md for this project.",
-      "Resume the active file-based plan and update progress."
+      "用 human-context-rebuild 帮我快速回忆当前任务进展。",
+      "用 whats-next 判断这个任务能否关闭，并给出下一步选项。"
     ],
     "brandColor": "#0F766E",
     "composerIcon": "./assets/icon.svg",
