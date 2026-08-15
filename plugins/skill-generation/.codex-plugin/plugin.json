@@ -1,9 +1,9 @@
 {
   "name": "skill-generation",
-  "version": "2.1.1",
-  "description": "Skill creation, polishing, evaluation, packaging, governance, and publishing workflows for Agent Skills.",
+  "version": "2.1.2",
+  "description": "Skill creation, document conversion, polishing, evaluation, packaging, governance, and publishing workflows for Agent Skills.",
   "author": {
-    "name": "LearnPrompt and Yao Team",
+    "name": "LearnPrompt, Yao Team, and virgiliojr94",
     "url": "https://github.com/tianzecn/ctz-codex-plugins"
   },
   "homepage": "https://github.com/tianzecn/ctz-codex-plugins",
@@ -20,14 +20,16 @@
     "learnprompt",
     "luban",
     "yao-meta-skill",
-    "skill-os"
+    "skill-os",
+    "book-to-skill",
+    "document-extraction"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Skill 生成与打磨",
-    "shortDescription": "用于创建、打磨、验证和发布 Agent Skills 的方法论技能集。",
-    "longDescription": "Skill Generation packages LearnPrompt/luban-skill and yaojingang/yao-meta-skill for Codex. It helps agents audit, benchmark, create, refactor, evaluate, govern, validate, showcase, package, and publish Agent Skills as reusable assets, with structured reports, trigger boundaries, comparison evidence, validation gates, release discipline, and post-release iteration guidance.",
-    "developerName": "LearnPrompt, Yao Team",
+    "shortDescription": "用于从书籍和文档生成、打磨、验证并发布 Agent Skills 的方法论技能集。",
+    "longDescription": "Skill Generation packages LearnPrompt/luban-skill, yaojingang/yao-meta-skill, and virgiliojr94/book-to-skill for Codex. It converts books and document collections into structured, on-demand Agent Skills and helps agents audit, benchmark, create, refactor, evaluate, govern, validate, showcase, package, and publish reusable skills with explicit validation and release gates.",
+    "developerName": "LearnPrompt, Yao Team, virgiliojr94",
     "category": "AI & Agent",
     "capabilities": [
       "Interactive",
@@ -36,9 +38,9 @@
     ],
     "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins",
     "defaultPrompt": [
+      "把这本书或文档集转换成可复用的 Agent Skill。",
       "让鲁班看看这个 skill，并给出打磨报告。",
-      "用 Yao Meta Skill 把这套重复流程做成可复用 skill 包。",
-      "为这个 skill 生成触发边界、评估证据和发布门禁。"
+      "用 Yao Meta Skill 把这套重复流程做成可复用 skill 包。"
     ],
     "brandColor": "#9333EA",
     "logo": "./assets/icon.svg",

@@ -1,0 +1,3 @@
+interface:
+  display_name: 书籍转 Skill
+  short_description: 将 PDF、EPUB、DOCX 等书籍与文档提炼为可复用、按需加载的 Agent Skill。
