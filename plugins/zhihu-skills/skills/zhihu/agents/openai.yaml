@@ -1,0 +1,3 @@
+interface:
+  display_name: 知乎开放平台
+  short_description: 搜索知乎与全网内容、获取热榜、调用知乎直答，并读取本人创作、关注与收藏。
