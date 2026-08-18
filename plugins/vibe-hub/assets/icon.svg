@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="VibeHub">
+  <rect width="128" height="128" rx="24" fill="#EEF2FF"/>
+  <path d="M64 12a52 52 0 1 0 0 104a52 52 0 0 0 0-104Zm0 26a26 26 0 1 1 0 52a26 26 0 0 1 0-52Z" fill="#3B5DDD"/>
+  <path d="M64 0v38M64 90v38M0 64h38M90 64h38" stroke="#3B5DDD" stroke-width="8" stroke-linecap="round"/>
+</svg>

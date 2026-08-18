@@ -1,0 +1,42 @@
+{
+  "name": "vibe-hub",
+  "version": "0.1.0",
+  "description": "VibeHub 术语表达助手：把 Vibe Coding 口语需求改成准确术语，并在开发过程中主动提示和链接相关概念。",
+  "author": {
+    "name": "oil-oil",
+    "url": "https://github.com/oil-oil"
+  },
+  "homepage": "https://github.com/oil-oil/vibe-hub-skill",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "vibehub",
+    "vibe-coding",
+    "terminology",
+    "prompt-rewriting",
+    "codex-skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "VibeHub 术语助手",
+    "shortDescription": "把模糊的 Vibe Coding 描述改写为准确需求，并主动提示相关术语。",
+    "longDescription": "将 oil-oil/vibe-hub-skill 打包为 Codex 插件。VibeHub 在不打断开发任务的前提下，把用户口语化描述改写成可直接交给 Agent 的准确需求，主动指出当前场景里最值得认识的 UI、网页、软件、Git 或 AI Agent 术语，给出通俗解释和 VibeHub 内链。",
+    "developerName": "oil-oil",
+    "category": "AI & Agent",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Network"
+    ],
+    "websiteURL": "https://github.com/oil-oil/vibe-hub-skill",
+    "defaultPrompt": [
+      "把这句话改成更准确、可以直接发给 Agent 的需求：这个按钮鼠标放上去变个色。",
+      "听我描述需求时，主动告诉我最值得使用的 1 到 3 个术语。",
+      "Agent 说这里需要做状态管理，结合当前页面用大白话解释。"
+    ],
+    "brandColor": "#3B5DDD",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
+    "screenshots": []
+  }
+}
