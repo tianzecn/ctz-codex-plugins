@@ -1,9 +1,9 @@
 {
   "name": "image-generation",
-  "version": "0.23.3",
-  "description": "Image generation skills for original editorial illustrations, photo-derived abstractions, visual metaphors, article art, diagrams, mini-comics, and print-style visual systems.",
+  "version": "0.23.4",
+  "description": "Image generation skills for original editorial illustrations, photo-derived abstractions, simple IP mascots, visual metaphors, article art, diagrams, mini-comics, and print-style visual systems.",
   "author": {
-    "name": "Trevin Chow and ZzzLc0405",
+    "name": "Trevin Chow, ZzzLc0405, and s1dashu",
     "url": "https://github.com/tianzecn/ctz-codex-plugins"
   },
   "homepage": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/image-generation",
@@ -18,14 +18,16 @@
     "visual-metaphor",
     "photo-abstraction",
     "memory-panel",
+    "ip-as-logo",
+    "character-design",
     "illo"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "图像生成",
-    "shortDescription": "生成原创编辑插画、照片衍生抽象构成、视觉隐喻和手绘解释图。",
-    "longDescription": "Image Generation packages tmchow/illo-skill and ZzzLc0405/photo-abstract-editorial as Codex skills. It supports mascot-led editorial illustrations, article art, mini-comics, hand-built explainer diagrams, custom print looks, and faithful photo-plus-abstraction compositions derived from an uploaded photograph's observed spatial and color relationships.",
-    "developerName": "Trevin Chow; ZzzLc0405",
+    "shortDescription": "生成原创编辑插画、照片抽象构成、极简 IP 角色和手绘解释图。",
+    "longDescription": "Image Generation packages tmchow/illo-skill, ZzzLc0405/photo-abstract-editorial, and s1dashu/ip-as-logo-skill as Codex skills. It supports mascot-led editorial illustrations, article art, mini-comics, hand-built explainer diagrams, faithful photo-plus-abstraction compositions, and extremely simple cute square IP character batches with three semantic colors and controlled lower-corner compositions.",
+    "developerName": "Trevin Chow; ZzzLc0405; s1dashu",
     "category": "Design & Creative",
     "capabilities": [
       "Interactive",
@@ -35,8 +37,8 @@
     "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/image-generation",
     "defaultPrompt": [
       "Use illo to illustrate this article with one editorial image.",
-      "Use illo to create a mascot-led visual metaphor for this idea.",
-      "用 photo-abstract-editorial 把这张照片制作成摄影与抽象面板组合的编辑作品。"
+      "用 photo-abstract-editorial 把这张照片制作成摄影与抽象面板组合的编辑作品。",
+      "使用 ip-as-logo 为这个产品设计三组方向，并在我确认后生成六张极简 IP 角色图。"
     ],
     "brandColor": "#F05A8A",
     "composerIcon": "./assets/icon.svg",

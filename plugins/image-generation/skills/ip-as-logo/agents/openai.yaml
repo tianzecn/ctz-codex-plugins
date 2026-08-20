@@ -1,0 +1,4 @@
+interface:
+  display_name: "极简 IP 角色"
+  short_description: "生成圆润、可爱、可缩小识别的方形 IP 角色，并在确认方向后批量出图。"
+  default_prompt: "使用 $ip-as-logo 为这个产品设计三组方向，并在我确认后生成六张极简 IP 角色图。"

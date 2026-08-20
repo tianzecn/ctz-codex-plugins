@@ -17,3 +17,14 @@ The bundled `illo` skill remains subject to its upstream MIT license.
 - License: NOASSERTION; no upstream license declaration was found
 
 The `photo-abstract-editorial` skill, its bilingual prompts, and its example images are redistributed under authorization confirmed to the target repository operator on 2026-08-07. This notice records provenance and authorization status; it does not create or imply a broader license grant.
+
+## s1dashu/ip-as-logo-skill
+
+- Source: <https://github.com/s1dashu/ip-as-logo-skill>
+- Author: s1dashu
+- Imported commit: `b1bf517c54a407452cfaca98a54668cd052f8e63`
+- License: MIT
+- License text: `skills/ip-as-logo/LICENSE`
+
+The bundled `ip-as-logo` skill, README, and showcase image remain subject to
+their upstream MIT license.
