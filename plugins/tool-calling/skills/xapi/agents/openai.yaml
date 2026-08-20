@@ -1,0 +1,3 @@
+interface:
+  display_name: "xAPI 工具调用"
+  short_description: "通过 xAPI CLI 调用实时数据、外部 API 和托管沙箱"

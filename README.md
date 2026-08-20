@@ -37,6 +37,7 @@ This repository contains Codex plugins packaged for installation through the Cod
 - `compliance-reports`: Fokkyp/SoftwareCopyright-Skill packaged as a Codex plugin with `software-copyright-materials` for analyzing real projects, preparing software copyright registration fields, extracting traceable source-code materials, drafting user manuals, and generating confirmed Word/TXT application documents.
 - `media-processing`: bradautomates/claude-video packaged as a Codex plugin with the `watch` skill for letting an agent watch a video — yt-dlp download, ffmpeg frame extraction, caption or Whisper transcription, and video-grounded Q&A.
 - `website-replication`: leosssvip-dot/website-replication-skill packaged as a Codex plugin for evidence-backed website and Web App feature audits, interaction inventories, state and region modeling, API/data dependency mapping, prioritized gaps, and implementation-ready PRDs without copying protected branding or expression.
+- `tool-calling`: xapi-labs/xapi-cli packaged as a Codex plugin with the `xapi` skill for discovering schemas and calling real-time data, social, crypto, web search, AI, SMS, and managed sandbox capabilities through the separately published `xapi-to` CLI.
 
 ## Install
 

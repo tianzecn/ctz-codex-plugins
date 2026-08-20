@@ -1,0 +1,45 @@
+{
+  "name": "tool-calling",
+  "version": "0.1.0",
+  "description": "Tool-calling skills for discovering and executing real-time APIs, external services, and managed cloud workflows.",
+  "author": {
+    "name": "xAPI Labs",
+    "url": "https://github.com/xapi-labs"
+  },
+  "homepage": "https://github.com/xapi-labs/xapi-cli",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "tool-calling",
+    "api",
+    "xapi",
+    "cli",
+    "real-time-data",
+    "sandbox"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "工具调用",
+    "shortDescription": "通过 xAPI CLI 发现并调用实时 API、外部服务与托管沙箱。",
+    "longDescription": "Tool Calling 将 xapi-labs/xapi-cli 的 xapi Skill 打包为 Codex 插件，帮助 Agent 先发现并读取 schema，再调用 Twitter/X、社交平台、加密货币、网页与新闻搜索、AI 生成、SMS 以及托管沙箱能力；同时提供 OAuth、流式响应、代码生成、计费与凭据安全指引。",
+    "developerName": "xAPI Labs",
+    "category": "AI & Agent",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write",
+      "Execute",
+      "Network"
+    ],
+    "websiteURL": "https://github.com/xapi-labs/xapi-cli",
+    "defaultPrompt": [
+      "使用 xapi 先查 schema，再调用合适的实时数据或外部 API。",
+      "使用 xapi 搜索并调用 Twitter/X、加密货币或网页搜索能力。",
+      "使用 xapi 评估并安全运行一次性托管沙箱任务。"
+    ],
+    "brandColor": "#2563EB",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}
