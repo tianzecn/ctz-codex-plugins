@@ -1,12 +1,12 @@
 {
   "name": "enhanced-search",
-  "version": "2.0.0",
-  "description": "Enhanced search skills for real-time web search, vertical domain search, batch search, and URL content extraction.",
+  "version": "2.0.1",
+  "description": "Enhanced search skills for real-time web search, vertical and batch search, URL extraction, and primary-source developer search across docs, READMEs, issues, and merged pull requests.",
   "author": {
-    "name": "AnySearch Team",
-    "url": "https://github.com/anysearch-ai"
+    "name": "Multiple upstream authors",
+    "url": "https://github.com/tianzecn/ctz-codex-plugins"
   },
-  "homepage": "https://github.com/anysearch-ai/anysearch-skill",
+  "homepage": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/enhanced-search",
   "repository": "https://github.com/tianzecn/ctz-codex-plugins",
   "license": "NOASSERTION",
   "keywords": [
@@ -16,25 +16,31 @@
     "vertical-search",
     "batch-search",
     "content-extraction",
-    "fact-checking"
+    "fact-checking",
+    "developer-search",
+    "documentation",
+    "github-issues",
+    "merged-pull-requests",
+    "firecrawl"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "增强搜索",
-    "shortDescription": "执行网页搜索、垂直领域搜索、批量搜索和 URL 内容提取。",
-    "longDescription": "Enhanced Search packages anysearch-ai/anysearch-skill as a Codex skill for real-time web search, vertical domain search, parallel batch search, and full-page URL content extraction through bundled cross-platform CLI tools. The AnySearch API key is optional; anonymous access is available with lower rate limits.",
-    "developerName": "AnySearch Team",
+    "shortDescription": "执行实时网页搜索、URL 提取及面向开发者的一手资料检索。",
+    "longDescription": "增强搜索插件整合 AnySearch 与 Firecrawl Developer Index：前者提供实时网页搜索、垂直搜索、批量搜索和 URL 内容提取，后者从技术文档、README、Issue 与已合并 PR 中返回匹配段落。Firecrawl 匿名请求可能受 IP 风控限制；需要时应在运行环境中配置 FIRECRAWL_API_KEY，插件不会保存凭据。",
+    "developerName": "AnySearch Team 与 Firecrawl",
     "category": "Knowledge Base & Files",
     "capabilities": [
       "Interactive",
       "Read",
-      "Analyze"
+      "Analyze",
+      "Network"
     ],
-    "websiteURL": "https://github.com/anysearch-ai/anysearch-skill",
+    "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/enhanced-search",
     "defaultPrompt": [
-      "Use anysearch to verify this claim with current sources.",
-      "Use anysearch to run parallel searches for these topics.",
-      "Use anysearch to extract this URL into Markdown."
+      "使用 AnySearch 通过当前网页来源核实这项说法。",
+      "使用 Firecrawl Developer Index 查找解释该问题的文档、Issue 或已合并 PR。",
+      "使用 AnySearch 将这个 URL 提取为 Markdown。"
     ],
     "brandColor": "#0F766E",
     "composerIcon": "./assets/icon.svg",
