@@ -1,0 +1,47 @@
+{
+  "name": "presentations",
+  "version": "5.0.0",
+  "description": "Presentation skills for generating, reconstructing, templating, filling, and enhancing natively editable PPTX decks.",
+  "author": {
+    "name": "Hugo He",
+    "url": "https://github.com/hugohe3"
+  },
+  "homepage": "https://github.com/hugohe3/ppt-master",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT AND Apache-2.0 AND CC-BY-4.0 AND CC0-1.0",
+  "keywords": [
+    "presentation",
+    "pptx",
+    "powerpoint",
+    "slide-deck",
+    "template",
+    "drawingml",
+    "animation",
+    "narration"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Presentations（演示文稿）",
+    "shortDescription": "生成、重建、套版和美化原生可编辑的 PPTX 演示文稿。",
+    "longDescription": "Presentations 将 hugohe3/ppt-master 打包为 Codex Skill，可从 PDF、DOCX、网页、Markdown、图片或主题生成原生可编辑 PPTX，重建页面视觉，创建可复用品牌与版式工作区，填充现有模板，并为成品添加动画、旁白或增强效果。",
+    "developerName": "Hugo He",
+    "category": "Design & Creative",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write",
+      "Execute",
+      "Network"
+    ],
+    "websiteURL": "https://github.com/hugohe3/ppt-master",
+    "defaultPrompt": [
+      "把这份 PDF、DOCX 或 Markdown 生成一套原生可编辑的 PPTX。",
+      "重建这些演示文稿截图，输出分层可编辑的 PowerPoint。",
+      "美化这份 PPTX，并保留可编辑对象、图表和动画。"
+    ],
+    "brandColor": "#D95D39",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": []
+  }
+}
