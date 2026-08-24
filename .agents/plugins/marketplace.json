@@ -531,6 +531,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Productivity"
+    },
+    {
+      "name": "spreadsheet-processing",
+      "source": {
+        "source": "local",
+        "path": "./plugins/spreadsheet-processing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
     }
   ]
 }

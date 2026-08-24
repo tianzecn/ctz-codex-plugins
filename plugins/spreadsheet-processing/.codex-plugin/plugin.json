@@ -1,0 +1,44 @@
+{
+  "name": "spreadsheet-processing",
+  "version": "0.1.0",
+  "description": "面向 Excel 与 CSV 的表格体检、清洗、分析、对账和可追溯报告能力。",
+  "author": {
+    "name": "Huashu (花叔)",
+    "url": "https://github.com/alchaincyf"
+  },
+  "homepage": "https://github.com/alchaincyf/huashu-excel",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
+  "license": "MIT",
+  "keywords": [
+    "spreadsheet",
+    "excel",
+    "csv",
+    "data-analysis",
+    "data-cleaning",
+    "reconciliation",
+    "reporting"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Spreadsheet Processing（电子表格处理）",
+    "shortDescription": "体检、清洗、分析并核验 Excel/CSV，交付可追溯报告。",
+    "longDescription": "导入 Huashu Excel 数据分析流程，从原始单元格体检开始，完成脏数据清洗、口径对齐、指标分析、表内合计对账、图表与报告生成，并在交付前执行数字和视觉质控。",
+    "developerName": "Huashu (花叔)",
+    "category": "Data & Analytics",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/alchaincyf/huashu-excel",
+    "defaultPrompt": [
+      "体检这份 Excel，先找出结构和数据质量问题",
+      "清洗这份表并生成可审计、可复现的处理结果",
+      "分析这份数据，完成对账后交付一份专业报告"
+    ],
+    "brandColor": "#0F766E",
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
+    "screenshots": []
+  }
+}

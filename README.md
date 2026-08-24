@@ -39,6 +39,7 @@ This repository contains Codex plugins packaged for installation through the Cod
 - `website-replication`: leosssvip-dot/website-replication-skill packaged as a Codex plugin for evidence-backed website and Web App feature audits, interaction inventories, state and region modeling, API/data dependency mapping, prioritized gaps, and implementation-ready PRDs without copying protected branding or expression.
 - `tool-calling`: xapi-labs/xapi-cli packaged as a Codex plugin with the `xapi` skill for discovering schemas and calling real-time data, social, crypto, web search, AI, SMS, and managed sandbox capabilities through the separately published `xapi-to` CLI.
 - `presentations`: hugohe3/ppt-master packaged as a Codex plugin with the `ppt-master` skill for generating, reconstructing, templating, filling, and enhancing natively editable PPTX decks, including native shapes, charts, tables, animations, narration, and reusable presentation workspaces.
+- `spreadsheet-processing`: alchaincyf/huashu-excel packaged as a Codex plugin with the `huashu-excel` skill for inspecting dirty Excel/CSV files, cleaning and aligning data, analyzing metrics, reconciling totals, generating charts and reports, and verifying numbers and presentation quality before delivery.
 
 ## Install
 
