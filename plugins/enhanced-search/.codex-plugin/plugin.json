@@ -1,7 +1,7 @@
 {
   "name": "enhanced-search",
-  "version": "2.0.1",
-  "description": "Enhanced search skills for real-time web search, vertical and batch search, URL extraction, and primary-source developer search across docs, READMEs, issues, and merged pull requests.",
+  "version": "2.0.2",
+  "description": "Enhanced search skills for real-time web and vertical search, URL extraction, primary-source developer search, and cited access to Elsewhere's China technology and venture corpus.",
   "author": {
     "name": "Multiple upstream authors",
     "url": "https://github.com/tianzecn/ctz-codex-plugins"
@@ -21,14 +21,18 @@
     "documentation",
     "github-issues",
     "merged-pull-requests",
-    "firecrawl"
+    "firecrawl",
+    "elsewhere",
+    "china-technology",
+    "venture-capital",
+    "knowledge-graph"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "增强搜索",
-    "shortDescription": "执行实时网页搜索、URL 提取及面向开发者的一手资料检索。",
-    "longDescription": "增强搜索插件整合 AnySearch 与 Firecrawl Developer Index：前者提供实时网页搜索、垂直搜索、批量搜索和 URL 内容提取，后者从技术文档、README、Issue 与已合并 PR 中返回匹配段落。Firecrawl 匿名请求可能受 IP 风控限制；需要时应在运行环境中配置 FIRECRAWL_API_KEY，插件不会保存凭据。",
-    "developerName": "AnySearch Team 与 Firecrawl",
+    "shortDescription": "执行实时网页、开发者一手资料和 Elsewhere 科技创投语料检索。",
+    "longDescription": "增强搜索插件整合 AnySearch、Firecrawl Developer Index 与 Elsewhere News：AnySearch 提供实时网页搜索、垂直搜索、批量搜索和 URL 内容提取；Firecrawl 从技术文档、README、Issue 与已合并 PR 中返回匹配段落；Elsewhere 可匿名读取公开报道，也可通过宿主注入的 ELSEWHERE_KEY 对中国科技与创投语料执行引用检索、全文读取、实体图谱与个人上下文查询。插件不会保存或显示凭据。",
+    "developerName": "AnySearch Team、Firecrawl 与 Elsewhere",
     "category": "Knowledge Base & Files",
     "capabilities": [
       "Interactive",
@@ -40,7 +44,7 @@
     "defaultPrompt": [
       "使用 AnySearch 通过当前网页来源核实这项说法。",
       "使用 Firecrawl Developer Index 查找解释该问题的文档、Issue 或已合并 PR。",
-      "使用 AnySearch 将这个 URL 提取为 Markdown。"
+      "使用 Elsewhere News 检索中国科技与创投报道，并保留作者、日期和原文链接。"
     ],
     "brandColor": "#0F766E",
     "composerIcon": "./assets/icon.svg",
