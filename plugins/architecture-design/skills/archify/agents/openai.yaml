@@ -1,0 +1,3 @@
+interface:
+  display_name: "Archify（交互式系统架构图）"
+  short_description: "生成并校验架构、工作流、时序、数据流和生命周期交互图。"

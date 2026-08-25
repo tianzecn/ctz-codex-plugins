@@ -1,13 +1,12 @@
 {
   "name": "architecture-design",
-  "version": "0.1.0",
-  "description": "Architecture design skills for building polished, production-grade applications.",
+  "version": "0.1.1",
+  "description": "Architecture design skills for native-feel desktop applications and validated interactive system diagrams.",
   "author": {
-    "name": "yetone",
-    "email": "",
-    "url": "https://github.com/yetone"
+    "name": "yetone and tt-a1i",
+    "url": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/architecture-design"
   },
-  "homepage": "https://github.com/yetone/native-feel-skill",
+  "homepage": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/architecture-design",
   "repository": "https://github.com/tianzecn/ctz-codex-plugins",
   "license": "MIT",
   "keywords": [
@@ -15,24 +14,32 @@
     "desktop",
     "cross-platform",
     "webview",
-    "native-feel"
+    "native-feel",
+    "system-diagrams",
+    "workflow",
+    "sequence",
+    "dataflow",
+    "lifecycle",
+    "mermaid"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "架构设计",
-    "shortDescription": "面向原生体验跨平台桌面应用的架构指导。",
-    "longDescription": "Architecture Design packages skills for designing polished application architectures. The initial skill focuses on cross-platform desktop apps that must feel native across macOS and Windows, including native shells, system WebViews, typed IPC, memory tradeoffs, and ship-readiness audits.",
-    "developerName": "yetone",
+    "shortDescription": "设计原生体验桌面架构，并生成经验证的交互式系统图。",
+    "longDescription": "Architecture Design combines native-feel cross-platform desktop architecture guidance with Archify's validated architecture, workflow, sequence, data-flow, and lifecycle diagrams. It supports repository-grounded system maps, Mermaid conversion, standalone interactive HTML, deterministic validation, visual evidence, and export workflows.",
+    "developerName": "yetone; tt-a1i",
     "category": "Software Engineering",
     "capabilities": [
+      "Interactive",
       "Read",
+      "Write",
       "Advise"
     ],
-    "websiteURL": "https://github.com/yetone/native-feel-skill",
+    "websiteURL": "https://github.com/tianzecn/ctz-codex-plugins/tree/main/plugins/architecture-design",
     "defaultPrompt": [
-      "Use Architecture Design to evaluate my desktop app architecture.",
-      "Run the native-feel decision tree for this cross-platform app.",
-      "Audit this desktop app for native-feel readiness."
+      "评估这个跨平台桌面应用的架构与原生体验",
+      "使用 Archify 把这个仓库整理成经验证的交互式架构图",
+      "将这段 Mermaid 转成可交互的工作流、时序图或状态图"
     ],
     "brandColor": "#2563EB",
     "composerIcon": "./assets/icon.svg",
