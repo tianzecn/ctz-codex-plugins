@@ -1,7 +1,13 @@
 ---
 name: ljg-qa
-description: 信息提问机。给一篇文章/论文/书，把核心观点抽成 Q-A 对——Question 切要害，不教科书；Answer 简洁清晰，有形式化收口，逻辑链完整。读者顺 Q 链走过，每个 A 砸下一枚钉子，复现作者整套推理。Use when user says '问答', 'Q&A', 'QA', '提问', '抽取问题', '/ljg-qa', or shares an article/paper/book and asks for Q-A extraction. Triggers when the user wants ideas extracted not as a summary but as a sequence of incisive questions with answered. NOT FOR FAQ generation, glossary creation, or comprehension quizzes — this is intellectual scaffolding, not study aids.
-user_invocable: true
+description: 信息提问机。给一篇文章/论文/书，把核心观点抽成 Q-A 对——Question 切要害，不教科书；Answer 简洁清晰，有形式化收口，逻辑链完整。读者顺
+  Q 链走过，每个 A 砸下一枚钉子，复现作者整套推理。Use when user says '问答', 'Q&A', 'QA', '提问', '抽取问题', '/ljg-qa',
+  or shares an article/paper/book and asks for Q-A extraction. Triggers when the user
+  wants ideas extracted not as a summary but as a sequence of incisive questions with
+  answered. NOT FOR FAQ generation, glossary creation, or comprehension quizzes —
+  this is intellectual scaffolding, not study aids.
+metadata:
+  user_invocable: true
 ---
 
 # ljg-qa: 问答提取
@@ -56,9 +62,9 @@ Running **Extract** in **ljg-qa**...
 
 ## 输出
 
-- 格式：markdown（`*bold*`，禁 markdown 语法）
+- 格式：org-mode（`*bold*`，禁 markdown 语法）
 - 路径：`~/Documents/notes/`
-- denote 文件名：`{YYYYMMDDTHHMMSS}--qa-{核心主题 5-10 字}__qa.md`
+- denote 文件名：`{YYYYMMDDTHHMMSS}--qa-{核心主题 5-10 字}__qa.org`
 
 ## Examples
 
@@ -68,7 +74,7 @@ Running **Extract** in **ljg-qa**...
 User: /ljg-qa https://example.com/article
 → WebFetch 获取
 → 找观点骨架 → 设计 Q 链 → 写 A 三段
-→ markdown 输出到 ~/Downloads/
+→ org-mode 输出到 ~/Documents/notes/
 ```
 
 *Example 2: 论文 PDF*
@@ -77,7 +83,7 @@ User: /ljg-qa https://example.com/article
 User: /ljg-qa ~/Downloads/paper.pdf
 → Read PDF（注意 pages 参数）
 → Q 抽出方法的「为什么」「代价」「边界」
-→ 输出 markdown
+→ 输出 org-mode
 ```
 
 *Example 3: 直接文本*

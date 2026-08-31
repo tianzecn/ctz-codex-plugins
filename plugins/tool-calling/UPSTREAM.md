@@ -1,9 +1,10 @@
 # Upstream provenance
 
 - Repository: https://github.com/xapi-labs/xapi-cli
-- Commit: `7324b97c14533424c7dbfe55eb132ca938d69949`
-- Upstream package version: `0.1.19`
-- Imported: 2026-08-20
+- Release: `v0.1.20`
+- Commit: `05a7a5ee93e3f8381ef2a487f3bd49c1f61ef5be`
+- Upstream package version: `0.1.20`
+- Imported: 2026-08-31
 - Imported skills: 1 (`xapi`)
 - Deprecated skills skipped: 0
 - License: MIT (see `skills/xapi/LICENSE`)

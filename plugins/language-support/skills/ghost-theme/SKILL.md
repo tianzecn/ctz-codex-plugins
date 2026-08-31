@@ -1,11 +1,18 @@
 ---
 name: ghost-theme
 description: >-
-  Build, customize, debug, validate, and deploy Ghost CMS themes. Use for
-  Handlebars .hbs templates, routes.yaml, Ghost Admin, membership and Portal,
-  custom settings, content API, image optimization, dark mode, search, SEO,
-  gscan validation, Ghost helpers such as ghost_head, ghost_foot, foreach, get,
-  img_url, asset, @custom, and @member, plus Koenig editor card styling.
+  Build, customize, and deploy Ghost CMS themes. Use whenever the user mentions
+  Ghost themes, Ghost CMS, Handlebars templates (.hbs), Ghost Admin,
+  membership/subscription integration, custom settings, or the content API — even
+  without saying "theme". Trigger on: building a blog theme, creating a Ghost
+  site, editing .hbs templates, member-only content, hero sections, routing
+  (routes.yaml), image optimization, dark mode, search, deploy, gscan validation,
+  JSON-LD/SEO, or any mention of {{ghost_head}}, {{ghost_foot}}, {{#foreach}},
+  {{#get}}, {{img_url}}, {{asset}}, @custom, @member, or Portal. Also use to
+  modify, extend, or debug an existing theme. Also trigger on Koenig editor cards
+  and .kg-* card styling (kg-image-card, kg-gallery-card, kg-bookmark-card,
+  kg-callout-card, kg-toggle-card, kg-header-card, kg-signup-card), card_assets,
+  cards.min.css, and breakout/wide/full-width card layout.
 ---
 
 # Ghost Theme Skill

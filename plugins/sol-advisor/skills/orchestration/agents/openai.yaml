@@ -1,4 +1,4 @@
 interface:
   display_name: "Sol Advisor 编排"
-  short_description: "使用原生 Terra / High 或显式 Luna 任务，并由主任务验证验收"
-  default_prompt: "Use $orchestration for the native Terra / High lane and fresh Sol review; use the user-visible Luna task lane only when I explicitly authorize it, then use list_projects, list_threads, create_thread, wait_threads, read_thread, and send_message_to_thread to monitor, review, correct, and accept the task yourself."
+  short_description: "在任务工具前声明风险分级的选择性执行路线"
+  default_prompt: "Use $orchestration to declare a SELECTIVE ROUTE before task tools; default to solo and select delegation, audit, or exceptional full only when risk justifies it."

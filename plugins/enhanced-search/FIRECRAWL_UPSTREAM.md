@@ -1,9 +1,10 @@
 # Firecrawl Developer Index upstream provenance
 
 - Distribution source: `https://github.com/firecrawl/skills`
-- Imported distribution commit: `8b18f3b161ff3081e8dc8417dcdc8cb24aa0fd9e`
+- Imported distribution commit: `f6c9b2dd6384e0f05f713727ed18ba9db94d5191`
 - Canonical source: `https://github.com/firecrawl/cli`
-- Canonical source commit: `026c820bebd7040720079a05d4d428c193e23a7b`
+- Canonical release: `v1.23.3`
+- Canonical source commit: `86aaf06cb139029ff5ad2a249670f42b01d40b13`
 - Imported on: `2026-08-22`
 - Imported skills: `firecrawl-developer-index`
 - Deprecated skills skipped: 0

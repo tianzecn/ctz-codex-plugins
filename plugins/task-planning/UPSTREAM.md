@@ -5,19 +5,21 @@ This capability plugin combines skills from multiple upstream repositories.
 ## planning-with-files
 
 - Repository: <https://github.com/OthmanAdi/planning-with-files>
-- Target repository import commit: `d7cda62a2ff6ae762dd60a02fdcc339925d628b2`
+- Release: `v3.12.0`
+- Upstream commit: `d5d35e6a2316459418e7381faa2682b2894d02c1`
 - License: MIT; retained in `LICENSE`
 - Local skills: `planning-with-files` plus its Arabic, German, Spanish,
   Simplified Chinese, and Traditional Chinese variants
 
-The original upstream commit was not recorded when these skills were first
-imported. The target repository commit above identifies the exact retained
-snapshot.
+The canonical skill uses the upstream Codex-specific
+`.codex/skills/planning-with-files/` variant. Arabic, German, Spanish, Simplified Chinese, and
+Traditional Chinese variants use `skills/i18n/`. Unsupported top-level hook metadata is retained
+under the standard `metadata` field; no separate compatibility hook layer is added.
 
 ## yskills
 
 - Repository: <https://github.com/lycfyi/yskills>
-- Upstream commit: `fcdd7f7cff6cb7e7aab04dfd6713997a94f83ad1`
+- Upstream commit: `5d30c889820dfbcbaf6a51b29ee97cdfadfae18f`
 - Upstream plugin version at import: `0.1.0`
 - License: MIT; retained in `LICENSE-YSKILLS`
 - Imported paths: `skills/human-context-rebuild/` and `skills/whats-next/`

@@ -53,6 +53,7 @@ Either shape is accepted under the same maintainer-facing conditions:
 
 - **Named maintainer.** The PR description (in-tree) or repo README (sibling) must identify who will keep the port in sync with ARS minor releases (~6-week cadence) and triage platform-specific bug reports. Platform-specific issues will be redirected to that maintainer.
 - **End-to-end evidence.** Include at least one full `academic-pipeline` run on the target platform, committed under `examples/<platform>/` (in-tree) or under an `examples/` path in the sibling repo, so regressions are detectable.
+- **Claims-evidence alignment.** Every load-bearing, verifiable claim a port makes about its own behavior (in its README, docs, or evidence bundle — e.g. "does not add X to ordinary prompts", "prevents automatic invocation") must ship with contributor-run evidence covering the claim's stated scope; a claim whose evidence covers less is narrowed to what the evidence covers. Maintainer review checks that alignment and conformance with ARS principles (human-in-the-loop, degraded-mode disclosure) — it does not re-derive the target platform's runtime behavior. Platform expertise and post-merge maintenance stay with the port maintainer.
 - **Model-portability note.** ARS prompts are calibrated against Claude (Opus for architecture/review, Sonnet for execution; never Haiku). The PR must document which providers/models were tested and where downstream-agent behavior diverged from the Claude baseline.
 - **Open a design issue first** before submitting the PR (for in-tree) or before requesting sibling-distribution recognition in this repo's README.
 
@@ -64,7 +65,7 @@ Either shape is accepted under the same maintainer-facing conditions:
 - **Describe what and why** — explain the motivation, not just the change
 - **Reference issues** — if your PR addresses an open issue, link it
 - **Test your changes** — if you're modifying agent definitions, try running the skill to confirm it works as expected
-- **Keep READMEs in sync** — if your change affects user-facing documentation, update both `README.md` and `README.zh-TW.md`
+- **Keep READMEs in sync** — if your change affects user-facing documentation, update `README.md`, `README.zh-CN.md`, `README.zh-TW.md`, `README.ja-JP.md`, and `README.ko-KR.md` when applicable
 
 ---
 
@@ -82,6 +83,22 @@ The repo is maintained by [Cheng-I Wu](https://github.com/Imbad0202) (HEEACT). T
 4. **Discipline diversity welcome** — ARS defaults to higher education research but aims to be domain-agnostic. Discipline-specific modules are encouraged.
 
 ---
+
+## Release checklist
+
+Most release mechanics are CI-enforced (`check_version_consistency.py` keeps CLAUDE.md / SKILL.md / CHANGELOG / plugin manifests / README badge in lockstep; the release-cooldown workflow paces tags; the `changelog-covers-merges` workflow gates release-prep PRs). Not every workflow enforces at the same strength — the per-workflow classification (blocking / advisory / administrative / post-push detection, with bypass tokens) lives in [docs/ARCHITECTURE.md §7.1](docs/ARCHITECTURE.md#71-ci-workflow-enforcement-classes-755). One step still has a manual form for tag flows that skip a release branch:
+
+### Before tagging: CHANGELOG covers every merge
+
+CI runs this automatically on every release-prep PR (head branch `release/**`): the `Changelog Covers Merges` workflow audits every release-worthy commit merged to `main` since the previous release tag and fails unless its issue/PR number (`#N`) is referenced in `CHANGELOG.md` **above the previous release's section** — under `## [Unreleased]`, or under the version section the prep PR just promoted (spec §0.2).
+
+For a tag cut without a `release/` branch, run the same gate by hand from the release-prep state (**before** the `vX.Y.Z` tag exists): `python3 scripts/check_changelog_covers_merges.py`. Resolve each finding (add a CHANGELOG entry citing its `#N`) or confirm it is legitimately exempt (a `chore`/`test`/`ci`/`build` commit, or an internal `docs(design)`/`docs(superpowers)` commit, or the once-per-release `docs(release)` alignment commit; `docs(i18n)` is deliberately NOT exempt — translation changes are user-facing). This is the machine-checked half of the `[doc-aligned: yyyy-mm-dd]` tag-message discipline. Run it on the release-prep state, not on a feature branch — in-progress branch commits have no PR suffix yet and will report as unverifiable (CI avoids this by auditing `--merges-ref origin/main`).
+
+One convention is editorial and lives here:
+
+### `Real-use findings` subsection (#395)
+
+When drafting a release's CHANGELOG entry, include a **`Real-use findings`** subsection if any of the release's issues were discovered through actual use of the suite on a real paper — one line per issue, naming the run that surfaced it. Paper-derived / external-motivation work (the Zhao / Kong / Kim tracks) does NOT belong here; the subsection exists precisely to make the other provenance class visible. Background: the v3.6.7 production chapter run surfaced 17 drift patterns, but that lived-experience provenance was buried in spec prose with no fixed, greppable home — and release motivation since v3.8 has been almost entirely external papers, which is itself a signal worth seeing per release. If a release has no real-use findings, omit the subsection; never pad it.
 
 ## Academic integrity policy
 

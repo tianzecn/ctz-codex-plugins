@@ -1,6 +1,7 @@
 """Tests for scripts/adapters/zotero.py."""
 from pathlib import Path
 import subprocess
+import sys
 import json
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -12,7 +13,7 @@ EXPECTED_REJECTION = REPO_ROOT / "scripts/adapters/examples/zotero/expected_reje
 
 def _run(*args):
     return subprocess.run(
-        ["python", str(ADAPTER)] + list(args),
+        [sys.executable, str(ADAPTER)] + list(args),
         capture_output=True,
         text=True,
         cwd=REPO_ROOT,
@@ -426,3 +427,29 @@ def test_all_rejected_corpus(tmp_path, load_yaml):
     rr = load_yaml(r)
     assert pp["literature_corpus"] == []
     assert rr["summary"]["total_rejected"] == 2
+
+
+# --- v3.10 venue_type mapping (spec §3 PR-B item 13) ---
+
+def _import_zotero():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("zotero_adapter", ADAPTER)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def test_zotero_map_venue_type_known_types():
+    z = _import_zotero()
+    assert z.map_venue_type("journalArticle") == ("journal-article", "adapter_declared")
+    assert z.map_venue_type("conferencePaper") == ("conference-paper", "adapter_declared")
+    assert z.map_venue_type("book") == ("book", "adapter_declared")
+    assert z.map_venue_type("thesis") == ("dissertation", "adapter_declared")
+
+
+def test_zotero_map_venue_type_unknown_and_absent():
+    z = _import_zotero()
+    # Unknown item type → unknown/unknown (honors pair invariant; never guessed).
+    assert z.map_venue_type("blogPost") == ("unknown", "unknown")
+    assert z.map_venue_type(None) == ("unknown", "unknown")
+    assert z.map_venue_type("") == ("unknown", "unknown")

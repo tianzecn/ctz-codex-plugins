@@ -1,6 +1,6 @@
 # Evidence → Finding → Path 证据链
 
-> 灵感来自 Z3r0 Evidence Plane，落地为 **Markdown 字段契约**。  
+> 灵感来自 Z3r0 Evidence Plane，落地为 **Markdown 字段契约**。
 > reverse-skill 特色：与 `docs-generator` 报告模板、`field-journal` 脱敏回写、可复现命令绑定。
 
 ## 1. Evidence（不可变观察）
@@ -14,6 +14,7 @@
 - source_type: command | screenshot | file | log | memory | network | manual
 - source_ref: {path or command id}
 - content_hash: {sha256 of artifact if file, else n/a}
+- artifact_path: {relative path under case root when content_hash is recorded, else n/a}
 - repro_command: |
     {exact command}
 - raw_excerpt: |
@@ -30,6 +31,14 @@
 powershell -File skills/scripts/append-evidence.ps1 -CaseRoot work/<case> `
   -Id E-001 -Title "..." -ReproCommand "..." -Severity info -Status observed
 ```
+
+When the evidence is a case-local file, pass `-ArtifactPath` to record a SHA-256 fixity value and a relative artifact path. Review the complete case graph before handoff:
+
+```bash
+python3 skills/case-review/scripts/review_case.py work/<case> --verify-hashes --strict
+```
+
+The review is read-only and checks scope fields, Evidence records, work item and timeline references, structured Findings, Paths, and artifact hash matches.
 
 ## 2. Finding（安全/逆向结论）
 
@@ -80,10 +89,10 @@ powershell -File skills/scripts/append-evidence.ps1 -CaseRoot work/<case> `
 
 `docs-generator` 安全报告 **MUST** 含：
 
-1. Scope 摘要（链到 case `scope.md`）  
-2. Evidence 表或章节  
-3. Findings 列表（含 evidence_ids）  
-4. 至少 1 条 Path（攻击/调用/解题）  
+1. Scope 摘要（链到 case `scope.md`）
+2. Evidence 表或章节
+3. Findings 列表（含 evidence_ids）
+4. 至少 1 条 Path（攻击/调用/解题）
 5. Timeline 摘要（可选全文链到 `timeline.md`）
 
 详见 `docs-generator/references/security-report-templates.md` 中 **Evidence Chain** 节。
@@ -92,9 +101,9 @@ powershell -File skills/scripts/append-evidence.ps1 -CaseRoot work/<case> `
 
 回写 journal 时 **SHOULD** 摘录：
 
-- 3 条内关键 Evidence id + 命令  
-- 1 条核心 Finding  
-- 可复用 Path 模式一句话  
+- 3 条内关键 Evidence id + 命令
+- 1 条核心 Finding
+- 可复用 Path 模式一句话
 
 完整敏感内容只在用户项目报告中；journal **MUST** 脱敏（`anonymization.md`）。
 

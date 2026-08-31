@@ -1,8 +1,11 @@
 ---
 name: ljg-plain
-description: "Cognitive atom: Plain (白). Rewrites any content so a smart 12-year-old groks it. Structure-free — form follows content. Use when user says '白话说', '说人话', '解释一下', 'plain', 'grok'."
-user_invocable: true
-version: "5.0.0"
+description: 'Cognitive atom: Plain (白). Rewrites any content so a smart 12-year-old
+  groks it. Structure-free — form follows content. Use when user says ''白话说'', ''说人话'',
+  ''解释一下'', ''plain'', ''grok''.'
+metadata:
+  user_invocable: true
+  version: 5.0.0
 ---
 
 # ljg-plain: 白
@@ -13,7 +16,7 @@ version: "5.0.0"
 
 ## 格式约束
 
-### Markdown 语法
+### Org-mode 语法
 
 - 加粗用 `*bold*`（单星号），禁止 `**bold**`
 - 标题层级从 `*` 开始，不跳级
@@ -26,7 +29,7 @@ version: "5.0.0"
 
 - 时间戳：`date +%Y%m%dT%H%M%S`
 - 可读时间：`date "+%Y-%m-%d %a %H:%M"`
-- 文件名：`{时间戳}--plain-{简短标题}__plain.md`
+- 文件名：`{时间戳}--plain-{简短标题}__plain.org`
 - 输出目录：`~/Documents/notes/`
 
 ### Org 文件头

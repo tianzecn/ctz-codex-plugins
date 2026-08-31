@@ -1,7 +1,7 @@
 {
   "name": "ljg-skills",
-  "version": "1.0.15",
-  "description": "李继刚的 Claude Code 自定义技能集，覆盖论文阅读、内容铸卡、概念解剖、写作、投资分析和旅行研究等工作流。",
+  "version": "1.17.108",
+  "description": "李继刚的自定义技能集，覆盖阅读、概念、结构、约束、写作、教学、卡片与研究工作流。",
   "author": {
     "name": "lijigang",
     "url": "https://github.com/lijigang"
@@ -21,8 +21,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "李继刚技能集",
-    "shortDescription": "论文阅读、内容铸卡、概念解剖、写作与研究型工作流。",
-    "longDescription": "将 lijigang/ljg-skills 的 Markdown 分支中 20 个非废弃技能打包为 Codex 插件。适合读论文、做视觉卡片、提炼问答、白话改写、概念解剖、单词精通、深度写作、投资分析、圆桌讨论、旅行研究和技能地图查看等场景。",
+    "shortDescription": "阅读、内容铸卡、概念与结构分析、写作、教学和研究工作流。",
+    "longDescription": "将 lijigang/ljg-skills 当前声明的 22 个技能打包为 Codex 插件。覆盖整本书与论文阅读、视觉卡片、问答提炼、白话改写、概念解剖、单词精通、盲区扫描、约束分析、母题结构、情境教学、深度写作、投资分析和圆桌讨论等场景；上游已撤下的旧入口不再保留。",
     "developerName": "lijigang",
     "category": "Productivity",
     "capabilities": [

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Electron 应用资源提取"
+  short_description: "提取 ASAR、Source Map 与格式化后的 Electron 源码"

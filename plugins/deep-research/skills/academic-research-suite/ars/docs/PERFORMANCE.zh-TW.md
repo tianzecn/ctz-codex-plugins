@@ -1,6 +1,6 @@
 # ARS 效能說明
 
-> **建議模型：Claude Opus 4.7**，搭配 **Max plan**（或同等配置）。Opus 4.7 採用 adaptive thinking，不需要手動指定 thinking budget。
+> **建議模型：當前最新一代 Claude 模型**（撰寫當下為 Fable 5），搭配 **Max plan**（或同等配置）。現行 Claude 模型採用 adaptive thinking，不需要手動指定 thinking budget。
 >
 > 完整學術 pipeline（10 階段）會消耗**大量 token** — 單次完整執行可能超過 200K 輸入 + 100K 輸出 token，視論文長度和修訂輪數而定。請依預算斟酌使用。
 >
@@ -8,7 +8,7 @@
 
 ## 各模式 Token 消耗估算
 
-| Skill / 模式 | 輸入 Token | 輸出 Token | 估算費用（Opus 4.7）|
+| Skill / 模式 | 輸入 Token | 輸出 Token | 估算費用 |
 |---|---|---|---|
 | `deep-research` socratic | ~30K | ~15K | ~$0.60 |
 | `deep-research` full | ~60K | ~30K | ~$1.20 |
@@ -20,16 +20,19 @@
 | **完整 pipeline（10 階段）** | **~200K+** | **~100K+** | **~$4-6** |
 | + 跨模型驗證 | +~10K（外部）| +~5K（外部）| +~$0.60-1.10 |
 
-*以 ~15,000 字論文、~60 篇引用為基準估算。實際消耗隨論文長度、修訂輪數、對話深度而異。費用以 Anthropic API 2026 年 4 月定價計算。*
+*以 ~15,000 字論文、~60 篇引用為基準估算。實際消耗隨論文長度、修訂輪數、對話深度而異。費用以 Opus 4.x 實測、Anthropic API 2026 年 4 月定價計算；換用更新模型時請當成數量級參考，不是精確報價。*
+
+> **v3.11 引用查驗（#182）。** 確定性引用存在性 gate 呼叫的是外部書目 API（Semantic Scholar / OpenAlex / Crossref / arXiv），不是 LLM，因此**不增加上表的 Claude token 成本**——只在首次查詢時有網路延遲。持久化 SQLite cache（`~/.cache/ars/verification.db`，90 天 TTL）讓每篇論文只查驗一次、跨草稿重用；對已 cache 的書目重跑不做任何網路請求。見 [SETUP](SETUP.zh-TW.md#引用查驗-cachev3.11182)。
 
 ## 建議 Claude Code 設定
 
 | 設定 | 功能說明 | 啟用方式 | 官方文件 |
 |---|---|---|---|
 | **Agent Team**（選用） | 啟用 `TeamCreate` / `SendMessage` tools 做手動多 agent 協作。**ARS 內部平行化不需要這個 flag** — skills 透過內建 `Agent` tool 直接 spawn subagent。僅在你想手動跨 session 協作持久 team 時有用。 | 設定 `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`（研究預覽） | 實驗性功能 — 尚無穩定文件 |
-| **Skip Permissions** | 跳過每次工具使用的確認提示，實現全 pipeline 不中斷的自主執行 | 啟動時加上 `claude --dangerously-skip-permissions` | [Permissions](https://docs.anthropic.com/en/docs/claude-code/cli-reference) · [Advanced Usage](https://docs.anthropic.com/en/docs/claude-code/advanced) |
+| **Auto 模式**（建議） | 自動接受大多數工具動作，讓長時間 pipeline 大幅減少中斷；同時由伺服器端 classifier 擋下超出你請求範圍的危險動作（例如部署到 production、force-push 或直接 push main、資料外洩）。明確的 ask 規則與 classifier 攔截仍可能跳出確認。是「手動逐項確認」與「完全不檢查」之間的折衷。 | 啟動時加上 `claude --permission-mode auto`（若可用），或在 `~/.claude/settings.json` 設定 `"permissions": { "defaultMode": "auto" }`；啟動後確認當前模式（研究預覽） | [Permission modes](https://code.claude.com/docs/en/permission-modes) |
+| **Skip Permissions** | 跳過例行的工具使用確認，且不做任何安全檢查。比 auto 模式更快，但移除所有護欄。設計用途是用完即拋、無網路連線的隔離沙箱，不適合真實開發機器。 | 啟動時加上 `claude --dangerously-skip-permissions`（等同 `--permission-mode bypassPermissions`） | [Permission modes](https://code.claude.com/docs/en/permission-modes) |
 
-> **⚠️ Skip Permissions 注意事項**：此旗標會停用所有工具使用的確認對話框。請自行斟酌使用 — 在可信任的長時間 pipeline 中非常方便，但會移除手動審核的安全機制。僅在你確定接受 Claude 自動執行檔案讀寫、shell 指令等操作時才啟用。
+> **⚠️ 模式選擇**：大多數無人值守的 pipeline，建議使用 auto 模式。它讓長時間執行大幅減少中斷，同時由 classifier 擋下超出你請求範圍的危險動作，但 ask 規則與 classifier 攔截仍可能跳出確認。auto 模式是研究預覽：它不保證安全，也不能取代敏感操作的人工審查，且行為可能變動。Skip Permissions 則完全移除這層安全網，僅應在無網路連線的隔離沙箱中使用，且你要確定可以接受 Claude 在無檢查的情況下執行檔案讀寫與 shell 指令。
 
 ### v3.7.0 Plugin agent 與模型路由
 
@@ -39,9 +42,11 @@
 - Sonnet session 取得 Sonnet agent，跟主 session cost / latency 對齊。
 - Agent 永遠不會默默掉到 Haiku — `inherit` 走的是主 session 模型，主 session 本身又被「ARS 全程不用 Haiku」政策守住。
 
-意涵：**plugin agent 的 token 成本完全跟著上表各模式估算走，沒有額外加減**。dispatched agent 跟主 session 同一個模型，主 session 已經付的成本沒有再多一層 plugin agent 收費。如果 pipeline 中途換模型（例如 revision pass 改用 Sonnet 省成本），下一輪 agent 派工自動跟上。
+自 #514（於 #521 出貨）起，這三個 agent 的 frontmatter 同時帶固定的 tools 白名單——`tools: Read, Write, Edit, Grep, Glob`，無 shell、無網路抓取——派工當下即是最小權限；白名單內容由 `scripts/check_tools_allowlist.py`（#524）在 CI 鎖定。
 
-其他 ARS agent（`bibliography_agent`、`literature_strategist_agent` 等）在 v3.7.0 不暴露為 plugin agent；它們仍是 in-skill prompt template，由主 session 內聯執行，沒有獨立的模型路由層。更廣的 plugin agent 覆蓋留到後續版本。
+意涵：**plugin agent 的 token 成本完全跟著上表各模式估算走，沒有額外加減**（`ARS_MODEL_TIERING` 未設定時）。dispatched agent 跟主 session 同一個模型，主 session 已經付的成本沒有再多一層 plugin agent 收費。設定 `ARS_MODEL_TIERING=economy` 時，plugin 暴露的 execution 型 agent（如 `report_compiler_agent`）改走分層規則——比 session model 低一階、樓地板 Opus 級（見 `shared/model_tiering.md`）。如果 pipeline 中途換模型（例如 revision pass 改用 Sonnet 省成本），下一輪 agent 派工自動跟上。
+
+其他 ARS agent（`bibliography_agent`、`literature_strategist_agent` 等）在 v3.7.0 不暴露為 plugin agent；它們仍是 in-skill prompt template，由主 session 內聯執行，**預設**沒有獨立的模型路由層。Opt-in 的 `ARS_MODEL_TIERING`（#517）在其上加了一層 dispatch 時的路由規則：當分層方向適用於某角色時，session 會把該角色以子代理形式派發、鎖定目標層級（內聯角色也一樣——「派發為子代理」正是其機制）；flag 未設定時，本段描述的行為完全不變。見 `shared/model_tiering.md`。更廣的 plugin agent 覆蓋留到後續版本。
 
 ## 長時間 session 管理
 
@@ -57,7 +62,7 @@ Schema 13 sprint contract 把每個 reviewer agent 切成 Phase 1（不見論文
 | Skill / 模式 | Token 影響 | 備註 |
 |---|---|---|
 | `academic-paper-reviewer full` | 每位 reviewer 約 +30-40% input + 小幅 output × 5 位 | Phase 1 讀 contract template + 論文 metadata；Phase 2 讀完整論文 |
-| `academic-paper-reviewer methodology-focus` | 同上 shape，panel 2 | EIC + methodology 兩位 reviewer 各跑兩階段 |
+| `academic-paper-reviewer methodology-focus` | 同上 shape，panel 2 | Journal-Fit Reviewer + methodology 兩位 reviewer 各跑兩階段 |
 | Synthesizer（固定一個）| +~2-3K input | 讀 contract + 各 reviewer 輸出，跑三步機械協議 |
 
 實測待真實大規模審稿後校準。兩階段架構是 gated mode 的不可選 overhead，不是 tunable。

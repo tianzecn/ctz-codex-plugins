@@ -1,8 +1,11 @@
 ---
 name: ljg-word
-description: Deep-dive English word mastery tool. Deconstructs a single English word into core semantics and epiphany. Use when user asks to explain/master a specific English word.
-version: "1.0.1"
-user_invocable: true
+description: Deep-dive English word mastery tool. Deconstructs a single English word
+  into core semantics and epiphany. Use when user asks to explain/master a specific
+  English word.
+metadata:
+  version: 1.0.1
+  user_invocable: true
 ---
 
 ## Usage

@@ -1,0 +1,3 @@
+interface:
+  display_name: "存储空间分析"
+  short_description: "只读分析磁盘占用并生成分级清理报告"

@@ -88,8 +88,8 @@ kubectl get clusterrolebindings
 
 ## 路由上下文
 
-**上游**: MASTER R23  
-**下游**: 拿到节点 shell → `attack-chain` / `windows-ad`；镜像漏洞 → supply-chain  
+**上游**: MASTER R23
+**下游**: 拿到节点 shell → `attack-chain` / `windows-ad`；镜像漏洞 → supply-chain
 **MUST NOT**: 未授权扫公有云其他租户
 
 ## 任务完成自检

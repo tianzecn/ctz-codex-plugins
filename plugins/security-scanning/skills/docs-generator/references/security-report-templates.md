@@ -6,7 +6,7 @@
 
 ## 0. Evidence Chain（所有安全报告 MUST 包含）
 
-> 契约全文：`skills/ops/evidence-finding-path.md`  
+> 契约全文：`skills/ops/evidence-finding-path.md`
 > Case 目录：`work/<case>/`（`case-init.ps1`）
 
 报告正文中 **MUST** 含以下章节（可并入「核心发现」但字段不得省略）：

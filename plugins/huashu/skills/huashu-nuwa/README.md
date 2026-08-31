@@ -11,12 +11,15 @@
 > *「你想蒸馏的下一个员工，何必是同事」*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai/code)
-[![Skills](https://img.shields.io/badge/skills.sh-Compatible-green)](https://skills.sh)
+[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Standard-green)](https://agentskills.io)
+[![skills.sh](https://img.shields.io/badge/skills.sh-Compatible-blue)](https://skills.sh)
+[![Multi-Runtime](https://img.shields.io/badge/Runtime-Claude%20Code%20·%20Codex%20·%20Cursor%20·%20OpenClaw%20·%20Hermes-blueviolet)](#安装)
 
 <br>
 
 **女娲帮你蒸馏任何人的思维方式，让乔布斯、马斯克、芒格、费曼都给你打工。**
+
+<sub>基于开放的 [Agent Skills 协议](https://agentskills.io)，可在 Claude Code、Codex、Cursor、OpenClaw、Hermes Agent、CodeBuddy、Workbuddy、Gemini CLI、OpenCode 等 50+ 兼容 runtime 中运行。</sub>
 
 <br>
 
@@ -24,7 +27,7 @@
 那何必蒸馏同事？去蒸馏乔布斯、芒格、费曼、马斯克。<br>
 只需输入一个名字，女娲自动完成调研、提炼、验证全流程。
 
-[看效果](#效果示例) · [安装](#安装) · [它蒸馏了什么](#女娲蒸馏了什么) · [工作原理](#工作原理) · [不想自己蒸馏？试试 Bloome](#不想自己蒸馏试试-bloome)
+[看效果](#效果示例) · [安装](#安装) · [它蒸馏了什么](#女娲蒸馏了什么) · [工作原理](#工作原理)
 
 <br>
 
@@ -90,40 +93,59 @@ Naval     ❯ 你列了三个欲望。每个欲望都是你跟不快乐签的一
             你知道现在谁在同时做这三件事吗？Apple.
 ```
 
-蒸馏张雪峰之后：
-
-```
-用户      ❯ 家里条件一般，孩子想学金融，去不了顶尖学校，该不该报？
-
-张雪峰    ❯ 千万别报。我说过多少遍了，金融不是你学出来的，金融是
-            你爹妈给你带出来的。顶尖学校的金融，人家同学是行长的
-            儿子、基金经理的女儿，人脉就是资源。你普通家庭去个普通
-            学校学金融，毕业出来干什么？卖保险、跑银行柜台、做电销。
-            先谋生再谋爱，家里没矿就选技术类专业，学个硬本事，靠
-            自己吃饭。金融这碗饭，不是谁都端得起的。
-```
-
-这不是角色扮演。乔布斯用的是「聚焦即说不」和「端到端控制」心智模型，Naval用的是「欲望即合同」，马斯克用的是「渐近极限法」，张雪峰用的是「ROI教育观」和「阶层流动现实主义」。**它们不是在复读名人语录，是在用名人的认知框架帮你分析。**
-
----
-
-## 不想自己蒸馏？试试 Bloome
-
-[<img src="bloome-advisors.jpg" alt="Bloome - 让他们成为你的智囊团" width="720">](https://www.bloome.im)
-
-想随时找乔布斯和张小龙聊产品？和芒格聊投资？
-
-[Bloome](https://www.bloome.im) —— 让他们成为你的智囊团，人和多个 Agent 在同一个对话里协作。www.bloome.im
+这不是角色扮演。乔布斯用的是「聚焦即说不」和「端到端控制」心智模型，Naval用的是「欲望即合同」，马斯克用的是「渐近极限法」。**它们不是在复读名人语录，是在用名人的认知框架帮你分析。**
 
 ---
 
 ## 安装
 
+女娲基于开放的 [Agent Skills](https://agentskills.io) 协议，可在任何 skills-compatible 的 AI agent runtime 中运行。
+
+### 方式一：一行命令（推荐，跨 runtime）
+
+打开你正在用的 agent（Claude Code、Codex、Cursor、OpenClaw、Hermes、CodeBuddy、Workbuddy、Gemini CLI、OpenCode 等），告诉它：
+
+```
+帮我安装这个 skill：https://github.com/alchaincyf/nuwa-skill
+```
+
+或者用通用 CLI 安装器（[vercel-labs/skills](https://github.com/vercel-labs/skills)，支持 55+ runtime）：
+
 ```bash
 npx skills add alchaincyf/nuwa-skill
 ```
 
-然后在 Claude Code 里：
+它会自动识别你当前的 runtime 并把 skill 放到正确目录。需要指定时加 `-a claude-code` / `-a codex` / `-a cursor` / `-a openclaw` 等参数。
+
+### 方式二：手动安装
+
+<details>
+<summary>展开查看各 runtime 的 skills 目录</summary>
+
+| Runtime | 安装路径 |
+|---|---|
+| Claude Code | `~/.claude/skills/nuwa-skill/` |
+| Codex CLI | `~/.codex/skills/nuwa-skill/` |
+| Cursor | `~/.cursor/skills/nuwa-skill/` |
+| OpenClaw | `~/.openclaw/workspace/skills/nuwa-skill/` |
+| Hermes Agent | 跑 `tools/install_hermes_skill.py` |
+| 其他 runtime | clone 到对应 runtime 的 `skills/` 目录 |
+
+```bash
+git clone https://github.com/alchaincyf/nuwa-skill <上面对应的路径>
+```
+
+</details>
+
+### 方式三：作为参考资料使用
+
+即使 runtime 不支持 Agent Skills 自动加载，你也可以直接把 `SKILL.md` 的内容粘贴进对话——它本质就是一份 markdown + YAML frontmatter。
+
+---
+
+### 使用
+
+装好后，告诉 agent：
 
 ```
 > 蒸馏一个保罗·格雷厄姆
@@ -169,11 +191,11 @@ npx skills add alchaincyf/nuwa-skill
 
 ## 已蒸馏人物
 
-女娲已蒸馏了13位人物 + 1个主题。每个都是独立的、可直接安装使用的Skill：
+女娲已蒸馏了14位人物 + 1个主题。每个都是独立的、可直接安装使用的Skill，全部基于 Agent Skills 协议，可在 Claude Code / Codex / Cursor / OpenClaw / Hermes 等 runtime 通用：
 
 ### 人物Skill
 
-| 人物 | 领域 | 独立仓库 | 一键安装 |
+| 人物 | 领域 | 独立仓库 | 一键安装（跨 runtime） |
 |------|------|---------|---------|
 | 🔥 **Paul Graham** | 创业/写作/产品/人生哲学 | [paul-graham-skill](https://github.com/alchaincyf/paul-graham-skill) | `npx skills add alchaincyf/paul-graham-skill` |
 | 🔥 **张一鸣** | 产品/组织/全球化/人才 | [zhang-yiming-skill](https://github.com/alchaincyf/zhang-yiming-skill) | `npx skills add alchaincyf/zhang-yiming-skill` |
@@ -187,17 +209,31 @@ npx skills add alchaincyf/nuwa-skill
 | **费曼** | 学习/教学/科学思维 | [feynman-skill](https://github.com/alchaincyf/feynman-skill) | `npx skills add alchaincyf/feynman-skill` |
 | **纳瓦尔** | 财富/杠杆/人生哲学 | [naval-skill](https://github.com/alchaincyf/naval-skill) | `npx skills add alchaincyf/naval-skill` |
 | **塔勒布** | 风险/反脆弱/不确定性 | [taleb-skill](https://github.com/alchaincyf/taleb-skill) | `npx skills add alchaincyf/taleb-skill` |
-| **张雪峰** | 教育/职业规划/阶层流动 | [zhangxuefeng-skill](https://github.com/alchaincyf/zhangxuefeng-skill) | `npx skills add alchaincyf/zhangxuefeng-skill` |
+| **张雪峰** | 教育选择/职业规划/阶层流动 | [zhangxuefeng-skill](https://github.com/alchaincyf/zhangxuefeng-skill) | `npx skills add alchaincyf/zhangxuefeng-skill` |
+| **孙宇晨** | 营销/注意力经济/叙事操控 | [仓库内examples/](examples/sun-yuchen-perspective/) | 复制 `examples/sun-yuchen-perspective/` 到skills目录 |
 
 ### 主题Skill
 
-| 主题 | 领域 | 独立仓库 | 一键安装 |
+| 主题 | 领域 | 独立仓库 | 一键安装（跨 runtime） |
 |------|------|---------|---------|
 | **X导师** | X/Twitter运营全栈 | [x-mentor-skill](https://github.com/alchaincyf/x-mentor-skill) | `npx skills add alchaincyf/x-mentor-skill` |
 
 人物Skill蒸馏一个人的思维方式；主题Skill蒸馏一个领域的方法论。每个仓库都包含完整的调研数据和效果示例对话。
 
+🧪 **保真度评分卡**：15个官方Skill已全部通过独立双agent盲测（立场一致性/风格辨识度/边缘诚实度/来源透明度/结构完整度，方法论见 [references/fidelity-scorecard.md](references/fidelity-scorecard.md)），**全员A级（≥85分）**。各分数：MrBeast/纳瓦尔/塔勒布/乔布斯/Karpathy/Paul Graham/张雪峰 97 · 芒格/费曼/X导师 96 · 特朗普 95 · Ilya 94 · 张一鸣 93 · 孙宇晨 91 · 马斯克 89。完整评分卡见各skill目录内的 `FIDELITY.md`。
+
 想蒸馏不在列表里的人或主题？安装女娲，说「蒸馏一个XXX」就行。
+
+---
+
+## 贡献与社区
+
+女娲的生态由社区一起长大，但走两条不同的路：
+
+- **`SKILL.md` 是核心资产，不接受外部PR改动**。发现方法论的bug或改进点→开issue讨论，被采纳的想法由维护者实现并在commit中致谢（先例见PR #59）
+- **社区蒸馏的人物skill走 [COMMUNITY.md](COMMUNITY.md) 索引**：放你自己的仓库（star归你），跑一遍[保真度评分卡](references/fidelity-scorecard.md)拿到B级以上，提一行PR即可收录
+
+完整规则见 [CONTRIBUTING.md](CONTRIBUTING.md)。社区已有的合集、多人格编排和主题应用，见 [COMMUNITY.md](COMMUNITY.md)。
 
 ---
 
@@ -258,7 +294,6 @@ nuwa-skill/
     ├── feynman-perspective/           # 费曼
     ├── naval-perspective/             # Naval Ravikant
     ├── taleb-perspective/             # 塔勒布
-    ├── zhangxuefeng-perspective/      # 张雪峰
     └── x-mastery-mentor/             # X导师（主题Skill）
 ```
 
@@ -315,17 +350,26 @@ MIT License © [花叔 Huashu](https://github.com/alchaincyf)
 
 ---
 
+<div align="center">
+<sub>作者的其他项目 · also by 花叔</sub>
+
+[![FanBox · Coding Agent 的驾驶舱](https://raw.githubusercontent.com/alchaincyf/fanbox/master/assets/promo-banner.jpg)](https://github.com/alchaincyf/fanbox)
+
+</div>
+
+---
+
 ## English
 
 > *"The next person you want to distill doesn't have to be a colleague."*
 
 **[colleague-skill](https://github.com/titanwings/colleague-skill)** proved that distilling a person into an AI skill is viable. **Nuwa** asks: why stop at colleagues? Distill the best minds in every field — Munger, Feynman, Musk, Naval — people who conveniently left mountains of distillable material behind.
 
-Nuwa is a Claude Code skill that extracts cognitive frameworks — mental models, decision heuristics, expression DNA — from any public figure into a runnable perspective skill.
+Nuwa is an [Agent Skill](https://agentskills.io) that extracts cognitive frameworks — mental models, decision heuristics, expression DNA — from any public figure into a runnable perspective skill. Works in Claude Code, Codex, Cursor, OpenClaw, Hermes Agent, CodeBuddy, Workbuddy, Gemini CLI, OpenCode, and 50+ skills-compatible runtimes.
 
 Not role-playing. Cognitive architecture extraction.
 
-**Install**: `npx skills add alchaincyf/nuwa-skill`
+**Install** (cross-runtime, auto-detects your agent): `npx skills add alchaincyf/nuwa-skill`
 
 **How it works**: Input a name → 6 parallel research agents → 40+ primary sources → triple-verified mental models → quality-validated SKILL.md
 

@@ -29,11 +29,16 @@ issue would only duplicate that work.
 
 ## 2. Establish Publication Authority
 
-Submission is allowed only when the user explicitly asked to open the issue in
-the current task. An environment variable, repository label, self-repair
-invocation, writable checkout, or authenticated `gh` session is not
-publication authority. Qualification, public-safety, authentication, and
-deduplication gates still apply every time.
+Automatic submission is allowed only when one of these is true:
+
+- the user explicitly asked to open the issue in the current task; or
+- the owner has provided a durable opt-in through
+  `LOOPX_SELF_REPAIR_AUTO_ISSUE=1` in the current environment.
+
+The opt-in authorizes publication behavior, not the contents of a particular
+report. Qualification, public-safety, authentication, and deduplication gates
+still apply every time. Repository labels, self-repair invocation, a writable
+checkout, or an authenticated `gh` session are not publication authority.
 
 Without authority, render the exact public-safe title and body, then ask one
 yes/no confirmation. Do not create a user todo or interrupt the user until a

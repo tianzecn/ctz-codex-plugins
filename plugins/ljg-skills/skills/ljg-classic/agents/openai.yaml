@@ -1,0 +1,3 @@
+interface:
+  display_name: "古文笺"
+  short_description: "生成古文逐字注解、章节配图与长图解读"

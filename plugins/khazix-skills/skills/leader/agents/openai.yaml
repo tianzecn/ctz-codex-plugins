@@ -1,0 +1,3 @@
+interface:
+  display_name: "Agent 目标任务书"
+  short_description: "把一句想法拆成 Agent 可独立完成的任务书"

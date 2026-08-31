@@ -31,7 +31,7 @@ Lifecycle ownership notes (E8/E9 — discipline rules with no lint surface):
        human terminal).
 
 Reuse:
-  - scripts/_test_helpers.load_json_schema / build_schema_validator (FORMAT_CHECKER)
+  - tests/test_helpers.load_json_schema / build_schema_validator (FORMAT_CHECKER)
   - scripts/_next_verified_at_ms.next_verified_at_ms (D3 monotonic helper)
   - audit_snapshot is the Phase 6.1 reference for argparse subcommand pattern.
 
@@ -724,22 +724,20 @@ def check_b4(sidecar: dict[str, Any] | None, repo_root: Path,
     git_sha = _safe_get(sidecar, "runner", "git_sha")
     if not isinstance(git_sha, str):
         return []
-    # Skip live-git check when not in a real git repo (allows synthetic fixtures
-    # with valid-looking but fictitious SHAs to pass B4 without false positive).
-    # Codex vendors ARS below the repository root, so repo_root/.git may be
-    # absent even though `git -C repo_root` resolves through a parent worktree.
-    looks_like_ars_root = (
-        (repo_root / "scripts/check_audit_artifact_consistency.py").is_file()
-        and (repo_root / "shared/contracts/audit").is_dir()
-    )
-    if not (repo_root / ".git").exists() and not looks_like_ars_root:
+    if not (
+        (repo_root / ".git").exists()
+        or (repo_root / "scripts" / "check_audit_artifact_consistency.py").is_file()
+    ):
         return []
-
-    probe = subprocess.run(
+    # Skip live-git check when not inside a real git worktree (allows
+    # synthetic fixtures with valid-looking but fictitious SHAs to pass B4
+    # without false positive). Use git itself instead of repo_root/.git so
+    # nested vendored roots inside a larger checkout are still checked.
+    inside = subprocess.run(
         ["git", "-C", str(repo_root), "rev-parse", "--is-inside-work-tree"],
         capture_output=True, text=True, timeout=10,
     )
-    if probe.returncode != 0 or probe.stdout.strip() != "true":
+    if inside.returncode != 0 or inside.stdout.strip() != "true":
         return []
     try:
         result = subprocess.run(

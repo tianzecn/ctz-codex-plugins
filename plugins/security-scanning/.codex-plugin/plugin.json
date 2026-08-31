@@ -1,6 +1,6 @@
 {
   "name": "security-scanning",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Security scanning, reverse engineering, authorized penetration testing, digital forensics, and CTF routing skills packaged from zhaoxuya520/reverse-skill.",
   "author": {
     "name": "zhaoxuya520",
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "安全扫描与逆向",
     "shortDescription": "安全扫描、逆向分析、授权渗透、取证与 CTF 任务路由。",
-    "longDescription": "Security Scanning packages the reverse-skill routing system for Codex. It selects focused workflows for reverse engineering, authorized security assessment, malware analysis, digital forensics, mobile and firmware analysis, cloud and identity security, threat hunting, and competition sandboxes while preserving explicit scope and evidence gates.",
+    "longDescription": "Security Scanning packages 85 reverse-skill routing and specialist entries for Codex. It selects focused workflows for reverse engineering, authorized security assessment, malware analysis, digital forensics, evidence-graph case review, mobile and firmware analysis, cloud and identity security, threat hunting, ZIP archive challenges, and competition sandboxes while preserving explicit scope and evidence gates.",
     "developerName": "zhaoxuya520",
     "category": "DevOps & Security",
     "capabilities": [

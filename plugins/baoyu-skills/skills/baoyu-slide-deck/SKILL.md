@@ -1,14 +1,16 @@
 ---
 name: baoyu-slide-deck
-description: Generates professional slide deck images from content. Creates outlines with style instructions, then generates individual slide images. Use when user asks to "create slides", "make a presentation", "generate deck", "slide deck", or "PPT".
-version: 1.57.0
+description: Generates professional slide deck images from content. Creates outlines
+  with style instructions, then generates individual slide images. Use when user asks
+  to "create slides", "make a presentation", "generate deck", "slide deck", or "PPT".
 metadata:
   openclaw:
     homepage: https://github.com/JimLiu/baoyu-skills#baoyu-slide-deck
     requires:
       anyBins:
-        - bun
-        - npx
+      - bun
+      - npx
+  version: 1.117.4
 ---
 
 # Slide Deck Generator
@@ -32,19 +34,23 @@ When this skill needs to render an image, resolve the backend in this order:
 1. **Current-request override** — if the user names a specific backend in the current message, use it.
 2. **Saved preference** — if `EXTEND.md` sets `preferred_image_backend` to a backend available right now, use it.
 3. **Auto-select** (when the preference is `auto`, unset, or the pinned backend isn't available):
-   - **Codex (`imagegen`)** — first, inspect your available-skills / tool inventory. If a skill named `imagegen` is listed, you are running inside Codex and MUST use it: invoke via the `Skill` tool with `skill: "imagegen"`, passing the saved prompt file's content (plus output path and aspect ratio per Codex `imagegen`'s own args). Codex `imagegen` is the official raster backend in that runtime and outranks any non-native skill (e.g., `baoyu-imagine`) unless the user has explicitly pinned a different `preferred_image_backend`.
+   - **Codex (`imagegen`)** — first, inspect your available-skills / tool inventory. If a skill named `imagegen` is listed, you are running inside Codex and MUST use it: invoke via the `Skill` tool with `skill: "imagegen"`, passing the saved prompt file's content (plus output path and aspect ratio per Codex `imagegen`'s own args). Codex `imagegen` is the official raster backend in that runtime and outranks any non-native skill (e.g., `baoyu-image-gen`) unless the user has explicitly pinned a different `preferred_image_backend`.
+   - **Codex via `codex exec` (`codex-imagegen`)** — if the current runtime exposes no native `imagegen` skill but the `codex` CLI is on `PATH` with an active `codex login`, route through `baoyu-image-gen --provider codex-cli` (preferred), or — if baoyu-image-gen is unavailable — invoke the bundled wrapper directly. Details, parameters, and the runtime-discovery procedure live in [references/codex-imagegen.md](references/codex-imagegen.md) — load that file only when this branch is selected.
+   - **Cursor (`GenerateImage`)** — if the runtime exposes a native `GenerateImage` tool, you are running inside Cursor and it outranks any non-native skill the same way Codex `imagegen` does. Two hard caveats: (a) it has no aspect-ratio parameter — state the target aspect ratio / dimensions explicitly in the prompt text passed as `description`; (b) it does not accept an output directory — it saves to a tool-managed location, so after generation copy/move the file to the skill's expected output path (e.g., `outputs/.../NN-xxx.png`). Reference images go in `reference_image_paths`.
    - **Other runtime-native tools** — if the runtime exposes a different native image tool (e.g., Hermes `image_generate`), use it the same way.
-   - Otherwise, if exactly one non-native backend is installed (e.g., `baoyu-imagine`), use it.
+   - Otherwise, if exactly one non-native backend is installed (e.g., `baoyu-image-gen`), use it.
    - Otherwise (multiple non-native backends with no runtime-native tool), ask the user once — batch with any other initial questions.
 4. **If none are available**, tell the user and ask how to proceed.
 
 **⛔ Never substitute SVG, HTML, canvas, or other code-based rendering for raster image generation.** Codex `imagegen`'s own description says it should be used "when the output should be a bitmap asset rather than repo-native code or vector." If you cannot resolve a raster backend via step 3, fall through to step 4 and ask the user — do **not** silently emit SVG, write inline `<svg>` markup, or produce HTML/CSS art as a substitute. This applies even if the article/section seems "diagram-like": the consumer skill calling this rule has already decided that a raster image is what it needs.
 
+**⛔ Never repair rendered text by painting over a generated bitmap.** Do not use ImageMagick, Pillow, Canvas, SVG, HTML/CSS, OCR scripts, or any other programmatic overlay to cover, rewrite, erase, stroke, or replace slide titles, bullets, or any other text inside an already generated slide image. If text is wrong or unclear, regenerate from a corrected prompt, simplify the slide's on-image text, or ask the user which imperfect candidate to keep.
+
 Setting `preferred_image_backend: ask` forces the step-3 prompt every run regardless of available backends. Users change the pinned backend via the `## Changing Preferences` section below.
 
 **Prompt file requirement (hard)**: write each image's full, final prompt to a standalone file under `prompts/` (naming: `NN-slide-[slug].md`) BEFORE invoking any backend. The file is the reproducibility record and lets you switch backends without regenerating prompts.
 
-Concrete tool names (`imagegen`, `image_generate`, `baoyu-imagine`) above are examples — substitute the local equivalents under the same rule.
+Concrete tool names (`imagegen`, `GenerateImage`, `image_generate`, `baoyu-image-gen`) above are examples — substitute the local equivalents under the same rule.
 
 ## Batch Generation Policy
 
@@ -197,7 +203,7 @@ references:
     usage: direct
 ```
 
-At generation time, verify files exist. If `usage: direct` and the backend accepts refs (e.g., `baoyu-imagine --ref`), pass the file on every slide. Otherwise embed extracted `style`/`palette` traits in the prompt text.
+At generation time, verify files exist. If `usage: direct` and the backend accepts refs (e.g., `baoyu-image-gen --ref`), pass the file on every slide. Otherwise embed extracted `style`/`palette` traits in the prompt text.
 
 ## File Layout
 
@@ -295,6 +301,7 @@ Display the prompts index (`# | Filename | Slide Title`) and ask: proceed / edit
 ### Step 7: Generate Images
 
 1. Resolve the image backend via the Image Generation Tools rule at the top — ask once if multiple are installed.
+   - **`codex-imagegen` invocation**: when the rule resolves to `codex-imagegen`, see [references/codex-imagegen.md](references/codex-imagegen.md) for the invocation contract (preferred `baoyu-image-gen --provider codex-cli` path, runtime wrapper discovery, parameter notes, stdout schema, batch semantics — n=1 per call so slide batches must dispatch one wrapper call per slide).
 2. Confirm every `prompts/NN-slide-{slug}.md` exists (hard requirement; prompt files are the reproducibility record regardless of backend).
 3. Session ID: `slides-{topic-slug}-{timestamp}` — pass to the backend only if it supports sessions.
 4. Build a task list for selected slides with each slide's prompt file, output PNG path, aspect ratio, session ID, and verified direct references.
@@ -337,6 +344,12 @@ PDF: {topic-slug}.pdf
 
 Always update the prompt file before regenerating the image — this keeps the prompts directory as the source of truth and makes changes reproducible. Only `NN` changes on renumber; slugs stay stable so references remain valid.
 
+Text correction policy:
+
+- If a slide's title, bullets, or any other rendered text is misspelled, garbled, hard to read, or visually weak, do not patch the bitmap with code.
+- For text-correction regenerations, write a new prompt file and a new output path so the flawed candidate is preserved for comparison.
+- Post-processing is limited to crop, resize, compression, or format conversion that does not alter text or the main composition.
+
 See `references/modification-guide.md` for full details.
 
 ## References
@@ -369,7 +382,7 @@ EXTEND.md lives at the first matching path listed in Step 1.1. Two ways to chang
 - **Common one-line edits**:
   - `preferred_image_backend: auto` — default; runtime-native tool wins, falls back to the only installed backend, asks only if multiple non-native are present.
   - `preferred_image_backend: codex-imagegen` — pin to Codex's built-in.
-  - `preferred_image_backend: baoyu-imagine` — pin to the baoyu-imagine skill.
+  - `preferred_image_backend: baoyu-image-gen` — pin to the baoyu-image-gen skill.
   - `preferred_image_backend: ask` — confirm backend every run.
   - `generation_batch_size: 4` — default number of slide images to render concurrently when the backend/runtime supports batch or parallel generation.
   - `preferred_style: blueprint`, `preferred_audience: experts`, `language: zh`.

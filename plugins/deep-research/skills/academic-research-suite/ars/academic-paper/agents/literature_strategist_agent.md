@@ -23,7 +23,7 @@ You MAY READ files in `phase0_*/` (Paper Configuration Record from `intake_agent
 
 If downstream work is needed, return control to the caller with a recommendation. Do not execute. This Phase Boundary block COEXISTS with the existing v3.6.5 corpus-consumer protocol language below — both apply; the boundary is about phase scope, the corpus protocol is about field-mutation discipline.
 
-**Enforcement (v3.9.2):** prompt-level only. Advisory verifier (`scripts/check_pipeline_integrity.py`) can detect violations post-hoc. Deterministic PreToolUse hook deferred to v3.10 active conductor (#134).
+**Enforcement (v3.9.2):** prompt-level fence + advisory verifier (`scripts/check_pipeline_integrity.py`). Since the #134 rescope (PR #294), a deterministic PreToolUse write-scope guard enforces the WRITE clause where a hook runs; where none runs, this fence is the enforcement layer.
 
 ## Core Principles
 
@@ -41,6 +41,56 @@ From the Paper Configuration Record, extract:
 - Secondary concepts (related terms, synonyms)
 - Discipline-specific terminology
 - Boolean combinations
+
+### Domain Evidence Profile Resolution
+
+Reference: `academic-paper/references/domain_evidence_profiles.md`
+
+**Resolve `domain_evidence_profile` from the PCR `Domain Evidence Profile` row** (NOT the Material Passport, NOT a ledger, NOT a Schema number). The resolution is strictly **row-based** — read the row, do not classify the entry path. `source_verification_agent` is NOT given a profile-resolution step; this agent is the sole consumer.
+
+Graceful-fallback cases (none block — INVARIANT 4):
+- **(a) Row absent** → neutral `unknown_user_defined`. **In `full` mode, emit `[NO-PROFILE-NEUTRAL]`** so the neutral default is visible. (Paths that leave the row absent: `plan → full` and true mid-entry, where intake never set it. Resume-from-checkpoint carries whatever the prior intake wrote — present ⇒ that profile applies with no advisory; absent ⇒ neutral + advisory. A `deep-research → academic-paper` handoff is NOT absent — intake set the row.)
+- **(b) Row is *exactly* `unknown_user_defined`** (no `(requested: …)` suffix) → neutral. **No `[NO-PROFILE-NEUTRAL]`** — the scholar actively chose/accepted neutral at intake; that tag is only for the absent-row case.
+- **(b-reserved) Row is the reserved-fallback display form `unknown_user_defined (requested: <reserved>)`** where `<reserved>` is one of the 5 reserved values (`clinical`, `wet_lab`, `materials_physics`, `legal_case_based`, `education`) → **parse the leading effective token** (`unknown_user_defined`) and screen neutral, **and emit `[PROFILE-RESERVED-FALLBACK]`** — this is a *valid, acknowledged reserved request* that intake correctly fell back to neutral, NOT a malformed row. Do **not** emit `[PROFILE-UNRESOLVED]` here. Resolve by parsing the effective token + the `(requested: …)` parenthetical, not by exact-string equality against the enum.
+- **(c) Row is otherwise unresolvable** — a value not in the 4 enum, OR the reserved-fallback form `unknown_user_defined (requested: X)` whose `X` is **not** one of the 5 reserved values (a typo'd / hallucinated reserved), OR a ship-enum effective token carrying a `(requested: …)` suffix (e.g. `cs_ml (requested: clinical)`, which violates the intake request/effective coherence rule) → neutral, **and emit `[PROFILE-UNRESOLVED]`**.
+- **(d) Discipline mismatch** (the profile's implied discipline ≠ PCR `Discipline`) → proceed with BOTH signals in their own lanes, **emit `[PROFILE-DISCIPLINE-MISMATCH]`**. This is a warning, not a fallback — admissibility still uses the profile; `Discipline` still drives database selection. Nothing is blocked.
+
+**Profile → implied-discipline map** (so "implies a discipline" is deterministic, a string-category comparison — not inference):
+
+| Profile | Implied discipline(s) |
+|---|---|
+| `cs_ml` | CS / Engineering / Technology |
+| `humanities_interpretive` | Humanities |
+| `general_social_science` | Social Science **or** Policy (matches either) |
+| `unknown_user_defined` | none — neutral default never triggers a mismatch check |
+
+The mismatch advisory fires only when PCR `Discipline` falls **outside** the profile's implied set. `unknown_user_defined` and an absent row never warn.
+
+**There is no `HANDOFF_INCOMPLETE` concern** — the profile is a PCR field, not a handoff object, so the general handoff-validation convention never applies. A profile defect simply falls back to neutral with the advisory.
+
+**Monotonic admit-only resolution (the load-bearing contract — INVARIANT 5).** Every gate edit below is *additive*: under a non-neutral profile a gate may **admit an evidence type it would otherwise wrongly exclude**, but it MUST NOT exclude, down-rank, or fail any source the neutral gate currently admits. Combine neutral and profile criteria by **OR (union of admissible)**, never by replacement.
+
+The three **universal gates are never loosened by any profile**: a source must always pass the **relevance** check (abstract addresses the RQ), the **methodology** check (no fatal design flaw), and the **predatory**/fabrication check, regardless of which profile is active. The profile only forgives "not peer-reviewed / is a preprint / is an older canonical text" — never "off-topic, fatally flawed, or predatory".
+
+```
+profile = resolve_from_PCR_row()    # 4 enum values; absent/non-enum -> unknown_user_defined (+advisory on non-enum)
+
+# Universal gates apply to EVERY source regardless of profile — the profile can never bypass them:
+UNIVERSAL_GATES        = [relevance_to_RQ, methodology_not_fatally_flawed, not_predatory_or_fabricated]
+# Only these may be loosened by a non-neutral profile:
+PROFILE_LOOSENABLE     = [peer_review_requirement, publication_type, currency_window, provenance_expectation]
+
+def admit(source):
+    if not all(g(source) for g in UNIVERSAL_GATES):
+        return False                                  # profile NEVER bypasses relevance / methodology / predatory
+    if neutral_passes(source, PROFILE_LOOSENABLE):
+        return True                                   # never tighten: anything neutral admits stays admitted
+    if profile != unknown_user_defined and profile_admits(source, profile, PROFILE_LOOSENABLE):
+        return True                                   # only loosen: profile ADDs admit paths on loosenable gates only
+    return False
+# Under unknown_user_defined, admit() == the full neutral tree exactly.
+# A cs_ml preprint that is off-topic, fatally flawed, or predatory is STILL excluded.
+```
 
 ### Step 2: Database Selection
 | Discipline | Primary Databases |
@@ -65,31 +115,27 @@ From the Paper Configuration Record, extract:
 | Criterion | Include | Exclude |
 |-----------|---------|---------|
 | Publication type | Peer-reviewed journals, books, conference proceedings | Blog posts, news articles (unless as primary data) |
-| Date range | Last 10 years (default) + seminal works | Outdated unless historically relevant |
+| Date range | Profile-, question-, and target-appropriate window + relevant foundational works | Outside the justified window unless historically or conceptually relevant |
 | Language | Per config (EN, zh-TW, or both) | Other languages unless key source |
 | Relevance | Directly addresses RQ | Tangentially related |
+
+Under a non-neutral domain evidence profile, the profile's standard evidence types are added to the includable set before screening — the peer-reviewed filter (Step 3 `Filters:` line and the Step 4 Publication type / Date range rows) relaxes to peer-reviewed-equivalent for `cs_ml`; the year-range relaxes for `humanities_interpretive` canonical texts. Never tightened, never dropping anything the neutral filter would have kept (these are upstream hard filters that would otherwise starve the admit paths the screening tree opens downstream). Search-string enrichment under a profile is optional/additive and does NOT change the Step 2 `Discipline`-driven database table.
 
 ## Source Screening Protocol
 
 ### Phase A: Title/Abstract Screening
 - Scan titles and abstracts against inclusion criteria
 - Tag: Include / Exclude / Maybe
-- Target: narrow to 30-50 candidates
+- Continue until the candidate set covers the concepts, methods, alternatives, and evidence types required by the research question
 
 ### Phase B: Full-Text Assessment
 - Read abstracts and key sections of "Include" and "Maybe" sources
-- Assess relevance, quality, and evidence strength
-- Target: 15-30 final sources (varies by paper type)
+- Assess relevance, quality, evidence strength, and coverage of the claims the paper must support
+- Do not impose a universal final-source count. Record a numeric requirement only when an identified review protocol, target venue, or user-approved plan supplies one.
 
-### Source Count Guidelines
-| Paper Type | Minimum Sources | Typical Range |
-|-----------|----------------|---------------|
-| IMRaD | 20 | 25-40 |
-| Literature Review | 30 | 40-80 |
-| Theoretical | 15 | 20-35 |
-| Case Study | 15 | 20-30 |
-| Policy Brief | 10 | 15-25 |
-| Conference | 10 | 15-25 |
+### Coverage Plan
+
+Define required coverage from the research question, article type, field, target criteria, and intended claims. At minimum, identify the literature needed for conceptual lineage, closest prior work, competing explanations, methods, relevant evidence, and material counter-evidence. Coverage gaps are named by missing concept or claim—not by distance from a generic source quota.
 
 ## Annotated Bibliography
 
@@ -132,13 +178,42 @@ After reviewing the literature, identify:
 
 When the corpus-first flow ran, gap identification operates over the merged `final_included` set. The PRE-SCREENED block's zero-hit note (F3) and `uncovered_topics` from Step 2 case A / B' surface coverage gaps that originated in corpus screening; carry those forward into this section so user-curated coverage limits become explicit research-gap claims rather than silent omissions.
 
+## Distributional Skew Advisory (Kong #257)
+
+After retrieval, screening, deduplication, and before finalizing the Literature Search Report, run a **non-blocking** distributional coverage pass over the source set that will feed the Annotated Bibliography, Literature Matrix, Research Gap Identification, and Recommended Sources table. This extends the existing research-gap categories and the `uncovered_topics` / search-fills-gap flow: topic gaps remain the primary coverage signal, and this pass adds distributional skew signals on dimensions that are easy to miss when topics look covered.
+
+Analyze only metadata or annotations actually present. Do not infer missing geography, method, or venue tier from stereotypes. Omit dimensions with too few known values to assess.
+
+Dimensions:
+- **time distribution**: publication year, decade, or user-specified period buckets
+- **geographic distribution**: study site, population region, country/region tag, or explicitly stated context
+- **methodological distribution**: qualitative, quantitative, mixed-methods, review, theoretical, computational/simulation, dataset/tool paper
+- **venue tier distribution**: same journal/conference family, top-3 venue concentration, preprint-only concentration, or grey-literature concentration
+
+Threshold: when a single known value accounts for `>= 70%` of known entries in a dimension, emit `DISTRIBUTIONAL_SKEW_ADVISORY`. Use denominator `known_N` for that dimension, not total source count, and show the count so the user can judge whether the signal is meaningful.
+
+Template:
+
+```markdown
+DISTRIBUTIONAL_SKEW_ADVISORY:
+- Dimension: <time distribution | geographic distribution | methodological distribution | venue tier distribution>
+- Concentration: <value> = <n>/<known_N> (<pct>%)
+- Advisory: This is a coverage-distribution signal, not a defect. Consider whether the paper's RQ warrants broader periods, sites, methods, or venue families.
+- Search response: <new search string / source family to add / "no expansion; user requested this scope">
+```
+
+This advisory never blocks lit-review output, never downgrades included sources, and never becomes a novelty judgment. The user can keep the skew when it is substantively justified.
+
 ## Output Format
 
 ```markdown
 ## Literature Search Report
 
 ### Search Strategy
-[Databases, search strings, date range, filters]
+[Databases, search strings, date range, last-searched date (Schema 2 `last_searched_at`, #548), filters]
+
+### Coverage Distribution Advisory
+[Emit `DISTRIBUTIONAL_SKEW_ADVISORY` blocks for any dimension with >= 70% concentration; otherwise state "No distributional skew advisory triggered."]
 
 ### Screening Results
 - Initial hits: [N]
@@ -218,6 +293,10 @@ The external search executes the 4-Layer Progressive Strategy (Boolean → Citat
 ### Step 3: merge
 
 `final_included = pre_screened_included[] ∪ external_included[]`. The annotated bibliography stays neutral — no source-attribution tags on entries, no provenance column in the Literature Matrix.
+
+### Step 3.5: distributional skew advisory
+
+Run the Distributional Skew Advisory pass over `final_included`. This is separate from `uncovered_topics`: a corpus can cover every RQ subtopic while still being narrowly concentrated in one period, site, method, or venue family. Surface the advisory in the Search Strategy Report after the PRE-SCREENED block and before `Databases` when it triggers.
 
 ### Step 4: emit Search Strategy Report
 
@@ -341,17 +420,21 @@ Layer 2: Citation Chaining (backward tracking)
     1. Check reference list of each core paper
     2. Identify sources commonly cited by multiple core papers (= foundational literature)
     3. Add these sources to candidate list
-  OUTPUT: Supplementary candidate literature (typically adds 10-20 papers)
-  DECISION: If appearing >= 3 times -> mark as "must include"
+  OUTPUT: Supplementary candidate literature
+  DECISION: Treat repeated appearance as a prioritization signal only when the
+            active field/question profile makes citation recurrence meaningful;
+            never convert a universal count into "must include"
 
 Layer 3: Forward Tracking
   INPUT:  Foundational literature identified in Layer 2
   PROCESS:
     1. Use Google Scholar / Scopus "Cited by" feature
     2. Find "subsequent research" that cites the foundational literature
-    3. Prioritize subsequent research from the last 3 years
+    3. Prioritize the current period justified by the active field/question
+       profile; recency is not automatically a quality signal
   OUTPUT: Latest research supplement list
-  DECISION: If a foundational paper has zero citations in the last 3 years -> mark as "possibly outdated"
+  DECISION: Mark a source as potentially outdated only when newer, relevant
+            evidence or an applicable field standard establishes that concern
 
 Layer 4: Semantic Search
   INPUT:  Natural language description of the RQ
@@ -365,17 +448,17 @@ Layer 4: Semantic Search
 
 ### Search Stopping Rules (Saturation Criteria)
 
-Search must stop when **at least 3** of the following conditions are met:
+Search may stop only after a narrative coverage audit supports the decision:
 
 | # | Condition | Assessment Method |
 |---|------|---------|
-| 1 | Source count meets target | Reaches Minimum per paper type in "Source Count Guidelines" |
-| 2 | No new additions from latest search | Latest round added < 10% of existing sources |
-| 3 | Theme saturation | Every Theme in Literature Matrix has at least 3 sources |
+| 1 | Claim and concept coverage | Each planned material claim and required concept has relevant, fit-for-purpose support or a disclosed evidence gap |
+| 2 | No material additions from latest search | Latest round adds no new claim-relevant concept, method, alternative, evidence type, or counter-evidence |
+| 3 | Theme coverage | Each required theme has fit-for-purpose support or an explicit evidence gap; no universal per-theme source count |
 | 4 | Citation loop closure | Citation Chaining no longer discovers uncollected cited works |
-| 5 | Temporal span coverage | Contains foundational works + research from last 3 years |
+| 5 | Temporal span coverage | Covers the justified foundational and current periods for this question/profile, or discloses the temporal gap |
 
-If none of the 5 are met but 4 rounds of search have been conducted -> record "search limitation" and continue workflow.
+If the coverage conditions remain unmet when the user-approved search budget is exhausted, record the named search limitation and continue only with that gap visible. A fixed round count is not evidence of saturation.
 
 ### Literature Screening Decision Tree
 
@@ -384,12 +467,20 @@ Receive a candidate source ->
 ├── Is it peer-reviewed?
 │   ├── No -> Is it gray literature (government report/white paper) and directly relevant to RQ?
 │   │   ├── Yes -> Include (tag as gray literature)
-│   │   └── No -> Exclude
+│   │   └── No -> Is it admissible under the active domain evidence profile?
+│   │       (cs_ml: archival preprint / proceedings; humanities_interpretive: primary / archival / canonical source)
+│   │       ├── Yes -> tag by evidence type, then CONTINUE to the relevance + methodology nodes below
+│   │       │          (profile admit path, loosen-only — it does NOT short-circuit to Include)
+│   │       └── No -> Exclude
 │   └── Yes ->
-├── Is it within the time range (default 10 years)?
-│   ├── No -> Is it a foundational/milestone work in the field (cited > 100 times)?
-│   │   ├── Yes -> Include (tag as "seminal work")
-│   │   └── No -> Exclude
+├── Is it within the field/question-specific time range recorded in the search plan?
+│   ├── No -> Is it foundational, canonical, archival, or otherwise necessary for the claim?
+│   │   ├── Yes -> Include (tag the applicable evidence role and rationale)
+│   │   └── No -> Is it admissible under the active domain evidence profile's currency rule?
+│   │       (humanities_interpretive: primary / archival / canonical source; recency is not a quality signal)
+│   │       ├── Yes -> tag by evidence type, then CONTINUE to the relevance + methodology nodes below
+│   │       │          (profile admit path, loosen-only — it does NOT short-circuit to Include)
+│   │       └── No -> Exclude
 │   └── Yes ->
 ├── Does the abstract directly address at least one aspect of the RQ?
 │   ├── No -> Exclude
@@ -400,21 +491,27 @@ Receive a candidate source ->
 │   └── Yes -> Include
 ```
 
-### Literature Quality Quick Assessment Checklist
+A profile-admitted source is added only at the tree's PROFILE_LOOSENABLE nodes — the peer-review / publication-type node and the currency-window (time-range) node — and then continues through the unchanged universal relevance and methodology nodes; the profile never bypasses a universal-quality node and never short-circuits to Include. (Both admit paths are loosen-only and additive per INVARIANT 5: each adds an admit path where the neutral tree would otherwise Exclude, and neither removes, down-ranks, or re-screens anything the neutral tree already admits — e.g. the neutral `cited > 100` seminal-work Include is untouched.)
 
-Each included source is quickly scored on the following 5 items (1-3 points each):
+### Literature Fitness Quick Assessment Checklist
 
-| Item | 3 points | 2 points | 1 point |
-|------|------|------|------|
-| Journal ranking | Q1/Q2 or TSSCI/SSCI | Q3 or well-known conference | Q4 or unranked |
-| Methodological rigor | Well-designed, statistically sound | Reasonable design with minor flaws | Design has obvious problems |
-| Relevance to RQ | Directly addresses core question | Addresses partial aspects | Provides background only |
-| Citation count | Top 25% for same-age literature | Near median | Below median |
-| Data/evidence quality | Sufficient original data | Secondary data but reliable | Weak or missing evidence |
+Assess each included source against the claim it is expected to support. Record
+the judgement and rationale; do not total points or use journal rank/citation
+count as a cross-domain proxy for quality.
 
-**Total score >= 12**: High-quality source, prioritize assignment to core sections
-**Total score 8-11**: Acceptable source, assign to supporting sections
-**Total score <= 7**: Marginal source, use only when no alternative is available
+| Criterion | Record |
+|------|------|
+| Evidence role and provenance | Primary, secondary, archival, theoretical, policy, dataset, preprint, or another profile-recognized role; record provenance limits |
+| Method/design fitness | Whether the source's design or evidentiary form can support the intended claim; use `not_applicable` for non-empirical sources |
+| Relevance | Direct, contextual, contrary, or background relationship to the exact claim/RQ |
+| Claim-source alignment | What the source establishes, what it does not establish, and any scope mismatch |
+| Currency or historical role | Why the source is current enough, foundational/canonical, or otherwise appropriate under the active profile |
+| Uncertainty | Missing full text, contested interpretation, inaccessible language/material, or other limits |
+
+Use the assessment to decide whether the source is fit for a named claim,
+needs qualification, or should be replaced. No numeric total, venue prestige
+band, citation threshold, or universal evidence hierarchy may substitute for
+that decision.
 
 ### Chinese-English Literature Search Difference Handling
 
@@ -427,10 +524,9 @@ Each included source is quickly scored on the following 5 items (1-3 points each
 | Search order | Search English first -> use findings to supplement Chinese search terms | Search Chinese first -> confirm whether English equivalent literature exists |
 | Special notes | Note preprints need to be flagged | Note master's/doctoral thesis quality varies; requires additional assessment |
 
-**Mixed search rules**:
-- If Paper Configuration specifies bilingual -> Chinese and English literature must each comprise at least 30%
-- If specified as Chinese -> Chinese literature >= 50%, but international literature must not be below 20%
-- If specified as English -> English is primary; Chinese literature included only when providing Taiwan local data
+**Language-coverage rules**:
+- Apply a numerical language mix only when the research question, review protocol, target criteria, or user-approved plan supplies one.
+- Otherwise search the languages needed to cover the named populations, concepts, venues, and local/international evidence; disclose inaccessible language strata rather than manufacturing a universal percentage.
 
 ## Quality Gates
 
@@ -439,28 +535,30 @@ Each included source is quickly scored on the following 5 items (1-3 points each
 | Check Item | Pass Criteria | Failure Handling |
 |--------|---------|-----------|
 | Search strategy documented | Database + search strings + screening criteria all recorded | Return to complete documentation |
-| Source count | >= Minimum Sources for paper type | Execute one more round of Layer 2-4 search |
+| Claim and concept coverage | Required claims, concepts, methods, alternatives, and counter-evidence are covered or explicitly disclosed as gaps | Run a targeted search for the named gap |
 | Annotated bibliography completeness | 100% of included sources have annotations | Write missing annotations |
-| Literature matrix coverage | Every Theme >= 3 sources | Supplement search for weak Themes |
-| Research gaps | >= 2 specific actionable gaps | Re-analyze literature matrix |
-| Peer-reviewed ratio | >= 70% peer-reviewed | Replace non-academic sources |
-| Currency | >= 50% published in last 5 years | Supplement with recent literature |
+| Literature matrix coverage | Every required theme has fit-for-purpose support or an explicit evidence gap; no universal source count | Supplement the named weak theme or disclose the gap |
+| Research gaps | Specific actionable gaps are reported only where the evidence supports them; no minimum count | Re-analyze unsupported or generic gap claims |
+| Evidence-type fitness | Each source type is appropriate to the claim and field; no universal peer-reviewed ratio applies | Replace or contextualize sources that cannot support the claim made |
+| Currency | The justified field/question-specific time window is covered, with foundational exceptions and gaps visible; no universal recent-source ratio | Supplement the named temporal gap or justify the field-specific window |
+
+Under a non-neutral domain evidence profile, interpret evidence-type fitness and currency using that field's accepted evidence forms. A preprint, archival text, policy document, dataset, or other non-journal source is neither accepted nor rejected by quota; assess whether its provenance and content are fit for the particular claim.
 
 ### Failure Handling Strategies
 
 ```
 Quality gate not passed ->
-├── Insufficient source count ->
-│   1. Relax search criteria (expand year range +5 years)
-│   2. Add search databases (add Google Scholar)
-│   3. If still insufficient -> record "limited literature available" and notify user
+├── Named claim or concept gap ->
+│   1. Refine search concepts and citation chaining for that gap
+│   2. Add field-appropriate databases or evidence types
+│   3. If still unresolved -> record the bounded literature limitation and notify user
 ├── Uneven theme coverage ->
 │   1. Identify weak themes
 │   2. Design specialized search strings for those themes
 │   3. If still insufficient -> suggest adjusting Literature Matrix theme divisions
-├── Quality distribution too low ->
-│   1. Prioritize replacing sources with score <= 7
-│   2. If cannot replace -> explicitly note quality limitations in annotations
+├── Claim-evidence fitness problem ->
+│   1. Replace or contextualize sources that cannot support their assigned claims
+│   2. If the gap cannot be closed -> explicitly record the bounded limitation
 └── Insufficient currency ->
     1. Design specialized search for last 3 years
     2. Check for preprints that can supplement (must be tagged as preprint)
@@ -474,8 +572,8 @@ Quality gate not passed ->
 |--------|---------|
 | RQ not clearly defined | Return to intake_agent for user to clarify -> cannot start search |
 | Discipline not specified | Use general databases (Google Scholar + Scopus) + broaden search scope |
-| Language preference not specified | Default to English primary + attempt Chinese keyword search |
-| Year range not specified | Use default 10 years + seminal works unrestricted |
+| Language preference not specified | Derive needed languages from the question, populations, concepts, venues, and accessible evidence; ask when this materially changes scope |
+| Year range not specified | Propose and record a field/question-specific range; keep justified foundational, canonical, and archival material eligible |
 
 ### Paper Type Adjustments
 
@@ -483,8 +581,8 @@ Quality gate not passed ->
 |---------|-------------|
 | Theoretical | Increase weight of Layer 2 (Citation Chaining), trace theoretical origins; quality assessment emphasizes "theoretical contribution" |
 | Case study | Increase gray literature tolerance (policy documents, institutional reports); search for prior research on similar cases |
-| Policy brief | Include government reports, white papers, statistical data; increase currency requirement (last 3 years >= 60%) |
-| Conference paper | Source count can be reduced to 80% of Minimum; prioritize high-impact sources |
+| Policy brief | Include applicable government reports, white papers, and statistical data; justify currency from the policy decision and update cycle rather than a universal ratio |
+| Conference paper | Apply the venue's scope and length constraints; prioritize sources necessary to support the submitted claims |
 
 ### Poor Quality Upstream (intake_agent output is poor)
 
@@ -518,9 +616,11 @@ Quality gate not passed ->
 ## Quality Criteria
 
 - Search strategy must be documented and reproducible
-- Minimum source count met for paper type
+- Required claim, concept, method, alternative, and counter-evidence coverage is met or gaps are disclosed
 - Every included source has an annotation
 - Literature matrix covers all major themes
-- At least 2 research gaps identified
-- Source quality distribution: majority should be peer-reviewed
-- Recency: >50% of sources from last 5 years (unless historical topic)
+- Research gaps are reported only where the evidence supports them; no minimum count
+- Every source type is fit for the claim it supports; no cross-domain peer-reviewed-ratio quota is used
+- Currency follows the active field/question profile and claim needs; no universal recent-source ratio
+
+> Under a non-neutral domain evidence profile, interpret source type and recency using field-appropriate criteria. The profile never creates a universal count or ratio threshold.

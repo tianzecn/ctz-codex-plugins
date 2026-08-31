@@ -22,14 +22,14 @@ description: 逸尘自用的统一音视频转写入口，在 StepFun Step ASR �
 用离线路由器确认选择：
 
 ```bash
-python3 {baseDir}/scripts/route_asr.py \
+python3 ~/.agents/skills/yichen-asr/scripts/route_asr.py \
   --provider auto --text-only
 ```
 
 需要字幕时：
 
 ```bash
-python3 {baseDir}/scripts/route_asr.py \
+python3 ~/.agents/skills/yichen-asr/scripts/route_asr.py \
   --provider auto --need-timestamps --need-srt
 ```
 
@@ -38,7 +38,7 @@ python3 {baseDir}/scripts/route_asr.py \
 先运行只读体检；它只报告密钥是否存在，不显示密钥内容，也不会调用付费接口：
 
 ```bash
-python3 {baseDir}/scripts/asr_doctor.py
+python3 ~/.agents/skills/yichen-asr/scripts/asr_doctor.py
 ```
 
 体检中的 `token_present` 仅表示本机配置了调用凭证，不代表账户有余额。ASR Token 无权读取火山引擎财务余额；余额和欠费状态必须登录费用中心核验。
@@ -62,14 +62,14 @@ python3 "$YICHEN_STEP_ASR_SCRIPT" \
 执行器：
 
 ```bash
-python3 {baseDir}/../yichen-volc-asr/scripts/transcribe.py \
+python3 ~/.agents/skills/yichen-volc-asr/scripts/transcribe.py \
   "/absolute/path/input.mp4" \
   --transcribe-only
 ```
 
 需要 SRT 与口播粗剪时，去掉 `--transcribe-only`；只生成分析和命令、不执行剪辑时加 `--no-execute`。
 
-执行时完整遵守 `{baseDir}/../yichen-volc-asr/SKILL.md`。发现同媒体的 `.asr_pending.json` 时，优先恢复原任务；除非用户明确授权，不得使用 `--force-new`。
+执行时完整遵守 `~/.agents/skills/yichen-volc-asr/SKILL.md`。发现同媒体的 `.asr_pending.json` 时，优先恢复原任务；除非用户明确授权，不得使用 `--force-new`。
 
 豆包调用不需要每次网页登录。公开版不包含 App ID、Token 或钥匙串名称：试用与付费 App ID 分别通过 `VOLC_ASR_TRIAL_APP_ID`、`VOLC_ASR_PAID_APP_ID` 提供，Token 分别通过 `VOLC_ASR_TRIAL_TOKEN`、`VOLC_ASR_PAID_TOKEN` 提供。脚本直接把本地媒体提交到极速版接口；视频先由 ffmpeg 在内存中提取音轨。
 

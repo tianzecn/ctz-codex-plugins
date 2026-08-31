@@ -79,10 +79,11 @@ Publishing a review is an external write. Do not post a comment, `APPROVE`, or
 the current task. Without that authority, return the complete review locally.
 Never publish private or security-sensitive material.
 
-- Remaining blocking finding: formal `REQUEST_CHANGES`.
+- Remaining blocker: formal `REQUEST_CHANGES`; for an author-owned PR, use a
+  `COMMENTED` review titled `Request changes conclusion (author-owned PR; GitHub blocks formal self-review)`.
 - Non-blocking finding with no blockers: formal `APPROVE`, not a bare comment.
   When the GitHub account is the PR author and GitHub rejects self-approval,
-  record the same approval conclusion as a `COMMENTED` review or PR comment
+  record the same approval conclusion as a `COMMENTED` review
   titled `Approval conclusion (author-owned PR; GitHub blocks formal self-approval)`
   so the verdict remains public and machine-visible.
 - Non-blocking finding with only P2 suggestions: still `APPROVE`; keep the P2
@@ -110,9 +111,8 @@ return both artifacts locally:
    and five sections: `动机`, `改动思路`, `具体改动`, `对主干的风险`,
    `我的整体评价`. Cover every changed surface and key symbols, not just the
    main finding.
-2. **英文简短结论** - a concise English verdict (`APPROVE`,
-   `REQUEST_CHANGES`, or the author-owned `COMMENTED` fallback) with exact
-   head, verdict, key finding, and validation.
+2. **英文简短结论** - start with exactly `English verdict:` and include the
+   verdict, exact head, key finding, and validation.
 
 Do not publish before the Chinese section covers the entire PR. Read both
 artifacts back.
@@ -137,6 +137,28 @@ summary. For each selected PR:
 A review that only repeats the PR body, only discusses one blocker, or omits
 whole files/modules is incomplete and must be reworked.
 
+## Example / Walkthrough / Smoke-Only PRs
+
+When the review plan marks `smoke_or_example_only`, the `durable_smoke_value`
+evidence is mandatory before approval. The essence is real, durable value to
+the repository and product: running, deterministic, and public-safe are
+necessary but not enough.
+
+1. Name the shipped behavior, boundary, or maintenance cost this artifact
+   guards. "Demonstrates something that already works" is not durable value.
+2. Scan existing coverage (`rg -l '<behavior|module>' examples tests`) and the
+   same-author batch (`gh pr list ... --author <author>` / `gh search prs`);
+   flag same-shape batches opened within minutes as PR farming.
+3. Apply the repo smoke policy: thin + durable, guard shipped behavior or a
+   real boundary, compress rather than append, consolidate same-shape
+   walkthroughs into one PR or focused tests.
+4. Verdict: `REQUEST_CHANGES` for duplicative, oversized, or value-less
+   scaffolding; name the consolidation or thinning repair in the body.
+5. Repeat offenders: after a REQUEST_CHANGES warning, further low-value
+   same-shape PRs from the same author escalate to a contribution-restriction
+   recommendation (owner blocks the account from further PR submissions); the
+   warning must name this consequence.
+
 ## Autonomous Queue
 
 For recurring observation, use the same capability:
@@ -144,14 +166,14 @@ For recurring observation, use the same capability:
 ```bash
 loopx --format json pr-review --repo owner/repo --state open \
   --autonomous-observation \
-  [--previous-observation-json previous.json] \
+  [--observation-state-file .local/pr-review-monitor.json] \
   [--handled-exact-head NUMBER@HEAD_OID]
 ```
 
 Treat `not_observed`, `observed_unchanged`, and `material_transition`
-literally. A candidate is scheduling evidence only; it grants no Todo, review,
-comment, approval, push, or merge authority. Supply `--handled-exact-head` only
-after exact-head review-result readback proves completion.
+literally. Prefer the stable ignored checkpoint across tasks; it carries the age-fair
+cursor but grants no external authority. Supply `--handled-exact-head` only after exact-head readback proves completion. Stateless callers may use
+`--previous-observation-json` instead.
 
 ## Failure
 

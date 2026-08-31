@@ -1,8 +1,14 @@
 ---
 name: ljg-read
-description: "Reading companion agent. Accompanies user through any text (books, articles, essays, papers, news) with translation, structural annotation, deep questioning, and cross-domain insights. Detects language, translates English to Chinese (faithfulness-expressiveness-elegance), guides reader to understand the author and encounter real questions. Use when user says '伴读', '陪我读', '读这篇', 'read with me', 'companion read', or shares a text/URL wanting guided reading."
-user_invocable: true
-version: "1.0.0"
+description: Reading companion agent. Accompanies user through any text (books, articles,
+  essays, papers, news) with translation, structural annotation, deep questioning,
+  and cross-domain insights. Detects language, translates English to Chinese (faithfulness-expressiveness-elegance),
+  guides reader to understand the author and encounter real questions. Use when user
+  says '伴读', '陪我读', '读这篇', 'read with me', 'companion read', or shares a text/URL
+  wanting guided reading.
+metadata:
+  user_invocable: true
+  version: 1.0.0
 ---
 
 # ljg-read: 伴读
@@ -17,7 +23,7 @@ version: "1.0.0"
 
 ## 格式约束
 
-### Markdown 语法
+### Org-mode 语法
 
 - 加粗用 `*bold*`（单星号），禁止 `**bold**`
 - 标题层级从 `*` 开始，不跳级

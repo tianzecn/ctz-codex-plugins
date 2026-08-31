@@ -11,7 +11,7 @@
 
 ## 豆包 ASR（火山引擎）
 
-- 执行脚本：`{baseDir}/../yichen-volc-asr/scripts/transcribe.py`
+- 执行脚本：`~/.agents/skills/yichen-volc-asr/scripts/transcribe.py`
 - App ID：试用使用 `VOLC_ASR_TRIAL_APP_ID`，付费使用 `VOLC_ASR_PAID_APP_ID`；公开仓库不提供默认值
 - 凭证：试用使用 `VOLC_ASR_TRIAL_TOKEN`，付费使用 `VOLC_ASR_PAID_TOKEN`；公开仓库不读取固定钥匙串项
 - 接口：本地文件 base64 直传极速版，不再经过公开 TOS

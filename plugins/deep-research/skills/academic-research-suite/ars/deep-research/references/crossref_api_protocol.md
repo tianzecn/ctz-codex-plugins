@@ -10,7 +10,7 @@
 
 ## Purpose
 
-Provides a third bibliographic-index lookup for v3.9.0 cross-index triangulation per spec v3.9.0 §3.5. Crossref is the DOI registry of record — strongest coverage for journal articles with DOIs. Monograph / chapter coverage is partial (publisher participation dependent). v3.9.0 surfaces `crossref_unmatched` as one of three signals; the user retains discretion per R-L3-2-A.
+Provides a third bibliographic-index lookup for v3.9.0 cross-index triangulation per spec v3.9.0 §3.5. Crossref is the DOI registry of record — strongest coverage for journal articles with DOIs. Monograph / chapter coverage is partial (publisher participation dependent). v3.9.0 surfaces `crossref_unmatched` as one of three signals, handled per R-L3-2-A (advisory by default; a user-enabled `contamination_triangulation` strict policy may promote the k=3 triangulation signal to a terminal block — see `shared/references/firm_rules.md`).
 
 Mirrors the structure of `semantic_scholar_api_protocol.md` and `openalex_api_protocol.md`.
 
@@ -41,6 +41,18 @@ GET /works?query.title={url_encoded_title}&rows=5
 - DOI absent: title search alone returns no match meeting threshold.
 
 The check fires only when `obtained_via != 'manual'`.
+
+## `retraction_status` observation (#651)
+
+For a DOI-matched record, retain both top-level and relation-form
+`updated-by`/`update-to` metadata. The #651 resolver recognizes an update only
+when `updated-by` belongs to the cited DOI or an update notice's `update-to`
+points to the cited DOI. It preserves source, record id, notice DOI and date,
+and handles a later reinstatement without treating the earlier retraction as
+current. The full record already returned by `GET /works/{doi}` is sufficient
+for the common `updated-by` path; optional notice records may be supplied for
+the inverse `update-to` path and reason enrichment. Manual entries with a DOI
+use this path; DOI-less entries remain unresolved rather than title-matched.
 
 ## Degradation handling
 

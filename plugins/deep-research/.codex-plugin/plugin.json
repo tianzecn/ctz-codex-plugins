@@ -1,10 +1,9 @@
 {
   "name": "deep-research",
-  "version": "0.1.8",
+  "version": "0.1.27",
   "description": "Education and research skills for deep research, literature review, academic writing, peer review, and research pipelines.",
   "author": {
     "name": "Cheng-I Wu",
-    "email": "",
     "url": "https://github.com/Imbad0202"
   },
   "homepage": "https://github.com/Imbad0202/academic-research-skills-codex",

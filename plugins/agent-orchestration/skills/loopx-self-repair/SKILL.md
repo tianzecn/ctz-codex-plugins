@@ -107,19 +107,26 @@ the bridge from human or agent insight to quota-visible replan state:
 Record it with normal inline `refresh-state --vision-summary
 --vision-acceptance --vision-replan-trigger` fields using the same `--agent-id`
 that ran the repair. Use `--agent-vision-json` when a generated patch is clearer
-than a command line. Pair `--autonomous-replan-recorded` only after a bounded
-replan delta was actually written, such as a successor todo, no-follow-up
-rationale, blocker, or updated vision. A vision patch without a runnable todo is
-still useful: `quota should-run` can promote its `replan_trigger_summary` into
-`goal_frontier_projection.acceptance_gaps[]` when the advancement frontier is
-empty.
+than a command line. Replan closes only through a typed semantic observation or
+an atomic Todo transition bound with `--replan-obligation-id`, a typed
+`--action-kind`, and a stable `--target-key` or Explore node ref; do not append
+a second `--autonomous-replan-recorded` repair ACK. A vision patch without a
+runnable Todo is still useful: `quota should-run` can promote its
+`replan_trigger_summary` into `goal_frontier_projection.acceptance_gaps[]` when
+the advancement frontier is empty.
 
 If the repair concludes that the existing per-agent vision is still correct,
 close the required checkpoint with `--vision-unchanged-reason` instead of
 writing a fake patch. If a material `refresh-state` lacks both a patch and an
 unchanged/no-follow-up decision, LoopX should preserve a per-agent
 `vision_checkpoint_v0` with `decision=missing_required` so the same agent's
-next quota check can enter replan.
+next quota check can enter replan. A scheduler wake alone is not a material
+vision boundary: when quota explicitly projects a normally admitted open
+advancement Todo as `delivery_boundary=in_flight_continuation`, use the
+projected settlement command and do not invent a vision patch. The next
+heartbeat keeps that same Todo selected only after accountable
+`outcome_progress`; Todo completion, blocker/gap, durable Next Action change,
+replan, or terminal closeout must return to the strict semantic checkpoint.
 
 ## Evidence Discipline
 

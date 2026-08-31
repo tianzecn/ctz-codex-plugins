@@ -1,6 +1,6 @@
 ---
 name: dsl-vm-reverse
-description: 用于逆向基于 JavaScript 实现的自定义 DSL 或 WASM 风格虚拟机、风控引擎和混淆解释器，包括 Opcode 提取、调度器还原、运行时捕获与数据流分析。
+description: Reverse JavaScript-based custom DSL/VM interpreters, non-standard WASM-like runtimes, and risk-control engines. Use when analyzing IIFE or switch-based opcode dispatchers, extracting instruction tables, recovering bytecode semantics, capturing VM state at runtime, or reconstructing execution flow.
 ---
 
 # 🔄 DSL 自定义虚拟机逆向（DSL VM Reverse Engineering）

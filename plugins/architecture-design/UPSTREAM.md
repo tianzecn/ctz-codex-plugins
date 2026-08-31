@@ -3,12 +3,12 @@
 ## Archify
 
 - Repository: https://github.com/tt-a1i/archify
-- Branch: `main`
-- Commit: `95e8a3a9d50136bc34e1093edbca7d4a52e974aa`
-- Package version: `2.15.0`
-- Retrieved: 2026-08-25
+- Release: `v2.16.0`
+- Commit: `c826e6c3a7abad19c0f3cd1ca57207d54b1ad8de`
+- Package version: `2.16.0`
+- Retrieved: 2026-08-31
 - License: MIT; the upstream license is preserved in `skills/archify/LICENSE`.
-- Release archive SHA-256: `0df161dd0d780ed240b2d2e1f1eda8c6bb4394253af0ce956d89959487c37e10`
+- Release archive SHA-256: `4c59fa6557a2385beaaef8c7219cc414573acc9f0c30a932d5053b0b20689a46`
 
 The imported files are the exact contents of the upstream `archify.zip` release package. The
 archive was rebuilt from the fixed commit, its extracted tree matched the committed archive, and

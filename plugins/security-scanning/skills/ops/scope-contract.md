@@ -1,14 +1,15 @@
 # 通用 Scope 契约（任务启动硬门槛）
 
-> **MUST**：任何安全/逆向/渗透任务在 **ACT 之前** 在用户项目或 `work/<case>/` 落地 `scope.md`。  
-> 无 scope → 只允许读文档/路由，**禁止** 对目标主动扫描、Hook、利用。  
+> **MUST**：任何安全/逆向/渗透任务在 **ACT 之前** 在用户项目或 `work/<case>/` 落地 `scope.md`。
+> 无 scope → 只允许读文档/路由，**禁止** 对目标主动扫描、Hook、利用。
 > 模板可复制；字段名保持英文键，便于脚本校验。
 
 ## 如何初始化
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File skills\scripts\case-init.ps1 -Hint "<任务一句话>" -CaseName "my-case"
-# 产出：work/<case>/scope.md 等
+# 默认产出：当前分析项目的 work/<case>/scope.md 等
+# 从其他目录调用 skill 时显式指定：-ProjectRoot "C:\path\to\analysis-project"
 ```
 
 ## scope.md 完整模板
@@ -88,5 +89,5 @@ RULES / MASTER-ROUTING / SKILL:
 
 ## 特色
 
-- 纯 Markdown，**无数据库**  
+- 纯 Markdown，**无数据库**
 - 与 `tool-index` / bootstrap 正交：scope 管「能不能打」，tool-index 管「用什么打」

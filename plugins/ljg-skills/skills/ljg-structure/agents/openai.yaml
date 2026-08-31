@@ -1,0 +1,3 @@
+interface:
+  display_name: "母题结构风洞"
+  short_description: "提取母题级结构并检验因果与边界"

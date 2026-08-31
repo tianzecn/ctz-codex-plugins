@@ -1,6 +1,6 @@
 {
   "name": "spreadsheet-processing",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "面向 Excel 与 CSV 的表格体检、清洗、分析、对账和可追溯报告能力。",
   "author": {
     "name": "Huashu (花叔)",

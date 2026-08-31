@@ -1,25 +1,25 @@
 {
   "name": "sol-advisor",
-  "version": "0.4.0",
-  "description": "Codex-native architect workflow with a native Terra / High lane plus an explicit opt-in, user-visible Luna task lane, with primary-session verification and acceptance.",
+  "version": "0.6.0",
+  "description": "Codex-native selective routing: Sol / High declares solo, delegate, audit, or exceptional full delivery before work begins.",
   "author": {"name": "Daniel McAteer", "url": "https://github.com/DannyMac180"},
   "homepage": "https://github.com/DannyMac180/sol-advisor#readme",
-  "repository": "https://github.com/DannyMac180/sol-advisor",
+  "repository": "https://github.com/tianzecn/ctz-codex-plugins",
   "license": "MIT",
   "keywords": ["codex", "orchestration", "multi-agent", "gpt-5.6"],
   "skills": "./skills/",
   "interface": {
     "displayName": "Sol Advisor",
-    "shortDescription": "Orchestrate with Sol, use native Terra / High or opt-in Luna tasks, and verify the accepted diff.",
-    "longDescription": "Sol Advisor gives Codex two explicit delivery modes: GPT-5.6 Sol keeps architecture, decomposition, verification, and acceptance in the primary session; the native mode uses a separately installed GPT-5.6 Terra / High role and a fresh Sol reviewer, while the opt-in Luna mode creates user-visible GPT-5.6 Luna / Max tasks through Codex app task tools (list_projects, list_threads, create_thread, wait_threads, read_thread, and send_message_to_thread) and keeps review, corrections, PR authorization, and dependent-stack ordering in the primary session.",
+    "shortDescription": "Plan with Sol / High, declare a risk-gated route, and use at most one auxiliary by default.",
+    "longDescription": "Sol Advisor keeps GPT-5.6 Sol / High in the primary session for architecture, implementation when solo or audit is selected, verification, and acceptance. Before the first task tool call, Sol declares a machine-auditable SELECTIVE ROUTE: solo is the default; delegate uses native GPT-5.6 Luna / Max for bounded work or GPT-5.6 Terra / High for higher-risk work; audit uses a fresh read-only GPT-5.6 Sol / High review; full combines one selected implementer with a fresh review only for a broad or high-risk exception. Public role metadata is authoritative and missing, conflicting, unavailable, or unobservable routing evidence fails closed.",
     "developerName": "Daniel McAteer",
     "category": "AI & Agent",
     "capabilities": ["Interactive", "Write"],
     "websiteURL": "https://github.com/DannyMac180/sol-advisor",
-    "defaultPrompt": ["Use Sol Advisor's native lane to build this feature, verify it, and obtain the fresh Sol review before completion.", "Use the Luna task lane only when I explicitly authorize it; keep primary review and acceptance in this task."],
+    "defaultPrompt": ["Use $sol-advisor:orchestration to declare a SELECTIVE ROUTE before task tools, then build and verify this feature.", "Use solo by default; select delegate, audit, or exceptional full only when the stated risk justifies it."],
     "brandColor": "#2563EB",
-    "composerIcon": "./assets/icon.svg",
     "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
     "screenshots": []
   }
 }

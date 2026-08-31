@@ -1,0 +1,7 @@
+interface:
+  display_name: "CTF ZIP 归档分析"
+  short_description: "使用已知明文和 bkcrack 分析传统加密 ZIP 题目"
+  default_prompt: "After $ctf-sandbox-orchestrator is active, use $competition-zip-archive to identify ZIP encryption, recover ZipCrypto keys with exact known plaintext, unlock a copy, and preserve reproducible evidence."
+
+policy:
+  allow_implicit_invocation: false

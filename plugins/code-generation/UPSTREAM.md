@@ -1,9 +1,9 @@
 # Upstream provenance
 
 - Repository: <https://github.com/DietrichGebert/ponytail>
-- Imported commit: `16f29800fd2681bdf24f3eb4ccffe38be3baec6b`
-- Imported on: 2026-08-07
-- Upstream version: `4.8.4`
+- Imported commit: `0a4dd63ad4541f4f655c4108a295916f3c1d8fda`
+- Imported on: 2026-08-31
+- Upstream version: `4.9.0`
 - Imported skills: 6
 - Deprecated skills skipped: 0
 

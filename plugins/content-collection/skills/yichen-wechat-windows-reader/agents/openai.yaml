@@ -1,0 +1,3 @@
+interface:
+  display_name: "Windows 微信快照读取"
+  short_description: "只读查询已授权的 Windows 微信明文快照"

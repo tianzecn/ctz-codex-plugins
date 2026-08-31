@@ -1,6 +1,6 @@
 {
   "name": "agent-orchestration",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Agent orchestration skills for supervised dynamic workflows and LoopX-managed long-running goals in Codex.",
   "author": {
     "name": "Multiple upstream authors",
@@ -25,7 +25,7 @@
   "interface": {
     "displayName": "Agent 编排",
     "shortDescription": "编排有监督工作流，并治理 LoopX 长程 Agent 目标。",
-    "longDescription": "Agent 编排插件整合有监督动态工作流与 LoopX 长程 Agent 控制面技能，覆盖任务拆分、授权闸门、子 Agent 协作、项目连接、长期资料登记、PR 计划与评审、变更质量、素材生命周期和控制面自修复。LoopX 技能需要独立安装 loopx CLI。",
+    "longDescription": "Agent 编排插件整合有监督动态工作流与 LoopX 长程 Agent 控制面技能，覆盖任务拆分、授权闸门、子 Agent 协作、项目连接、基准测试、长期资料登记、PR 计划与评审、变更质量、素材生命周期和控制面自修复。LoopX 技能需要独立安装 loopx CLI。",
     "developerName": "多位上游作者",
     "category": "AI & Agent",
     "capabilities": [

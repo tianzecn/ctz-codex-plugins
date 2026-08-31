@@ -12,7 +12,7 @@
 | **cre** | 逆向分析 | 二进制/固件/移动/前端逻辑 | `ida-reverse/` `ghidra-reverse/` `radare2/` `apk-reverse/` `mobile-reverse/` `macos-reverse/` `js-reverse/` `browser-extension-reverse/` `dotnet-reverse/` `go-rust-reverse/` `firmware-pentest/` `hardware-security/` `malware-analysis/` `protocol-reverse/` `thick-client/` `reverse-engineering/` |
 | **cae** | 代码审计 | 源码/依赖/供应链 | `code-audit/` + `supply-chain-security/` |
 | **cbe** | 蓝队/取证 | 狩猎、检测、IR 伪影 | `threat-hunting/` `digital-forensics/` |
-| **cce** | 密码学 | 算法/协议/密钥误用 | 通用密码：`reverse-engineering` 模式文档；链上/独立包不进核心 |
+| **cce** | 密码学 | 算法/协议/密钥误用 | `reverse-engineering` 模式文档 |
 | **llm** | AI 安全 | Prompt/Agent | `llm-security/` |
 | **doc** | 文档官 | 报告/writeup/图 | `docs-generator/` + `diagram-generator/` |
 
@@ -53,11 +53,11 @@
 
 ## 与 master-route 关系
 
-- `master-route` 定 **PRIMARY skill**  
-- `role-map` 定 **谁在当前阶段负责**（可写在 scope.md）  
-- 多阶段任务 PRIMARY 常为 `attack-chain/`，由 lead 再分发  
+- `master-route` 定 **PRIMARY skill**
+- `role-map` 定 **谁在当前阶段负责**（可写在 scope.md）
+- 多阶段任务 PRIMARY 常为 `attack-chain/`，由 lead 再分发
 
 ## MUST NOT
 
-- 不要假设存在 Z3r0 会话 API  
-- 不要为角色启动未授权目标的额外扫描  
+- 不要假设存在 Z3r0 会话 API
+- 不要为角色启动未授权目标的额外扫描

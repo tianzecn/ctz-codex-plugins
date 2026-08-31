@@ -1,23 +1,23 @@
 # Upstream provenance
 
 - Repository: https://github.com/hugohe3/ppt-master
-- Tag: `v5.0.0`
-- Commit: `e469064b0ca85eea179a9af60c9182f7fa8baf1a`
-- Imported: 2026-08-24
+- Tag: `v6.1.0`
+- Commit: `c40bca58e168fcef2facdc7612cc352d1233679b`
+- Imported: 2026-08-31
 - Imported skills: 1 (`ppt-master`)
 - Deprecated skills skipped: 0
-- Upstream package version: `5.0.0`
+- Upstream package version: `6.1.0`
+- Release archive: `ppt-master-skill-v6.1.0.zip`
+- Release archive SHA-256: `39a33c611e868c507c4d26d1b0c479ddbcb854dd66d30c3e0c5495a37dc5891a`
 
-The plugin imports all 12,922 tracked files from the upstream
-`skills/ppt-master/` directory. Of those, 12,911 are preserved byte-for-byte.
-The Codex package adds `skills/ppt-master/agents/openai.yaml` for the
-user-visible bilingual name and Chinese summary.
+The plugin imports all 12,939 files from the official release archive's
+`skills/ppt-master/` directory. The Codex package adds
+`skills/ppt-master/agents/openai.yaml` for the user-visible bilingual name and Chinese summary.
 
-Eleven upstream files had trailing whitespace or extra blank lines at EOF that
-failed the target repository's mandatory `git diff --check` gate. Packaging
-normalizes only that whitespace in seven Python modules, three chart SVGs, and
-`scripts/tts_backends/__init__.py`; no executable logic, SVG geometry, prompt,
-workflow, template semantics, attribution text, or integrity gate is changed.
+Upstream files with trailing whitespace, CRLF-only line endings, or extra blank lines at EOF are
+normalized only when required by the target repository's mandatory `git diff --check` gate. No
+executable logic, SVG geometry, prompt, workflow, template semantics, attribution text, or
+integrity gate is changed.
 
 The primary upstream license is MIT and remains available at
 `skills/ppt-master/LICENSE`. Bundled data, icons, sounds, and brand marks also

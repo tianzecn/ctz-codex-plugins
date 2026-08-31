@@ -1,0 +1,3 @@
+interface:
+  display_name: "Hurl API 测试"
+  short_description: "编写并运行可维护的纯文本 HTTP API 测试"

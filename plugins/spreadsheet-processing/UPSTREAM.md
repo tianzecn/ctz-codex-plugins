@@ -2,8 +2,8 @@
 
 - Repository: https://github.com/alchaincyf/huashu-excel
 - Branch: `master`
-- Commit: `91d7b88e0343b3d68a9fef7c92eafb84fc98597f`
-- Retrieved: 2026-08-24
+- Commit: `9348581a87cc03ed8d0b30706631088e922c6027`
+- Retrieved: 2026-08-31
 - License: MIT; the upstream license is preserved as `LICENSE-HUASHU-EXCEL`.
 
 ## Imported scope

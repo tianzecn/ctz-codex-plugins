@@ -1,6 +1,6 @@
 {
   "name": "cloud-platform-management",
-  "version": "2.20.2",
+  "version": "2.32.4",
   "description": "Cloud platform management skills for Tencent CloudBase full-stack development, deployment, and troubleshooting.",
   "author": {
     "name": "TencentCloudBase",
@@ -22,7 +22,7 @@
   "interface": {
     "displayName": "云平台管理",
     "shortDescription": "腾讯 CloudBase 开发、部署、运维与故障排查指导。",
-    "longDescription": "Cloud Platform Management packages the Tencent CloudBase skill for Codex. It helps agents build Web, WeChat Mini Program, and native-app backends on CloudBase, select SDK and auth paths, deploy cloud functions or CloudRun services, manage storage and databases, integrate AI models, and troubleshoot resources with MCP-first workflows.",
+    "longDescription": "Cloud Platform Management packages the Tencent CloudBase skill for Codex. It helps agents build Web, WeChat Mini Program, and native-app backends; select SDK and auth paths; use NoSQL, relational databases, and PostgreSQL; integrate WeChat and AI models; deploy cloud functions or CloudRun services; and review or troubleshoot resources with MCP-first workflows.",
     "developerName": "TencentCloudBase",
     "category": "DevOps & Security",
     "capabilities": [

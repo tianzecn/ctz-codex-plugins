@@ -1,0 +1,3 @@
+interface:
+  display_name: "CloudBase PostgreSQL 开发"
+  short_description: "构建和调试 CloudBase PostgreSQL 应用"

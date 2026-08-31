@@ -1,7 +1,11 @@
 ---
 name: ljg-think
-description: 追本之箭——纵向深钻思维工具。给一个观点、现象或问题，像箭一样一路向下钻到不可再分的本质。Use when user says '想透', '追本', '本质是什么', '为什么会这样', '深挖', '钻到底', 'think deep', 'drill down', or wants to trace any idea/phenomenon vertically to its irreducible root. Also trigger when user provides a statement and wants depth analysis, not breadth survey.
-user_invocable: true
+description: 追本之箭——纵向深钻思维工具。给一个观点、现象或问题，像箭一样一路向下钻到不可再分的本质。Use when user says '想透',
+  '追本', '本质是什么', '为什么会这样', '深挖', '钻到底', 'think deep', 'drill down', or wants to trace
+  any idea/phenomenon vertically to its irreducible root. Also trigger when user provides
+  a statement and wants depth analysis, not breadth survey.
+metadata:
+  user_invocable: true
 ---
 
 # 追本之箭
@@ -62,6 +66,6 @@ user_invocable: true
 ## 输出
 
 1. 获取时间戳：`date +%Y%m%dT%H%M%S` 和 `date "+%Y-%m-%d %a %H:%M"`
-2. 写入 `~/Documents/notes/{时间戳}--追本-{主题}__think.md`
-3. markdown 格式，禁止 markdown 语法
+2. 写入 `~/Documents/notes/{时间戳}--追本-{主题}__think.org`
+3. org-mode 格式，禁止 markdown 语法
 4. 报告文件路径给用户

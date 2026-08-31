@@ -1,9 +1,15 @@
 # Upstream provenance
 
 - Repository: <https://github.com/zhaoxuya520/reverse-skill>
-- Imported commit: `b28f7d27606cc6c4eb0449ff40f45307141c9618`
-- Imported on: 2026-08-03
-- Main package version file: `1.0.0`
+- Release: `v1.0.1`
+- Imported commit: `9c28c6ca1062a1a076e28baf40f241dbb4cf5dc2`
+- Imported on: 2026-08-31
+- Main package version file: `1.0.1`
+- Imported discoverable skills: 85
+
+The upstream repository rewrote history after the previous import, so the old and new commits have
+no common ancestor. This update rebuilds the declared package from the v1.0.1 release instead of
+pretending it is a linear patch.
 
 The main `skills/` package is distributed under the upstream MIT license, reproduced in `LICENSE-MIT`. The bundled `CTF-Sandbox-Orchestrator` package is distributed under GPL-3.0; its license is preserved at `skills/LICENSE`. The plugin manifest therefore uses the SPDX expression `MIT AND GPL-3.0-only`.
 

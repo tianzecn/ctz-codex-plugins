@@ -132,7 +132,7 @@ date +%Y%m%dT%H%M%S         # → identifier
 date "+%Y-%m-%d %a %H:%M"   # → date 字段
 ```
 
-denote schema 文件名：`{YYYYMMDDTHHMMSS}--qa-{主题}__qa.md`
+denote schema 文件名：`{YYYYMMDDTHHMMSS}--qa-{主题}__qa.org`
 
 - `qa-` 前缀：标记 Q-A 类型（与 ljg-paper 的 `paper-` 同构）
 - 主题：核心论点的 5-10 字提炼，去标点。优先用方法名/概念名/灵魂句关键字
@@ -180,7 +180,7 @@ denote schema 文件名：`{YYYYMMDDTHHMMSS}--qa-{主题}__qa.md`
 
 注意：
 
-- 加粗用 `*bold*`（markdown），不用 `**bold**`（markdown）
+- 加粗用 `*bold*`（org-mode），不用 `**bold**`（markdown）
 - 列表用 `- item`，不用 `* item`（`*` 在 org 是标题）
 - 分隔用空行或层级，不用 `---`
 - 代码用 `~code~` 或 `=code=`，不用反引号

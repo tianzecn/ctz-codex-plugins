@@ -1,7 +1,7 @@
 # RE Agent 工作流门闩（静态↔动态）
 
-> 来源启发：binary-re 阶段划分、社区 RE skill（Frida/r2/Ghidra/IDA 循环）、Cerberus 三头环（静/动/插桩）  
-> 日期：2026-07-17  
+> 来源启发：binary-re 阶段划分、社区 RE skill（Frida/r2/Ghidra/IDA 循环）、Cerberus 三头环（静/动/插桩）
+> 日期：2026-07-17
 > 适用：`reverse-engineering/`、`ida-reverse/`、`radare2/`、与 cre 角色交接
 
 ## 0. 启动
@@ -58,5 +58,5 @@
 
 ## 5. 与「堆 RE skill 插件」的差异
 
-- 本包用 **阶段门闩 + tool-index**，不默认启用 Hex-Rays「unsafe 全自动执行」类插件  
-- 动态插桩默认 **offline/lab** network_profile  
+- 本包用 **阶段门闩 + tool-index**，不默认启用 Hex-Rays「unsafe 全自动执行」类插件
+- 动态插桩默认 **offline/lab** network_profile

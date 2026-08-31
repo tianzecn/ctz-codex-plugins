@@ -15,7 +15,7 @@ Ask only what changes the design:
   simple silhouette.
 - **What look?** The pack's one style: riso (house default) or another from
   the look library — blueprint, woodcut, pixel, clay, manila, chalk,
-  phosphor, enamel, gouache — or a custom style file. The model sheet and
+  phosphor, enamel, gouache, felt, diorama, sketchbook, bricks, fizz, bloom, snes — or a custom style file. The model sheet and
   every scene render in this style.
 - **Where is the accent?** One small part that will carry the palette accent
   in every image (a tip, a fold, a tail, a topknot).
@@ -54,6 +54,10 @@ push back early:
 - A face beyond the deadpan default must be specified in render-checkable
   terms — exact shapes, not moods. "Smiling warmly" drifts; "a thin flat
   structure-ink mouth" locks.
+- Can it physically perform a move? Walk the interaction-model fields
+  (`character.md`) against one sample action — what touches, what supports,
+  how far it reaches. A character with no workable contact surface can't be
+  load-bearing; fix the design now, not per-image.
 - Does the silhouette stay readable at thumbnail size?
 - Is it distinct from a visual cliché the reader already knows (a generic
   file icon, an emoji, a famous mascot)? Collisions read as borrowed IP.
@@ -81,6 +85,17 @@ Aliases: {subject + synonyms, comma-separated — omit this line if the name alr
 - **Accent carrier**: {the one accent part} — the only accent-colored part.
 - {limbs — house default: small stubby arms and legs}.
 
+## Interaction model
+
+- Contact surfaces: {parts that may touch/operate objects, and how — e.g.
+  "rounded arm tips: press and carry only, no grasp"}.
+- Reach: {fixed | stubby | short | normal | long | articulated | body-contact only}.
+- Grip: {none | pressure/contact only | hook | pinch | grasp}.
+- Support/locomotion: {feet | paws | wheels | base | body mass | flight}.
+- Protected regions: {e.g. the face interior — only the locked marks appear there}.
+- Special operators: {a tail, horn, handle, or mouth that may operate
+  objects — omit the line if none}.
+
 ## Prompt spec (drop into the CHARACTER slot)
 
 > the recurring mascot — {body description}, {the locked face spec},
@@ -98,17 +113,35 @@ Aliases: {subject + synonyms, comma-separated — omit this line if the name alr
 
 {Default: an earnest, low-key operator doing something slightly absurd with a
 straight face. Adjust freely — keep it consistent with the locked face, and
-let the move, not the expression, carry the idea.}
+let the move, not the expression, carry the idea. Lead with what the character
+*is and does*; if you name a use-case, keep any engineering use as one lens at
+the end, never the headline — the catalog is a cast of mascots, not a devops
+icon set.}
 ```
+
+### Optional cutout chroma compatibility
+
+Codex cutouts use native alpha by default, so a new pack needs no chroma
+decision. The fallback/OpenRouter path keys a flat screen color to alpha in
+post and defaults to magenta. Add **`Cutout chroma: green`** only when the
+design needs a different compatibility screen.
+
+1. Collect every hex in the palette (structure, accent, fills).
+2. Omit the line for the **magenta** default.
+3. Add **`Cutout chroma: green`** only when the character is forged/wrought
+   metal (e.g. Wick) or the optional compatibility proof below shows persistent
+   magenta fringe on fine edges.
+4. Either screen color must stay **absent from the character palette** — never
+   use `#FF00FF` or `#00FF00` on the mascot itself.
 
 ## 4. Generate model-sheet candidates
 
 Render each concept as a clean reference sheet — no scene, no labels. Use the
 prompt template below per concept, `--count 2`, aspect `1:1`, into a fresh
 `newrun` dir; build a `gallery` and let the user pick (or iterate). No `--ref`
-on the first round — there is nothing to lock to yet (both backends render this
-first sheet ref-less; once it exists, every later scene render passes it as
-`--ref`).
+on the first round — there is nothing to lock to yet (all backends/transports
+render this first sheet ref-less; once it exists, every later scene render
+passes it as `--ref`).
 
 ```text
 A 1:1 square character reference sheet (model sheet) for a recurring
@@ -152,7 +185,7 @@ Pick a pack name — usually the character's name, lowercase kebab-case.
 the community registry with `packs list` before settling, even if the user
 isn't publishing, and avoid the reserved names `blot`, `illo`, and the look
 names (`riso`, `blueprint`, `woodcut`, `pixel`, `clay`, `manila`, `chalk`,
-`phosphor`, `enamel`, `gouache`). With a winner chosen:
+`phosphor`, `enamel`, `gouache`, `felt`, `diorama`, `sketchbook`, `bricks`, `fizz`, `bloom`, `snes`). With a winner chosen:
 
 ```bash
 PACK="${XDG_CONFIG_HOME:-$HOME/.config}/illo/characters/<name>"
@@ -166,6 +199,7 @@ pack. Then ask whether this should become the **default character**; if yes,
 set it (non-secret, so you may run it):
 
 ```bash
+SKILL_DIR="<path to this skill>";
 python3 "$SKILL_DIR/scripts/illo.py" init --no-key --character <name>
 ```
 
@@ -179,6 +213,38 @@ generated independently drift into two *different* characters; only
 `--ref`-ing the sheet keeps them the same mascot (the same rule SKILL.md
 step 5 states for generation — it applies to the very first preview too).
 
+### Chroma compatibility proof for shared packs
+
+Run this proof before publishing or otherwise sharing a pack, and when adding
+a non-default green override or claiming verified OpenRouter/chroma
+compatibility. A local pack used only with Codex-native cutouts may skip it.
+After `reference.png` is installed, read
+`references/cutout.md` in full and build one prompt from
+`references/prompt-recipe.md`, "Cutout variant" (not the editorial template).
+Use a neutral front-facing wave pose and the pack's style blocks with a
+**registration-locked silhouette** (SILHOUETTE block — no ink-layer offset).
+Do not add a `BACKGROUND:` line; force the candidate screen with `--chroma`.
+
+```bash
+SKILL_DIR="<path to this skill>";
+PACK="${XDG_CONFIG_HOME:-$HOME/.config}/illo/characters/<name>";
+python3 "$SKILL_DIR/scripts/illo.py" generate --prompt-file /tmp/<name>-cutout-proof.txt --ref "$PACK/reference.png" --aspect 1:1 --cutout --chroma <green-or-magenta> --out /tmp/<name>-cutout-proof.png
+```
+
+Read the JSON line: **`cutout_alpha`** must be true; **`cutout_note`** must
+not warn of foot crop, screen fringe, or accent halos (`references/quality-bar.md`,
+cutout section). When `cutout_alpha` is false or QA fails:
+
+1. Re-roll once with the other `--chroma` screen.
+2. If green passes and magenta does not, add **`Cutout chroma: green`** to
+   `$PACK/character.md` and re-run the forced proof.
+3. If both fail, fix the prompt (SILHOUETTE / STYLE / feet margin) before
+   changing chroma again.
+
+Do not publish, share, or claim chroma compatibility until this proof passes.
+A community pack with an explicit override mirrors it in `index.json` as
+`"cutout_chroma"` (see `references/pack-sharing.md`).
+
 Packs are folders: remove one to retire it, copy it to another machine to
 install the character there. If the user wants to share it with everyone,
 offer to publish it to the community repo — `references/pack-sharing.md`.
@@ -190,7 +256,8 @@ style is a **sibling pack**, built deliberately, never a runtime restyle:
 
 1. Name it `<name>-<style>` (e.g. `blot-woodcut`). Identity is unchanged:
    copy the locked spec and prompt spec verbatim; set the `Style:` line to
-   the new look.
+   the new look. Copy an explicit **`Cutout chroma:`** compatibility override
+   only when the new palette still passes that forced-chroma proof.
 2. Regenerate the model sheet in the new style (step 4, substituting the
    style file's blocks), passing the **original pack's** `reference.png` as
    `--ref` so proportions carry over. Far looks fight the original sheet's

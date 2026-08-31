@@ -1,6 +1,6 @@
 {
   "name": "content-collection",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "面向内容创作者的搜索、归档、转写、发布、私有数据导出与知识沉淀技能集。",
   "author": {
     "name": "逸尘 (mcncarl)",
@@ -24,7 +24,7 @@
   "interface": {
     "displayName": "内容采集与创作工作流",
     "shortDescription": "搜索、归档、转写、发布并沉淀创作者数字资产。",
-    "longDescription": "整合 yichen-skills 的 19 个技能，覆盖互联网研究、已知链接归档、社交收藏导出、音视频转写与粗剪、微信公众号和 X Articles 草稿、微信及企业微信本地数据、企微云资源操作、Agent 记忆，以及 Grok 第二意见。涉及登录态、私人数据、外部写入或发布时，遵循各技能的授权闸门。",
+    "longDescription": "整合 yichen-skills 的 21 个技能，覆盖互联网研究、已知链接归档、社交收藏导出、音视频转写与粗剪、微信公众号和 X Articles 草稿、X 图片与成片切片、微信及企业微信本地数据、Windows 微信明文快照只读分析、企微云资源操作、Agent 记忆，以及 Grok 第二意见。涉及登录态、私人数据、外部写入或发布时，遵循各技能的授权闸门。",
     "developerName": "逸尘",
     "category": "Content & Distribution",
     "capabilities": [

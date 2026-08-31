@@ -1,0 +1,3 @@
+interface:
+  display_name: "盲区扫描"
+  short_description: "从近期 AI 对话识别思维盲区并定向补读"

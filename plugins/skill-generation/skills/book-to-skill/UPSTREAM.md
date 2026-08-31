@@ -1,9 +1,9 @@
 # Upstream provenance
 
 - Repository: https://github.com/virgiliojr94/book-to-skill
-- Commit: `903d102fe8f67ea0fe3db7bea85eec7d8b505967`
+- Commit: `9c207f870adebe20ade4f7d2f11bc3d759c2fd88`
 - Upstream package version: `1.4.0`
-- Imported: 2026-08-15
+- Imported: 2026-08-31
 - License: MIT (see `LICENSE.md`)
 
 Imported files include the root `SKILL.md`, its deterministic extraction package,

@@ -34,7 +34,7 @@ $scriptRefs = @{
     'radiff2' = @('radare2/SKILL.md')
     'rahash2' = @('radare2/SKILL.md')
     'rax2' = @('radare2/SKILL.md')
-    'python' = @('apk-reverse/scripts/frida-run.ps1')
+    'python' = @('apk-reverse/scripts/frida-run.ps1', 'case-review/scripts/review_case.py')
     'pip' = @()
     'node' = @('js-reverse/SKILL.md')
     'npx' = @('js-reverse/SKILL.md')
@@ -51,29 +51,14 @@ $scriptRefs = @{
     'binwalk' = @('firmware-pentest/SKILL.md')
     'yara' = @('malware-analysis/SKILL.md')
     'pwntools' = @('reverse-engineering/SKILL.md', 'reverse-engineering/patterns-ctf*.md')
+    'bkcrack' = @('reverse-engineering/crypto-decode-tools.md', '../CTF-Sandbox-Orchestrator/competition-zip-archive/SKILL.md')
 }
 
 $skillsRoot = Split-Path -Parent $PSScriptRoot
-# Skills not part of reverse-skill core (local-only / extracted / never index)
-$bannedSkillExact = @(
-    'blockchain-security',
-    'bitcoin-puzzle',
-    'web3-skill',
-    'web3-crypto',
-    'crypto-analysis'  # optional local tree (often gitignored); do not advertise in core index
-)
-$bannedNameExact = @(
-    'slither', 'myth', 'mythril', 'forge', 'cast',
-    'keyhunt', 'kangaroo', 'bitcrack', 'coincurve'
-)
 
 $reports = @(Get-ReverseToolReport | Where-Object {
     $skill = [string]$_.Skill
-    $name = [string]$_.Name
     $keep = $true
-    if ($bannedNameExact -contains $name) { $keep = $false }
-    if ($bannedSkillExact -contains $skill) { $keep = $false }
-    if ($skill -match 'blockchain|bitcoin-puzzle|web3') { $keep = $false }
     if ($keep -and -not [string]::IsNullOrWhiteSpace($skill)) {
         $skillMd = Join-Path $skillsRoot (($skill -replace '/', [IO.Path]::DirectorySeparatorChar) + [IO.Path]::DirectorySeparatorChar + 'SKILL.md')
         if (-not (Test-Path -LiteralPath $skillMd)) { $keep = $false }
@@ -110,7 +95,7 @@ $markdownContent = ($markdownLines -join [Environment]::NewLine) + [Environment]
 $markdownContent | Set-Content -LiteralPath $OutputMarkdown -Encoding utf8
 
 # --- Capability status view ---
-$capabilityNames = @('jadx', 'apktool', 'jeb-pro', 'frida', 'frida-ps', 'idalib-mcp', 'jshookmcp', 'reqable-mcp', 'anything-analyzer', 'idapro', 'r2', 'rabin2', 'adb', 'agent-browser', 'ghidra-mcp', 'seclists', 'proxycat', 'burpsuite-mcp', 'pentestswarm', 'nmap', 'binwalk', 'yara', 'pwntools')
+$capabilityNames = @('jadx', 'apktool', 'jeb-pro', 'frida', 'frida-ps', 'idalib-mcp', 'jshookmcp', 'reqable-mcp', 'anything-analyzer', 'idapro', 'r2', 'rabin2', 'adb', 'agent-browser', 'ghidra-mcp', 'seclists', 'proxycat', 'burpsuite-mcp', 'pentestswarm', 'nmap', 'binwalk', 'yara', 'pwntools', 'bkcrack')
 $capabilityRows = @()
 foreach ($capName in $capabilityNames) {
     $state = Get-ReverseCapabilityState -Name $capName

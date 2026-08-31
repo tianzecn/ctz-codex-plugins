@@ -1103,7 +1103,7 @@ class TestSchemaSelfValidation:
         "audit_verdict.schema.json",
     ])
     def test_schema_meta_valid(self, schema_name):
-        from scripts._test_helpers import load_json_schema
+        from tests.test_helpers import load_json_schema
         if "audit_jsonl" in schema_name or "audit_sidecar" in schema_name or "audit_verdict" in schema_name:
             path = REPO / "shared/contracts/audit" / schema_name
         else:
@@ -1940,10 +1940,13 @@ class TestCLI:
         # End-to-end smoke: invoke the script directly (no `python` prefix)
         # and confirm it produces the documented harness exit code. Belt
         # and braces against future `chmod 644` regressions.
+        import os
         script_path = REPO / "scripts/check_audit_artifact_consistency.py"
+        env = os.environ.copy()
+        env["PATH"] = f"{Path(sys.executable).parent}{os.pathsep}{env.get('PATH', '')}"
         result = subprocess.run(
             [str(script_path), "--example-validation-harness"],
-            capture_output=True, text=True,
+            capture_output=True, text=True, env=env,
         )
         assert result.returncode == 0, (
             f"direct exec returned {result.returncode} (expected 0)\n"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "LoopX 基准实验"
+  short_description: "运行由 LoopX 管理的可复现基准实验"
+  default_prompt: "Use benchmark-toolkit for this LoopX-managed experiment: choose the correct operator lane, read the experiment board before run selection, preserve solver/analyst boundaries, preview writes, and compare only countable matched arms."

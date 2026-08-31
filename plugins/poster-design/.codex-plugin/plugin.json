@@ -1,7 +1,7 @@
 {
   "name": "poster-design",
-  "version": "0.1.0",
-  "description": "Poster and social card design skills for Xiaohongshu, Rednote, WeChat cover pairs, carousel image sets, article covers, and platform thumbnails.",
+  "version": "0.1.1",
+  "description": "Poster, social card, and Live Photo production skills for Xiaohongshu, Rednote, WeChat cover pairs, carousels, and article covers.",
   "author": {
     "name": "郭浩",
     "url": "https://github.com/op7418"
@@ -23,8 +23,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "海报设计",
-    "shortDescription": "生成小红书图文、Rednote 卡片、公众号封面对和社交平台封面。",
-    "longDescription": "Poster Design packages op7418/guizang-social-card-skill as a Codex skill for polished social card image sets, Xiaohongshu and Rednote carousel posts, WeChat Official Account 21:9 plus 1:1 cover pairs, article covers, tutorial cards, product explainers, screenshot-heavy posts, and editorial or Swiss-style social images.",
+    "shortDescription": "生成小红书图文、Live Photo、公众号封面对和社交卡片。",
+    "longDescription": "Poster Design packages op7418/guizang-social-card-skill as a Codex skill for polished social card sets, Xiaohongshu and Rednote carousels, Live Photo motion cards and collages, long-video treatments, WeChat Official Account 21:9 plus 1:1 cover pairs, article covers, product explainers, screenshots, and editorial or Swiss-style social images.",
     "developerName": "郭浩",
     "category": "Design & Creative",
     "capabilities": [

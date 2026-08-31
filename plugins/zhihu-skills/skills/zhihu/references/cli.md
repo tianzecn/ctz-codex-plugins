@@ -14,6 +14,8 @@
 | 我的关注 | `zhihu-cli me followees` | 查看当前账号关注的用户 |
 | 我的收藏夹 | `zhihu-cli me favorites lists/items` | 浏览收藏夹及其中公开内容 |
 | 我的近期收藏 | `zhihu-cli me favorites recent` | 查看最近一批收藏，不代表完整历史 |
+| 知识库 | `zhihu-cli knowledge bases/items/search/upload` | 按需读取、检索或上传当前账号可访问的知识库 |
+| 额度查询 | `zhihu-cli quota` | 查询当前账号各项开放 API 的当日统一额度 |
 
 搜索用于取得原始资料，直答用于快速获得总结。深度研究、事实核查和观点比较不要用直答替代搜索。
 
@@ -76,6 +78,7 @@ zhihu-cli --help
 zhihu-cli search --help
 zhihu-cli search zhihu --help
 zhihu-cli me favorites items --help
+zhihu-cli knowledge upload --help
 ```
 
 Agent 用 `capabilities` 判断当前版本有哪些结构化能力，用具体命令的 `--help` 决定如何调用和管理预期。本文档保留安装、鉴权、错误与完整参数资料，不要求 Agent 在每次调用前重新读取全文。
@@ -143,7 +146,19 @@ Linux 桌面的“操作系统密钥链”具体指 Secret Service/D-Bus（例�
 
 Access Secret 是不透明字符串。CLI 不假设固定长度、前缀或字符集，只做非空检查和在线验证。
 
-v0.1 没有剩余额度查询 API，也不从网页抓取额度。需要查看余额时，打开 <https://developer.zhihu.com/profile> 的用量统计页面。
+## 查询额度
+
+```bash
+zhihu-cli quota
+zhihu-cli quota --api-id knowledge
+zhihu-cli quota --api-id knowledge --api-id tools
+```
+
+- 不传 `--api-id` 时返回全部 7 个公开额度项；该参数可重复，CLI 会保持顺序并去重。
+- 合法值为 `global_search`、`zhihu_search`、`hot_list`、`user_data`、`zhida_openai`、`knowledge`、`tools`。
+- 知识库文件上传、列表、内容列表和检索共用 `knowledge` 统一额度；PDF 解析和 PPT 生成共用 `tools` 统一额度。
+- 响应中的 `TotalQuota`、`TotalUsed`、`RemainingQuota` 分别表示自然日总额度、已用额度和剩余额度。查询本身不消耗业务额度。
+- 需要网页趋势和调用记录时继续使用 <https://developer.zhihu.com/profile> 的用量统计页面。
 
 ## 搜索知乎
 
@@ -238,16 +253,31 @@ zhihu-cli me followees --offset 0 --limit 20
 ```bash
 zhihu-cli me favorites lists --limit 20
 zhihu-cli me favorites items --url-token 123456789 --offset 0 --limit 20
-zhihu-cli me favorites items --id 123456789 --offset 0 --limit 20
 zhihu-cli me favorites recent --limit 20
 ```
 
-- `items` 的 `--url-token` 与 `--id` 必须且只能提供一个，均为正 Int64。
+- `items` 的 `--url-token` 必填且为正 Int64。
 - `offset` 是非负 Int64，`limit` 默认 20、范围 1-50。
 - 分页响应使用 `Paging.IsEnd` 和 `Paging.NextOffset`；CLI 不自动拉取全部分页。
 - `recent` 没有 Offset，只返回近期收藏。
 - 收藏夹列表线上响应不返回 Paging，且 2026-07-23 实测服务端忽略 Offset。CLI 只提供 `--limit`，不能承诺遍历全部收藏夹。
 - 所有 `me` 命令只查询当前 Access Secret 所属账号，不接受 OAuth Token。
+
+## 使用知识库
+
+```bash
+zhihu-cli knowledge bases --scope all
+zhihu-cli knowledge items --base-id 7526139256098382426 --limit 20
+zhihu-cli knowledge search --query '退款规则' --scope personal --limit 10
+zhihu-cli knowledge upload --file './资料.pdf' --progress
+```
+
+- `bases --scope` 支持 `all/created/subscribed`，结果不分页。
+- `items --base-id` 必填，`--limit` 为 1-20；需要下一页时使用上次响应中的 `NextCursor`，CLI 不自动翻页。
+- `search` 至少传入一个 `--base-id` 或 `--scope`；两者都可重复，scope 支持 `personal/subscription/public`，`--limit` 为 1-10。不支持用逗号拼接多个值。
+- `upload` 只读取一个本地普通文件，最大 100 MiB，不支持 stdin、URL、目录或批量。默认客户端等待上限为 200s，慢网络可显式调高 `--timeout`。
+- `upload --progress` 向 stderr 输出字节进度和等待时间；最终 JSON 仍只写 stdout。
+- `search` 和 `upload` 不自动重试；上传超时或断线后先用 `items` 核对结果。
 
 ## 全局参数
 
@@ -257,7 +287,7 @@ zhihu-cli <command> [subcommand] [flags]
 
 | 参数 | 默认值 | 说明 |
 |---|---|---|
-| `--timeout <duration>` | 按能力设置 | 请求超时，例如 `10s`、`120s` |
+| `--timeout <duration>` | 按能力设置 | 客户端等待上限，例如 `10s`、`200s` |
 | `--pretty` | false | 美化 JSON 输出，不改变字段和值 |
 | `--verbose` | false | 向 stderr 输出不含凭证的诊断信息 |
 | `--help` | - | 查看帮助 |
@@ -305,6 +335,8 @@ CLI 自身错误使用稳定 JSON：
 | 服务端 `Code: 30002` | 配额耗尽；告知受影响能力和恢复条件 |
 | `NETWORK_ERROR` / `TIMEOUT` | 检查网络；仅对幂等搜索和热榜做有限重试 |
 | `UPSTREAM_ERROR` | 保留 request ID，稍后重试或联系开放平台 |
+| 知识库 `Code: 40004` | 目标知识库不存在，重新从 `knowledge bases` 获取 ID |
+| 知识库 `Code: 40005/40006` | 文件处理中或解析失败；不要自动重传 |
 
 退出码：
 

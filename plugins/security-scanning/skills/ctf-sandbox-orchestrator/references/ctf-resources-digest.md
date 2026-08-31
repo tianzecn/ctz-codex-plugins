@@ -105,7 +105,7 @@ p = process('./vuln')
 | 工具 | 用途 |
 |------|------|
 | SageMath | 数学计算 |
-| RsaCtfTool | RSA 自动攻击 | 
+| RsaCtfTool | RSA 自动攻击 |
 | hashcat/john | 哈希破解 |
 | CyberChef | 编解码 |
 | z3 (SMT solver) | 约束求解 |

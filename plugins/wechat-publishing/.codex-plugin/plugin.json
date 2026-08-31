@@ -1,12 +1,12 @@
 {
   "name": "wechat-publishing",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "微信公众号排版发布模板，帮助把 Markdown 草稿转换为可粘贴进公众号编辑器的 inline HTML。",
   "author": {
     "name": "limin112",
     "url": "https://github.com/limin112"
   },
-  "homepage": "https://github.com/limin112/wechat-publish-template",
+  "homepage": "https://github.com/limin112/min-skill/tree/main/skills/wechat-publish-template",
   "repository": "https://github.com/tianzecn/ctz-codex-plugins",
   "license": "MIT",
   "keywords": [

@@ -1,14 +1,16 @@
 ---
 name: baoyu-compress-image
-description: Compresses images to WebP (default) or PNG with automatic tool selection. Use when user asks to "compress image", "optimize image", "convert to webp", or reduce image file size.
-version: 1.56.1
+description: Compresses images to WebP (default) or PNG with automatic tool selection.
+  Use when user asks to "compress image", "optimize image", "convert to webp", or
+  reduce image file size.
 metadata:
   openclaw:
     homepage: https://github.com/JimLiu/baoyu-skills#baoyu-compress-image
     requires:
       anyBins:
-        - bun
-        - npx
+      - bun
+      - npx
+  version: 1.56.1
 ---
 
 # Image Compressor

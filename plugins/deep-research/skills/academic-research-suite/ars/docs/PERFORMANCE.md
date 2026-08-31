@@ -1,6 +1,6 @@
 # ARS Performance Notes
 
-> **Recommended model: Claude Opus 4.7** with **Max plan** (or equivalent configuration). Opus 4.7 uses adaptive thinking; you no longer set a fixed thinking budget.
+> **Recommended model: the current frontier Claude model** (Fable 5 at the time of writing) with **Max plan** (or equivalent configuration). Current Claude models use adaptive thinking; you no longer set a fixed thinking budget.
 >
 > The full academic pipeline (10 stages) consumes a **large amount of tokens** — a single end-to-end run can exceed 200K input + 100K output tokens depending on paper length and revision rounds. Budget accordingly.
 >
@@ -8,7 +8,7 @@
 
 ## Estimated token usage by mode
 
-| Skill / Mode | Input Tokens | Output Tokens | Estimated Cost (Opus 4.7) |
+| Skill / Mode | Input Tokens | Output Tokens | Estimated Cost |
 |---|---|---|---|
 | `deep-research` socratic | ~30K | ~15K | ~$0.60 |
 | `deep-research` full | ~60K | ~30K | ~$1.20 |
@@ -20,16 +20,19 @@
 | **Full pipeline (10 stages)** | **~200K+** | **~100K+** | **~$4-6** |
 | + Cross-model verification | +~10K (external) | +~5K (external) | +~$0.60-1.10 |
 
-*Estimates based on a ~15,000-word paper with ~60 references. Actual usage varies with paper length, revision rounds, and dialogue depth. Costs at Anthropic API pricing as of April 2026.*
+*Estimates based on a ~15,000-word paper with ~60 references. Actual usage varies with paper length, revision rounds, and dialogue depth. Costs measured on Opus 4.x at Anthropic API pricing as of April 2026 — treat as order-of-magnitude anchors under newer models rather than exact quotes.*
+
+> **v3.11 citation verification (#182).** The deterministic citation-existence gate calls external bibliographic APIs (Semantic Scholar / OpenAlex / Crossref / arXiv), not the LLM, so it adds **no Claude token cost** to the figures above — only network latency on first lookup. The persistent SQLite cache (`~/.cache/ars/verification.db`, 90-day TTL) means each paper is verified once and reused across drafts; a re-run over an already-cached bibliography does no network work. See [SETUP](SETUP.md#citation-verification-cache-v3.11-182).
 
 ## Recommended Claude Code settings
 
 | Setting | What it does | How to enable | Docs |
 |---|---|---|---|
 | **Agent Team** (optional) | Enables `TeamCreate` / `SendMessage` tools for manual multi-agent coordination. **ARS's internal parallelization does not require this flag** — skills spawn subagents via the built-in `Agent` tool directly. Only useful if you want to manually orchestrate persistent team workflows across sessions. | Set `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` (research preview) | Experimental feature — no stable docs yet |
-| **Skip Permissions** | Bypasses per-tool confirmation prompts, enabling uninterrupted autonomous execution across all pipeline stages | Launch with `claude --dangerously-skip-permissions` | [Permissions](https://docs.anthropic.com/en/docs/claude-code/cli-reference) · [Advanced Usage](https://docs.anthropic.com/en/docs/claude-code/advanced) |
+| **Auto mode** (recommended) | Auto-accepts most tool actions so long pipeline runs keep moving, while a server-side classifier still blocks actions that escalate beyond what you asked for (e.g. production deploys, force-pushes or direct pushes to main, data exfiltration). Explicit ask rules and classifier blocks can still prompt. The middle ground between manual approval and zero checks. | Launch with `claude --permission-mode auto` (when available), or set `"permissions": { "defaultMode": "auto" }` in `~/.claude/settings.json`; verify the active mode after startup (research preview) | [Permission modes](https://code.claude.com/docs/en/permission-modes) |
+| **Skip Permissions** | Skips routine tool-use confirmations with no safety checks. Faster than auto mode but removes all guardrails. Intended for ephemeral isolated sandboxes without internet access, not real development machines. | Launch with `claude --dangerously-skip-permissions` (equivalent to `--permission-mode bypassPermissions`) | [Permission modes](https://code.claude.com/docs/en/permission-modes) |
 
-> **⚠️ Skip Permissions**: This flag disables all tool-use confirmation dialogs. Use at your own discretion — it is convenient for trusted, long-running pipelines but removes the safety net of manual approval. Only enable this in environments where you are comfortable with Claude executing file reads, writes, and shell commands without asking first.
+> **⚠️ Choosing a mode**: For most unattended pipeline runs, auto mode is the recommended setting. It keeps most long runs moving while a classifier gates dangerous escalations, though ask rules and classifier blocks can still prompt. Auto mode is a research preview: it does not guarantee safety and is not a replacement for human review on sensitive operations, and its behavior may change. Skip Permissions removes that safety net entirely and should only be used in an isolated sandbox without internet access, where you are comfortable with Claude executing file reads, writes, and shell commands with no checks.
 
 ### v3.7.0 Plugin agents and model routing
 
@@ -39,9 +42,11 @@ When ARS is installed as a Claude Code plugin (`/plugin install academic-researc
 - A Sonnet session gets Sonnet agents, matching the cost/latency profile of the parent run.
 - The agents never silently fall back to Haiku — `inherit` resolves through the parent session's model, which is itself gated by the project policy of "no Haiku for ARS runs."
 
-This means **plugin-agent token costs track the per-mode estimates above unchanged**; there is no separate plugin agent surcharge or discount, because dispatched agents inherit the same model the parent run already pays for. If you change the main session model mid-pipeline (e.g., downshift to Sonnet for a long revision pass), the next agent dispatch picks up the new floor automatically.
+Since #514 (shipped in #521), each of the three also carries a pinned tools allowlist in the same frontmatter — `tools: Read, Write, Edit, Grep, Glob`, no shell and no network fetch — so dispatch-time capability is least-privilege; the exact value is CI-locked by `scripts/check_tools_allowlist.py` (#524).
 
-Other ARS agents (`bibliography_agent`, `literature_strategist_agent`, etc.) are not plugin-exposed in v3.7.0; they remain in-skill prompt templates that the main session executes inline, with no separate model routing layer. Wider plugin-agent coverage is deferred to a future release.
+This means **plugin-agent token costs track the per-mode estimates above unchanged** (with `ARS_MODEL_TIERING` unset); there is no separate plugin agent surcharge or discount, because dispatched agents inherit the same model the parent run already pays for. Under `ARS_MODEL_TIERING=economy`, plugin-exposed execution-type agents (e.g. `report_compiler_agent`) follow the tiering rule instead — one tier below the session model, floor Opus-class (see `shared/model_tiering.md`). If you change the main session model mid-pipeline (e.g., downshift to Sonnet for a long revision pass), the next agent dispatch picks up the new floor automatically.
+
+Other ARS agents (`bibliography_agent`, `literature_strategist_agent`, etc.) are not plugin-exposed in v3.7.0; they remain in-skill prompt templates that the main session executes inline, with no separate model routing layer **by default**. The opt-in `ARS_MODEL_TIERING` switch (#517) adds a dispatch-time routing rule on top: when a tiering direction applies to a role, the session dispatches it as a subagent pinned to the target tier (inline roles included — dispatch-as-subagent is the mechanism); with the flag unset, this paragraph describes behavior unchanged. See `shared/model_tiering.md`. Wider plugin-agent coverage is deferred to a future release.
 
 ## Long-running session management
 
@@ -57,7 +62,7 @@ The Schema 13 sprint contract gate splits each reviewer agent's run into Phase 1
 | Skill / Mode | Effect on tokens | Notes |
 |---|---|---|
 | `academic-paper-reviewer full` | ~+30-40% input + small output bump per reviewer × 5 reviewers | Each reviewer reads the contract template + paper metadata in Phase 1, then full paper in Phase 2 |
-| `academic-paper-reviewer methodology-focus` | Same shape, panel 2 | Two reviewers (EIC + methodology) each run two phases |
+| `academic-paper-reviewer methodology-focus` | Same shape, panel 2 | Two reviewers (Journal-Fit Reviewer + methodology) each run two phases |
 | Synthesizer (always one) | +~2-3K input | Reads contract + reviewer outputs to run three-step mechanical protocol |
 
 Empirical measurement pending real review runs at scale. The two-phase shape is non-optional for the gated modes; treat as fixed overhead, not a tunable.
@@ -146,62 +151,3 @@ When the Material Passport carries a non-empty `literature_corpus[]`, Phase 1 re
 | ~500 entries (large library) | +~25-40K input + ~8-12K output | Consider trimming the corpus before passport emit |
 
 Step 2 search-fills-gap reduces external-DB cost when `uncovered_topics` is small (case A), which can offset Step 1 cost. Empirical net delta pending real systematic-review run instrumentation; until then, no aggregate numeric claim is made. Parse failures cost roughly one short turn (parse + emit `[CORPUS PARSE FAILURE]` + fall back).
-
-## v3.6.7 Step 6 cross-model audit wrapper (onboarding)
-
-v3.6.7 Step 6 ships `scripts/run_codex_audit.sh` and `scripts/parse_audit_verdict.py`, which dispatch a separate codex CLI process to audit `synthesis_agent`, `research_architect_agent` (survey-designer mode), and `report_compiler_agent` (abstract-only mode) deliverables before stage transitions. The wrapper is the boundary object between deployment-side audit execution and ARS-side artifact verification — see [spec §4](design/2026-04-30-ars-v3.6.7-step-6-orchestrator-hooks-spec.md) for the full contract.
-
-### codex CLI install + credentials
-
-The wrapper invokes `codex exec --json -m gpt-5.5 -c 'model_reasoning_effort="xhigh"'`. Required setup before first audit run:
-
-| Step | macOS | Linux / WSL |
-|---|---|---|
-| Install codex CLI | `brew install codex` (or vendor installer) | vendor installer |
-| Verify install | `codex --version` should print a `codex-cli X.Y.Z` line; the wrapper requires bare-semver match `^[0-9]+\.[0-9]+\.[0-9]+$` | same |
-| Authenticate | `codex login` (browser SSO) OR set `OPENAI_API_KEY=...` in shell rc | same |
-| Bash 3.2+ | stock macOS `/bin/bash` is supported by the Codex adapter | distro default usually 5.x |
-| `jq` | `brew install jq` | distro package |
-| `sha256sum` (optional — wrapper falls back to `shasum -a 256`) | `brew install coreutils` | preinstalled |
-
-The wrapper preflights every dependency at startup (§4.1 dependency table) and exits 64 (`EX_USAGE`) with `missing dependency: <name>` before touching any artifact file. No partial state is written when a dependency is missing.
-
-### Required environment
-
-| Variable | Required? | Purpose |
-|---|---|---|
-| `OPENAI_API_KEY` (or codex SSO session) | yes | codex CLI authentication |
-| Standard PATH containing `codex`, `git`, `jq`, `python3` | yes | wrapper preflight checks each |
-| Working directory inside the ARS repo | yes | `git rev-parse --short HEAD` for `runner.git_sha`, repo-relative paths in sidecar |
-
-The wrapper does NOT read any ARS-specific environment variables (no `ARS_*` flags affect Step 6). Audit dispatch is purely flag-driven.
-
-### Threat-model boundary
-
-Per [spec §1.2](design/2026-04-30-ars-v3.6.7-step-6-orchestrator-hooks-spec.md), Step 6 defends against Pattern C3 (sub-agent fabricated audit metadata, where a downstream agent claims to have run audit and surfaces simulated findings). The artifact-as-contract design closes the inadvertent-overclaim attack surface: the wrapper produces four cryptographically-pinned files (jsonl + sidecar + verdict + proposal entry), and the orchestrator runs eleven layered verification checks before merging any audit outcome into the Material Passport.
-
-Step 6 is **known-insufficient against motivated forgery** (a determined attacker with shell access could invoke codex with a different model and the JSONL stream alone would not betray them — see §9.1 R2). Two structural mitigations apply:
-
-- **§4.7 wrapper-not-LLM-callable rule.** The wrapper MUST NOT be invoked by an in-LLM Bash tool call from the same session producing the audited deliverable. Allowed invokers: human interactive shell, CI workflow step, SubagentStop hook, second-terminal Bash from outside the LLM session. Same-session in-LLM invocation creates the Pattern C3 motive-and-means combination the artifact-as-contract design was chosen to disrupt.
-- **Lifecycle ownership (§3.7 family E).** The wrapper writes only to `--output-dir`, never to the passport file. The orchestrator is the sole writer of `audit_artifact[]` entries. A wrapper-emitted proposal carrying `verdict.verified_at` or `verdict.verified_by` is rejected as malformed at lifecycle step 4 (Pattern C3 attack surface).
-
-Deployment-side discipline is the load-bearing defense for the residual motivated-forgery surface; ARS spec-level enforcement is the partial inversion of the three downstream agent prompts (§6) so the agent has no awareness that a downstream audit exists, removing the trigger for fabricated tool-call hallucination.
-
-### Wrapper exit-code contract
-
-The wrapper's process exit code always agrees with the verdict it just wrote (§4.6):
-
-| Exit code | Meaning | Verdict status | Orchestrator response |
-|---|---|---|---|
-| `0` | Audit completed cleanly | `PASS` / `MINOR` / `MATERIAL` | Read verdict, run §5.2 eleven gating checks, ship or block per §5.3 |
-| `64` (`EX_USAGE`) | Input validation failed | none (no files written) | Block, surface `<missing flag>` error to user |
-| `70` (`EX_SOFTWARE`) | codex itself exited 70 OR `parse_audit_verdict.py --probe` rejected JSONL OR bundle TOCTOU mutation detected | `AUDIT_FAILED` (with `failure_reason`) | §5.6 Path B5 short-circuits to BLOCK without gating |
-| `73` (`EX_CANTCREAT`) | Tee write failed (disk full / EIO) | none / partial (cleaned up) | Block, surface filesystem error |
-| `75` (`EX_TEMPFAIL`) | codex rate-limited OR SIGTERM/SIGINT received | `AUDIT_FAILED` | Same as 70: BLOCK without gating; deployment may apply backoff before retry |
-| Other non-zero (1, 2, 137, …) | codex exited with a code not enumerated above; wrapper preserves the code rather than normalizing | `AUDIT_FAILED` | Same as 70: BLOCK without gating |
-
-Even on AUDIT_FAILED, the wrapper writes all four contract files (jsonl placeholder + sidecar with `process.exit_code` carrying codex's actual exit + verdict.yaml carrying `status: AUDIT_FAILED` + proposal entry) so orchestrator can distinguish "audit ran but failed" (proposal exists with `AUDIT_FAILED`) from "audit never ran" (no proposal at all). Both states block transition; only `PASS / MINOR / MATERIAL` proposals reach the eleven gating checks.
-
-### Cost posture
-
-A typical Phase 2 chapter audit (synthesis + verification + bibliography bundle) runs codex `gpt-5.5` at `xhigh` reasoning effort for 30-90 seconds wall-clock per round. ARS-side cost is constant: the wrapper adds ~1-2 KB of metadata (sidecar + proposal entry) per audit run regardless of bundle size; the orchestrator's eleven-gate verification is sub-second per audit. The dominant cost is codex API usage on the deployment side, governed by audit template Section 1's three-round convergence target (§10 ship-quality target update).

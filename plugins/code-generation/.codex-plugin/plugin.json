@@ -1,6 +1,6 @@
 {
   "name": "code-generation",
-  "version": "4.8.4",
+  "version": "4.9.0",
   "description": "Minimal code generation and over-engineering review skills imported from DietrichGebert/ponytail.",
   "author": {
     "name": "Dietrich Gebert",

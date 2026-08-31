@@ -634,3 +634,137 @@ data: [DONE]
 4. `model` 为必填，缺失时返回 `missing_required_parameter`。
 5. 支持 role、content 上下文传参的模型：`zhida-fast-1p5`、`zhida-thinking-1p5`。
 6. 实际可用模型还会受租户授权配置影响。
+
+# 额度查询 API
+
+## 接口说明
+
+查询当前 Access Secret 所属账号在自然日内的开放 API 统一额度。该查询不消耗业务额度。
+
+## 接口信息
+
+| 说明 | 值 |
+|---|---|
+| HTTP URL | `https://developer.zhihu.com/api/v1/quota` |
+| HTTP Method | `GET` |
+
+Header：
+
+- `Authorization: Bearer <your_access_secret>`
+- `X-Request-Timestamp: <unix_seconds>`
+
+Query：
+
+| 名称 | 类型 | 必填 | 说明 |
+|---|---|---:|---|
+| `APIIDs` | String | 否 | 逗号分隔的公开 APIID；省略时返回全部 7 项 |
+
+`APIIDs` 支持 `global_search`、`zhihu_search`、`hot_list`、`user_data`、`zhida_openai`、`knowledge`、`tools`。知识库和小工具分别使用 `knowledge`、`tools` 统一额度。
+
+请求示例：
+
+```http
+GET /api/v1/quota?APIIDs=knowledge,tools
+```
+
+响应 `Data` 是额度项数组：
+
+| 字段 | 类型 | 说明 |
+|---|---|---|
+| `APIID` | String | 公开统一 APIID |
+| `APIName` | String | 展示名称 |
+| `TotalQuota` | Int64 | 当前自然日总额度 |
+| `TotalUsed` | Int64 | 当前自然日已用额度 |
+| `RemainingQuota` | Int64 | 当前自然日剩余额度 |
+
+```json
+{
+  "Code": 0,
+  "Message": "success",
+  "Data": [
+    {
+      "APIID": "knowledge",
+      "APIName": "知识库",
+      "TotalQuota": 500,
+      "TotalUsed": 3,
+      "RemainingQuota": 497
+    }
+  ]
+}
+```
+
+错误码：
+
+| Code | 说明 |
+|---:|---|
+| `10001` | 参数或 APIID 非法 |
+| `20001` | 鉴权失败 |
+| `30001` | 触发频率限制 |
+| `90001` | 请求失败 |
+
+# 知识库 API
+
+四个接口均使用 `Code/Message/Data` 外层、Bearer Access Secret 和秒级 `X-Request-Timestamp`。所有知识库 ID 都按十进制字符串传输。
+
+## 列出知识库
+
+```http
+GET /api/v1/knowledge/bases?Scope=all
+```
+
+`Scope` 支持 `all`、`created`、`subscribed`，默认 `all`。`Data.Items` 返回 `KnowledgeBaseID`、`Name`、`Relation`、`IsDefault`、`Visibility`、`ContentCount`、`UpdatedAt` 和可选 `Description`；接口不分页。
+
+## 列出知识库内容
+
+```http
+GET /api/v1/knowledge/bases/{KnowledgeBaseID}/items?Cursor=<cursor>&Limit=20
+```
+
+`Limit` 为 1-20，默认 20。`Cursor` 是服务端不透明值；`Data.HasMore=true` 时使用 `Data.NextCursor` 请求下一页。内容项包含 `RecallContentID`、`ContentType`、`Title` 及可选摘要、时间和 `OriginUrl`。
+
+## 上传文件
+
+```http
+POST /api/v1/knowledge/files
+Content-Type: multipart/form-data
+```
+
+multipart part：
+
+| 字段 | 必填 | 说明 |
+|---|---:|---|
+| `File` | 是 | 单个非空文件，最大 100 MiB |
+| `KnowledgeBaseID` | 否 | 省略时使用当前用户默认知识库 |
+
+上传是同步、有副作用的 POST，不应自动重试。成功 `Data` 必返 `KnowledgeBaseID`、`RecallContentID`、`FileName`、`FileSize`，并可能返回 `Title`、`Abstract`、`OriginUrl`。
+
+## RAG 检索
+
+```http
+POST /api/v1/knowledge/search
+Content-Type: application/json
+```
+
+```json
+{
+  "Query": "退款规则",
+  "KnowledgeBaseIDs": ["7526139256098382426"],
+  "RecallScopes": ["personal"],
+  "Limit": 10
+}
+```
+
+`KnowledgeBaseIDs` 与 `RecallScopes` 至少提供一种，可以同时提供；scope 支持 `personal`、`subscription`、`public`，`Limit` 为 1-10。结果 `Content` 是有序 `array[string]`，CLI 不拼接 chunk。
+
+## 知识库错误
+
+| Code | Message | 语义 |
+|---:|---|---|
+| `10001` | `invalid request` | 参数、ID、文件或枚举非法 |
+| `20001` | `permission denied` | 无权访问目标资源 |
+| `30001` | `rate limit exceeded` | 调用频率或额度受限 |
+| `40004` | `knowledge base not found` | 知识库不存在 |
+| `40005` | `file is being processed` | 相同文件仍在处理 |
+| `40006` | `file parsing failed` | 文件解析失败 |
+| `50002` | `search failed, please try again later` | RAG 检索失败 |
+| `90001` | `request failed` | 其他安全收敛后的内部失败 |

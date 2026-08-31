@@ -1,6 +1,6 @@
 {
   "name": "archify",
-  "version": "2.15.0",
+  "version": "2.16.0",
   "private": true,
   "type": "module",
   "description": "JSON-IR diagram renderers (architecture / workflow / sequence / dataflow / lifecycle).",
@@ -10,5 +10,8 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "overrides": {
+    "fast-uri": "3.1.5"
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "zhihu-skills",
-  "version": "0.3.0",
-  "description": "知乎开放平台技能：搜索知乎与全网内容、获取热榜、调用知乎直答，并读取本人创作、关注与收藏。",
+  "version": "0.5.0",
+  "description": "知乎开放平台技能：搜索知乎与全网内容、获取热榜、调用知乎直答，并读取本人内容、管理知识库和查询额度。",
   "author": {
     "name": "Zhihu (知乎)",
     "url": "https://developer.zhihu.com"
@@ -21,8 +21,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "知乎开放平台",
-    "shortDescription": "搜索知乎与全网内容、获取热榜、调用知乎直答并读取本人内容。",
-    "longDescription": "将知乎官方 zhihu-cli-skill 打包为 Codex 插件，通过知乎官方 CLI 提供：知乎搜索、全网搜索、知乎热榜、知乎直答，以及当前 Access Secret 所属账号的创作、关注和收藏读取。CLI 由官方 HTTPS manifest 按平台下载并校验后安装到用户目录，不修改 PATH；涉及本人数据的 Access Secret 能力遵循按需授权。",
+    "shortDescription": "搜索知乎与全网内容，读取本人内容，并使用知识库和额度查询。",
+    "longDescription": "将知乎官方 zhihu-cli-skill 打包为 Codex 插件，通过知乎官方 CLI 提供知乎搜索、全网搜索、热榜、知乎直答、本人创作与关注收藏、知识库管理和额度查询。CLI 由官方 HTTPS manifest 按平台下载并校验后安装到用户目录，不修改 PATH；本人数据与知识库能力遵循最小读取和明确授权边界。",
     "developerName": "Zhihu (知乎)",
     "category": "Content & Distribution",
     "capabilities": [
@@ -34,7 +34,7 @@
     "defaultPrompt": [
       "搜索知乎上关于这个问题的社区观点和真实经验。",
       "看看知乎当前热榜。",
-      "读取我的知乎创作、关注和收藏。"
+      "读取我的知乎内容，或查询和管理知识库。"
     ],
     "brandColor": "#0084FF",
     "logo": "./assets/icon.svg",
